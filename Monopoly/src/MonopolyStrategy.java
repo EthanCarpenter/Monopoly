@@ -33,8 +33,8 @@ public class MonopolyStrategy extends MonopolyPlayer{
 		}
 	}
 	/**
-	 * Determines if the strategy should buy property,
-	 * 
+	 * Determines if the strategy should 
+	 * buy properties, mortgage
 	 */
 	public void afterRoll(){
 		
