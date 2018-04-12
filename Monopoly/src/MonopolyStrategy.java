@@ -23,4 +23,20 @@ public class MonopolyStrategy extends MonopolyPlayer{
 		
 		return returnBool;
 	}
+	/**
+	 * Determines if the strategy should buy houses,
+	 * stay in/escape jail, mortgage
+	 */
+	public void beforeRoll(){
+		if(money > 600 && numMonopolies()>0){
+			
+		}
+	}
+	/**
+	 * Determines if the strategy should buy property,
+	 * 
+	 */
+	public void afterRoll(){
+		
+	}
 }

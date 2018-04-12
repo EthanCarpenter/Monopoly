@@ -44,15 +44,16 @@ public class MonopolyPlayer {
 		PlayerMonopolyProperties=new ArrayList();
 		revolutions = 40;
 	}
-	private int numMonopolies(){
+	/**
+	 * @return the number of monopolies a player has
+	 */
+	protected int numMonopolies(){
 		int monopolies = 0;
 
 		return monopolies;
 	}
 	public void beforeRoll(){
-		if(money > 600 && numMonopolies()>0){
-			
-		}
+		
 	}
 	public void afterRoll(){
 		
