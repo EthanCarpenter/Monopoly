@@ -156,6 +156,7 @@ public class MonopolyPlayer {
 	public void addCard(PropertyCard a){
 		PlayerMonopolyProperties.add(a);
 		a.setOwned(true);
+		a.setAquireHousesWithMoney(true);
 	}
 	public int playerMoney(){
 		return money;

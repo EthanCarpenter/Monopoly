@@ -205,6 +205,7 @@ public class MonopolyBoard extends JFrame{
 			ArrayList<PropertyCard> tempProp=tracker.playerProperties();
 			for(int i=1;i<tempProp.size();i++){
 				tempProp.get(i).setOwned(false);
+				tempProp.get(i).setAquireHousesWithMoney(false);
 			}
 			if(tracker.equals(players.get(0))){
 				firstX = -1;
