@@ -1,5 +1,5 @@
 /*
-h * Chance Xie and Will Cox
+* Chance Xie and Will Cox
  * Monopoly
  * Independent Project
  */
@@ -300,6 +300,7 @@ public class MonopolyBoard extends JFrame{
 						tracker.setPlayerPosition(tracker.playerPosition()+dice);
 						movement();
 						System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
+						//before roll call goes here
 						board.get(tracker.playerPosition()).slotAction(tracker,players,board);
 						if(tracker.getDice1() == tracker.getDice2()){
 							playerDoubleCounter++;

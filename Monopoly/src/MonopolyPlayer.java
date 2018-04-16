@@ -55,8 +55,13 @@ public class MonopolyPlayer {
 	public void beforeRoll(){
 		
 	}
-	public void afterRoll(){
-		
+	public boolean afterRoll(PropertyCard propertyCard){
+		boolean check=true;
+		boolean returnBool=true;
+		do{
+			
+		}while(check==false);
+		return returnBool;
 	}
 	public void setPieceID(int x){
 		pieceID = x;

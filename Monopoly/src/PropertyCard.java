@@ -42,7 +42,7 @@ public class PropertyCard extends MonopolySlot{
 	}
 	public void setOwner(MonopolyPlayer own){
 		String type = typetoString();
-		if(own.playerConfirm("Buy "+name+"? You have $" + own.playerMoney() + ". Cost of property is: $" + cost) && own.playerMoney() > cost){
+		if(own.afterRoll(this) && own.playerMoney() > cost){
 			owner=own;
 			owned=true;
 			owner.subtractMoney(cost);
