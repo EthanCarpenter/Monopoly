@@ -239,8 +239,9 @@ public class MonopolyBoard extends JFrame{
 		String playerName=tracker.returnName();
 		return playerName;
 	}
-	public void win(){
+	public String winner(){
 		int bankruptcyCounter=0;
+		String winName = "";
 		for(int i=0;i<4;i++){
 			if(players.get(i).bankruptcy()){
 				bankruptcyCounter++;
@@ -248,11 +249,13 @@ public class MonopolyBoard extends JFrame{
 		}
 		if(bankruptcyCounter==3){
 			for(int i=0;i<players.size();i++){
-				if(players.get(i).bankruptcy() == false)
+				if(players.get(i).bankruptcy() == false){
+					winName = players.get(i).returnName();
 					System.out.println(players.get(i).returnName() + " WON THE GAME!!!");
+				}
 			}
 		}
-		//return"";
+		return winName;
 	}
 	public void playMonopoly(){
 		//int totalMoves;
@@ -272,7 +275,7 @@ public class MonopolyBoard extends JFrame{
 				}
 				//System.out.println("NUM BANKRUPT" + numBankrupt);
 				if(numBankrupt == 3 && numWon == 0){
-					win();
+					winner();
 					numWon++;
 					//playerNum = 0;
 				}
