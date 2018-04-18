@@ -16,12 +16,8 @@ public class PropertyCard extends MonopolySlot{
 	private MonopolyPlayer owner;
 	private int numRailroads = 0;
 	int dicetotal; //CHANGE
-	private int rail1;
-	private int rail2;
-	private int rail3;
-	private int rail4;
 	//private MonopolyPlayer tempOwner;
-	protected boolean aquireHousesWithMoney = false;
+	protected boolean ableToBuyHouses = false;
 	//Buy 4 houses and then buy a hotel, 
 	//array resizes to 1 when a hotel is purchased
 	protected House[] houses = new House[5];
@@ -34,11 +30,16 @@ public class PropertyCard extends MonopolySlot{
 	public boolean owned(){
 		return owned;
 	}
-	public void setAquireHousesWithMoney(boolean bool){
-		aquireHousesWithMoney=bool;
+	public void setableToBuyHouses(boolean bool){
+		ableToBuyHouses=bool;
 	}
 	public void setOwned(boolean bool){
 		owned=bool;
+	}
+	public void buyHouse(){
+		if(ableToBuyHouses){
+			rent = rent + 
+		}
 	}
 	public void setOwner(MonopolyPlayer own){
 		String type = typetoString();
@@ -236,8 +237,8 @@ public class PropertyCard extends MonopolySlot{
 			propertytype=9;
 		}
 	}
-	public boolean aquireHousesWithMoney(){
-		return aquireHousesWithMoney;
+	public boolean ableToBuyHouses(){
+		return ableToBuyHouses;
 	}
 	public void giveAndTake(MonopolyPlayer a){
 		int totalDice = a.getDice1() + a.getDice2();
