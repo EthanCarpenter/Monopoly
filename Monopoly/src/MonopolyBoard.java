@@ -1,5 +1,5 @@
 /*
-* Chance Xie and Will Cox
+ * William Cox and Parker Tewell
  * Monopoly
  * Independent Project
  */
@@ -284,7 +284,8 @@ public class MonopolyBoard extends JFrame{
 			if(!tracker.bankruptcy() && numBankrupt < 3){
 				do{
 
-					System.out.println("It is "+name+"'s turn!");
+					//System.out.println("It is "+name+"'s turn!");
+					tracker.beforeRoll();
 					int dice=tracker.rollDice();
 					if(tracker.isInJail()){
 						System.out.println("You have been fined $50 for a dice roll in jail.");
