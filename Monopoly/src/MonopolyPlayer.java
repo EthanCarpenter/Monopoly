@@ -58,8 +58,21 @@ public class MonopolyPlayer {
 	public boolean afterRoll(PropertyCard propertyCard){
 		boolean check=true;
 		boolean returnBool=true;
+		String question = "Would you like to buy " + propertyCard.name() + "?";
 		do{
-			
+			if(check==false)
+				System.out.print("Input not valid. ");
+			String playerResponse;
+			playerResponse=JOptionPane.showInputDialog(name+". "+question+" yes/no");
+			System.out.println(name+"'s response: "+playerResponse);
+			if(playerResponse.equals("yes")){
+				returnBool=true;
+				check=true;
+			}else if(playerResponse.equals("no")){
+				returnBool=false;
+				check=true;
+			}else
+				check=false;
 		}while(check==false);
 		return returnBool;
 	}
