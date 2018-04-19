@@ -14,14 +14,10 @@ public class PropertyCard extends MonopolySlot{
 	private boolean owned=false;
 	private String name;
 	private MonopolyPlayer owner;
-	private int numRailroads = 0;
+	private int numRailroads = 0, numHouses = 0;
 	int dicetotal; //CHANGE
-	private int rail1;
-	private int rail2;
-	private int rail3;
-	private int rail4;
 	//private MonopolyPlayer tempOwner;
-	protected boolean aquireHousesWithMoney = false;
+	protected boolean ableToBuyHouses = false;
 	//Buy 4 houses and then buy a hotel, 
 	//array resizes to 1 when a hotel is purchased
 	protected House[] houses = new House[5];
@@ -34,11 +30,18 @@ public class PropertyCard extends MonopolySlot{
 	public boolean owned(){
 		return owned;
 	}
-	public void setAquireHousesWithMoney(boolean bool){
-		aquireHousesWithMoney=bool;
+	public void setAbleToBuyHouses(boolean bool){
+		ableToBuyHouses=bool;
 	}
 	public void setOwned(boolean bool){
 		owned=bool;
+	}
+	public void buyHouse(){
+		if(ableToBuyHouses && owner.playerMoney()>=
+				new House(name, numHouses).getPrice()){
+			rent = rent + new House(name, numHouses).getRent();
+			numHouses ++;
+		}
 	}
 	public void setOwner(MonopolyPlayer own){
 		String type = typetoString();
@@ -236,8 +239,8 @@ public class PropertyCard extends MonopolySlot{
 			propertytype=9;
 		}
 	}
-	public boolean aquireHousesWithMoney(){
-		return aquireHousesWithMoney;
+	public boolean ableToBuyHouses(){
+		return ableToBuyHouses;
 	}
 	public void giveAndTake(MonopolyPlayer a){
 		int totalDice = a.getDice1() + a.getDice2();
@@ -258,7 +261,7 @@ public class PropertyCard extends MonopolySlot{
 				modRent = rent;
 			}else if(purpleRent == 2){
 				modRent = rent * 2;
-				
+
 			}
 		}
 		if(type.equals("LIGHTGREEN")){
@@ -266,7 +269,7 @@ public class PropertyCard extends MonopolySlot{
 				modRent = rent;
 			}else if(lightGreenRent == 3){
 				modRent = rent * 2;
-				
+
 			}
 		}
 		if(type.equals("VIOLET")){
@@ -274,7 +277,7 @@ public class PropertyCard extends MonopolySlot{
 				modRent = rent;
 			}else if(violetRent == 3){
 				modRent = rent * 2;
-				
+
 			}
 		}
 		if(type.equals("ORANGE")){
@@ -282,7 +285,7 @@ public class PropertyCard extends MonopolySlot{
 				modRent = rent;
 			}else if(orangeRent == 3){
 				modRent = rent * 2;
-				
+
 			}
 		}
 		if(type.equals("RED")){
@@ -290,7 +293,7 @@ public class PropertyCard extends MonopolySlot{
 				modRent = rent;
 			}else if(redRent == 3){
 				modRent = rent * 2;
-				
+
 			}
 		}
 		if(type.equals("YELLOW")){
@@ -298,7 +301,7 @@ public class PropertyCard extends MonopolySlot{
 				modRent = rent;
 			}else if(yellowRent == 3){
 				modRent = 2 * rent;
-				
+
 			}
 		}
 		if(type.equals("DARKGREEN")){
@@ -306,7 +309,7 @@ public class PropertyCard extends MonopolySlot{
 				modRent = rent;
 			}else if(darkGreenRent == 3){
 				modRent = rent * 2;
-				
+
 			}
 		}
 		if(type.equals("DARKBLUE")){
@@ -343,7 +346,7 @@ public class PropertyCard extends MonopolySlot{
 	 * @return the number of houses on a property
 	 */
 	private int numHouses() {
-		
+
 		return 0;
 	}
 }
