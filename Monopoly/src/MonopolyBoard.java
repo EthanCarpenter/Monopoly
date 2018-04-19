@@ -207,6 +207,7 @@ public class MonopolyBoard extends JFrame{
 				tempProp.get(i).setOwned(false);
 				tempProp.get(i).setAbleToBuyHouses(false);
 			}
+			
 			if(tracker.equals(players.get(0))){
 				firstX = -1;
 				firstY = -1;
@@ -302,7 +303,9 @@ public class MonopolyBoard extends JFrame{
 						movement();
 						System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
 						//before roll call goes here
+						/***/
 						board.get(tracker.playerPosition()).slotAction(tracker,players,board);
+						/***/
 						if(tracker.getDice1() == tracker.getDice2()){
 							playerDoubleCounter++;
 						}
