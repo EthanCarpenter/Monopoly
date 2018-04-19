@@ -58,8 +58,9 @@ public class MonopolyPlayer {
 	public boolean afterRoll(PropertyCard propertyCard){
 		/*boolean check=true;
 		boolean returnBool=true;
-		String question = "Would you like to buy " + propertyCard.name() + "?";
+		
 		do{
+<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 			if(check==false)
 				System.out.print("Input not valid. ");
 			String playerResponse;
@@ -76,6 +77,11 @@ public class MonopolyPlayer {
 		}while(check==false);*/
 		return true;
 		//return returnBool;
+=======
+			
+		}while(check==false);
+		return returnBool;
+>>>>>>> 5c6cafe MINECRAFT
 	}
 	public void setPieceID(int x){
 		pieceID = x;
@@ -171,10 +177,13 @@ public class MonopolyPlayer {
 	}
 	public void setName(String n){
 		name=n; 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	}
 	public void addCard(PropertyCard a){
 		PlayerMonopolyProperties.add(a);
 		a.setOwned(true);
+=======
+>>>>>>> 5c6cafe MINECRAFT
 	}
 	public int playerMoney(){
 		return money;

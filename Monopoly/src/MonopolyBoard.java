@@ -208,7 +208,11 @@ public class MonopolyBoard extends JFrame{
 				tempProp.get(i).setOwned(false);
 				tempProp.get(i).setAbleToBuyHouses(true);
 			}
+<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 			
+=======
+			System.out.println("Number of properties: "+tracker.numberOfCards());
+>>>>>>> 5c6cafe MINECRAFT
 			if(tracker.equals(players.get(0))){
 				firstX = -1;
 				firstY = -1;
