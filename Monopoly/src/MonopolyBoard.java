@@ -203,7 +203,7 @@ public class MonopolyBoard extends JFrame{
 		if(tracker.bankruptcy()){
 			System.out.println(tracker.returnName()+" has gone bankrupt!");
 			ArrayList<PropertyCard> tempProp=tracker.playerProperties();
-			for(int i=1;i<tempProp.size();i++){
+			for(int i=0;i<tempProp.size();i++){
 				tempProp.get(i).setOwned(false);
 				tempProp.get(i).setAbleToBuyHouses(false);
 			}
