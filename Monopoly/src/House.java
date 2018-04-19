@@ -12,6 +12,18 @@ public class House{
 		rentValue=rent;
 		sellValue=sell;
 	}
+	public int getPrice(){
+		return priceValue;
+	}
+	public int getRent(){
+		return rentValue;
+	}
+	/**
+	 * @return sell price of house
+	 */
+	public int getSell(){
+		return sellValue;
+	}
 	private void setHouseStats(){
 		if(name.equals("Mediterranean Ave.")){
 			if(houseNum == 0)
