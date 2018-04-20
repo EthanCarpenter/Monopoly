@@ -221,7 +221,8 @@ public class MonopolyBoard extends JFrame{
 				fourthX = -1;
 				fourthY = -1;
 			}
-			//players.remove(tracker.playerID()-1);
+			players.remove(tracker.playerID()-1);
+			
 			return true;
 		}else
 			return false;
