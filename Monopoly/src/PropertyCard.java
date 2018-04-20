@@ -8,8 +8,7 @@ public class PropertyCard extends MonopolySlot{
 	private int PURPLE=0,LIGHTGREEN=1,VIOLET=2,
 			ORANGE=3,RED=4,YELLOW=5,DARKGREEN=6,
 			DARKBLUE=7,UTILITIES=8,RAILROAD=9;
-	private int cost;
-	private int rent;
+	private int cost, rent, houseRent;
 	private int propertytype;
 	private boolean owned=false;
 	private String name;
@@ -39,7 +38,7 @@ public class PropertyCard extends MonopolySlot{
 	public void buyHouse(){
 		if(ableToBuyHouses && owner.playerMoney()>=
 				new House(name, numHouses).getPrice()){
-			rent = rent + new House(name, numHouses).getRent();
+			houseRent = new House(name, numHouses).getRent();
 			numHouses ++;
 		}
 	}
@@ -260,64 +259,56 @@ public class PropertyCard extends MonopolySlot{
 			if(purpleRent == 1){
 				modRent = rent;
 			}else if(purpleRent == 2){
-				modRent = rent * 2;
-
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("LIGHTGREEN")){
 			if(lightGreenRent == 1 || lightGreenRent == 2){
 				modRent = rent;
 			}else if(lightGreenRent == 3){
-				modRent = rent * 2;
-
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("VIOLET")){
 			if(violetRent == 1 || violetRent == 2){
 				modRent = rent;
 			}else if(violetRent == 3){
-				modRent = rent * 2;
-
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("ORANGE")){
 			if(orangeRent == 1 || orangeRent == 2){
 				modRent = rent;
 			}else if(orangeRent == 3){
-				modRent = rent * 2;
-
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("RED")){
 			if(redRent == 1 || redRent == 2){
 				modRent = rent;
 			}else if(redRent == 3){
-				modRent = rent * 2;
-
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("YELLOW")){
 			if(yellowRent == 1 || yellowRent == 2){
 				modRent = rent;
 			}else if(yellowRent == 3){
-				modRent = 2 * rent;
-
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("DARKGREEN")){
 			if(darkGreenRent == 1 || darkGreenRent == 2){
 				modRent = rent;
 			}else if(darkGreenRent == 3){
-				modRent = rent * 2;
-
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("DARKBLUE")){
 			if(darkBlueRent == 1){
 				modRent = rent;
 			}else if(darkBlueRent == 2){
-				modRent = rent * 2;
-				modRent = modRent + numHouses();
+				modRent = (rent * 2) + houseRent;
 			}
 		}
 		if(type.equals("UTILITIES")){
