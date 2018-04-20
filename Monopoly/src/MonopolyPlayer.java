@@ -56,7 +56,7 @@ public class MonopolyPlayer {
 		
 	}
 	public boolean afterRoll(PropertyCard propertyCard){
-		boolean check=true;
+		/*boolean check=true;
 		boolean returnBool=true;
 		String question = "Would you like to buy " + propertyCard.name() + "?";
 		do{
@@ -73,8 +73,9 @@ public class MonopolyPlayer {
 				check=true;
 			}else
 				check=false;
-		}while(check==false);
-		return returnBool;
+		}while(check==false);*/
+		return true;
+		//return returnBool;
 	}
 	public void setPieceID(int x){
 		pieceID = x;
@@ -196,6 +197,9 @@ public class MonopolyPlayer {
 	public boolean bankruptcy(){
 		if(money<0){
 			bankruptcy=true;
+			for(int i = 0; i < PlayerMonopolyProperties.size(); i++) {
+				PlayerMonopolyProperties.get(i).setOwned(false);
+			}
 		}
 		return bankruptcy;
 	}
