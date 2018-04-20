@@ -37,15 +37,13 @@ public class PropertyCard extends MonopolySlot{
 		owned=bool;
 	}
 	public void buyHouse(){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 		if(ableToBuyHouses && owner.playerMoney()>=
 				new House(name, numHouses).getPrice()){
 			houseRent = new House(name, numHouses).getRent();
-=======
-		if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice()){
-			rent = rent + new House(name, numHouses).getRent();
->>>>>>> 5c6cafe MINECRAFT
-			numHouses ++;
+			if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice()){
+				rent = rent + new House(name, numHouses).getRent();
+				numHouses ++;
+			}
 		}
 	}
 	public void setOwner(MonopolyPlayer own){
@@ -248,6 +246,7 @@ public class PropertyCard extends MonopolySlot{
 		return ableToBuyHouses;
 	}
 	public void giveAndTake(MonopolyPlayer a){
+		System.out.println(owner+"8==========================D~~~~~");
 		int totalDice = a.getDice1() + a.getDice2();
 		String type = typetoString();
 		int purpleRent = owner.numPurple();
@@ -265,112 +264,97 @@ public class PropertyCard extends MonopolySlot{
 			if(purpleRent == 1){
 				modRent = rent;
 			}else if(purpleRent == 2){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+					modRent = (rent * 2) + houseRent;
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("LIGHTGREEN")){
 			if(lightGreenRent == 1 || lightGreenRent == 2){
 				modRent = rent;
 			}else if(lightGreenRent == 3){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+					modRent = (rent * 2) + houseRent;
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("VIOLET")){
 			if(violetRent == 1 || violetRent == 2){
 				modRent = rent;
 			}else if(violetRent == 3){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+					modRent = (rent * 2) + houseRent;
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("ORANGE")){
 			if(orangeRent == 1 || orangeRent == 2){
 				modRent = rent;
 			}else if(orangeRent == 3){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+					modRent = (rent * 2) + houseRent;
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("RED")){
 			if(redRent == 1 || redRent == 2){
 				modRent = rent;
 			}else if(redRent == 3){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+					modRent = (rent * 2) + houseRent;
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("YELLOW")){
 			if(yellowRent == 1 || yellowRent == 2){
 				modRent = rent;
 			}else if(yellowRent == 3){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+				
+					modRent = (rent * 2) + houseRent;
+				
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
+				
 			}
 		}
 		if(type.equals("DARKGREEN")){
 			if(darkGreenRent == 1 || darkGreenRent == 2){
 				modRent = rent;
 			}else if(darkGreenRent == 3){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+				
+					modRent = (rent * 2) + houseRent;
+				
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
+				
 			}
 		}
 		if(type.equals("DARKBLUE")){
 			if(darkBlueRent == 1){
 				modRent = rent;
 			}else if(darkBlueRent == 2){
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
-				modRent = (rent * 2) + houseRent;
-=======
-				if(numHouses == -1)
-					modRent = rent * 2;
-				else
-					modRent = rent * 2 + (houses[numHouses].getRent());
->>>>>>> 5c6cafe MINECRAFT
+				
+					modRent = (rent * 2) + houseRent;
+				
+						if(numHouses == -1)
+							modRent = rent * 2;
+						else
+							modRent = rent * 2 + (houses[numHouses].getRent());
+				
 			}
 		}
 		if(type.equals("UTILITIES")){

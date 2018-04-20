@@ -77,11 +77,6 @@ public class MonopolyPlayer {
 		}while(check==false);*/
 		return true;
 		//return returnBool;
-=======
-			
-		}while(check==false);
-		return returnBool;
->>>>>>> 5c6cafe MINECRAFT
 	}
 	public void setPieceID(int x){
 		pieceID = x;
@@ -176,14 +171,11 @@ public class MonopolyPlayer {
 		}
 	}
 	public void setName(String n){
-		name=n; 
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
+		name=n;
 	}
 	public void addCard(PropertyCard a){
 		PlayerMonopolyProperties.add(a);
 		a.setOwned(true);
-=======
->>>>>>> 5c6cafe MINECRAFT
 	}
 	public int playerMoney(){
 		return money;
@@ -207,6 +199,7 @@ public class MonopolyPlayer {
 			bankruptcy=true;
 			for(int i = 0; i < PlayerMonopolyProperties.size(); i++) {
 				PlayerMonopolyProperties.get(i).setOwned(false);
+				PlayerMonopolyProperties.get(i).setOwner(null);
 			}
 		}
 		return bankruptcy;
