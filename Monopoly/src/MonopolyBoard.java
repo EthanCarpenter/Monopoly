@@ -201,6 +201,7 @@ public class MonopolyBoard extends JFrame{
 	private boolean bankruptcy(){
 		int num=tracker.playerID();
 		if(tracker.bankruptcy()){
+			//players.remove(tracker.playerID());
 			System.out.println(tracker.returnName()+" has gone bankrupt!");
 			ArrayList<PropertyCard> tempProp=tracker.playerProperties();
 			for(int i=0;i<tempProp.size();i++){
@@ -221,7 +222,13 @@ public class MonopolyBoard extends JFrame{
 				fourthX = -1;
 				fourthY = -1;
 			}
-			players.remove(tracker.playerID()-1);
+			int playerRem = 0;
+			for(int i = 0; i < players.size(); i++) {
+				if(players.get(i) == tracker) {
+					playerRem = i;
+				}
+			}
+			players.remove(playerRem);
 			
 			return true;
 		}else
@@ -291,7 +298,7 @@ public class MonopolyBoard extends JFrame{
 					int dice=tracker.rollDice();
 					if(tracker.isInJail()){
 						System.out.println("You have been fined $50 for a dice roll in jail.");
-						tracker.subtractMoney(50);
+						//tracker.subtractMoney(50);
 					}
 					System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
 					+" for a total of "+dice+".");
