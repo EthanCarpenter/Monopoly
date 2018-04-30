@@ -90,6 +90,9 @@ public class PropertyCard extends MonopolySlot{
 			giveAndTake(a);
 		}
 	}
+	public int numHouses(){
+		return numHouses;
+	}
 	public int cost(){
 		return cost;
 	}
