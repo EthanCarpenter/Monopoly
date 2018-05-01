@@ -1,5 +1,5 @@
-public class BestStrategy extends MonopolyPlayer{
-	BestStrategy(int id) {
+public class ParkerStrategy extends MonopolyPlayer{
+	ParkerStrategy(int id) {
 		super(id);
 	}
 	/**
