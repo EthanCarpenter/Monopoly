@@ -863,6 +863,7 @@ public class MonopolyBoard extends JFrame{
 	}
 	public static void main(String[] args){
 		MonopolyBoard a=new MonopolyBoard();
+		PlayerInfoPanel infoPanel = new PlayerInfoPanel(a);
 		a.playMonopoly();
 	}
 }
