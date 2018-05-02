@@ -12,7 +12,7 @@ import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 public class MonopolyBoard extends JFrame{
-	private ArrayList<MonopolyPlayer> players;
+	private static ArrayList<MonopolyPlayer> players;
 	private int playerNum;
 	private MonopolyPlayer tracker;
 	private ArrayList<MonopolySlot> board;
@@ -344,6 +344,7 @@ public class MonopolyBoard extends JFrame{
 				}
 				tracker.setDoubleRoll(0);
 				playerDoubleCounter=0;
+				
 				System.out.println(tracker.returnName()+"'s turn is complete!");
 			}
 			/*
@@ -863,7 +864,7 @@ public class MonopolyBoard extends JFrame{
 	}
 	public static void main(String[] args){
 		MonopolyBoard a=new MonopolyBoard();
-		//PlayerInfoPanel infoPanel = new PlayerInfoPanel(a);
+		PlayerInfoPanel infoPanel = new PlayerInfoPanel(players);
 		a.playMonopoly();
 	}
 }
