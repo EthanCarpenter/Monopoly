@@ -345,7 +345,7 @@ public class MonopolyBoard extends JFrame{
 				}
 				tracker.setDoubleRoll(0);
 				playerDoubleCounter=0;
-				infoPanel.updatePanel(tracker, playerNum);
+				infoPanel.updateInfo(players);
 				System.out.println(tracker.returnName()+"'s turn is complete!");
 			}
 			/*
