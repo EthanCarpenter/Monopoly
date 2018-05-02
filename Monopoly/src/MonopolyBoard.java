@@ -208,7 +208,7 @@ public class MonopolyBoard extends JFrame{
 				tempProp.get(i).setOwned(false);
 				tempProp.get(i).setAbleToBuyHouses(true);
 			}
-			
+			System.out.println("Number of properties: "+tracker.numberOfCards());
 			if(tracker.equals(players.get(0))){
 				firstX = -1;
 				firstY = -1;
@@ -863,6 +863,7 @@ public class MonopolyBoard extends JFrame{
 	}
 	public static void main(String[] args){
 		MonopolyBoard a=new MonopolyBoard();
+		//PlayerInfoPanel infoPanel = new PlayerInfoPanel(a);
 		a.playMonopoly();
 	}
 }

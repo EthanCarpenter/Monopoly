@@ -69,7 +69,4 @@ public class MonopolySlot{
 			chest.communityChestCard(a,plist,board);
 		}
 	}
-	public static void main(String[] args){
-
-	}
 }

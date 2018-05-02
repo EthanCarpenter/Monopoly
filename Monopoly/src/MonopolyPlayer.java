@@ -58,8 +58,9 @@ public class MonopolyPlayer {
 	public boolean afterRoll(PropertyCard propertyCard){
 		/*boolean check=true;
 		boolean returnBool=true;
-		String question = "Would you like to buy " + propertyCard.name() + "?";
+		
 		do{
+<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 			if(check==false)
 				System.out.print("Input not valid. ");
 			String playerResponse;
@@ -172,7 +173,7 @@ public class MonopolyPlayer {
 		}
 	}
 	public void setName(String n){
-		name=n; 
+		name=n;
 	}
 	public void addCard(PropertyCard a){
 		PlayerMonopolyProperties.add(a);
@@ -200,6 +201,7 @@ public class MonopolyPlayer {
 			bankruptcy=true;
 			for(int i = 0; i < PlayerMonopolyProperties.size(); i++) {
 				PlayerMonopolyProperties.get(i).setOwned(false);
+				PlayerMonopolyProperties.get(i).setOwner(null);
 			}
 		}
 		return bankruptcy;
