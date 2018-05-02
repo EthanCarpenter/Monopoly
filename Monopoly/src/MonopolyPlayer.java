@@ -73,9 +73,11 @@ public class MonopolyPlayer {
 				check=true;
 			}else
 				check=false;
-		}while(check==false);*/
+		}while(check==false);
+		//return true;
+		return returnBool;*/
 		return true;
-		//return returnBool;
+		
 	}
 	public void setPieceID(int x){
 		pieceID = x;
