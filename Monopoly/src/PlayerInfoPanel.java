@@ -30,7 +30,7 @@ public class PlayerInfoPanel {
 			panel.add(updatePanel(players.get(i),i));
 		return panel;
 	}
-	private JPanel updatePanel(MonopolyPlayer player, int box){
+	public JPanel updatePanel(MonopolyPlayer player, int box){
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel,BoxLayout.PAGE_AXIS));
 		panel.add(new JLabel(player.name));
