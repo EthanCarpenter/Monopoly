@@ -99,9 +99,6 @@ public class PropertyCard extends MonopolySlot{
 	public int rent(){
 		return rent;
 	}
-	public String name(){
-		return name;
-	}
 	public int type(){
 		return propertytype;
 	}
