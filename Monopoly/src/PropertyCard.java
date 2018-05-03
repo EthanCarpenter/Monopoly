@@ -82,14 +82,14 @@ public class PropertyCard extends MonopolySlot{
 		return numRailroads;
 	}
 	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
-		if(!owned){
+		if(!owned && a.playerMoney()>cost){
 			setOwner(a);
 			a.addCard(this);
-		}else{
+		}else if(owned){
 			System.out.print(a.returnName()+" has landed on ");
-			System.out.println(owner.returnName()+"'s property!");
-			giveAndTake(a);
-		}
+			System.out.println(owner.returnName()+"'s property!");//THIS LINE THROWS THE ERROR, TWO PLAYERS LAND ON THE SAME TILE
+			giveAndTake(a);										  //THE FIRST PLAYER TRIED TO BUY THE PROPERTY BUT WAS TOO POOR
+		}														  //THE SECOND PLAYER THEN LANDS ON THE PROPERTY AND TRIES TO PAY RENT
 	}
 	public int numHouses(){
 		return numHouses;
