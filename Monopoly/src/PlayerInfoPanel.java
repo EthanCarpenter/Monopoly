@@ -11,11 +11,9 @@ import javax.swing.JPanel;
  * Displays the money, properties owned
  */
 public class PlayerInfoPanel {
-	private ArrayList<MonopolyPlayer> players;
-	public PlayerInfoPanel(ArrayList<MonopolyPlayer> newPlayers){
-		players = newPlayers;
-		JPanel panel = setPanel();
-		JFrame frame = new JFrame();
+	private JFrame frame = new JFrame();
+	public PlayerInfoPanel(ArrayList<MonopolyPlayer> players){
+		JPanel panel = setPanel(players);
 		frame.setTitle("Player Info");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(600, 400);
@@ -23,10 +21,16 @@ public class PlayerInfoPanel {
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 	}
-	private JPanel setPanel(){
+	public void updateInfo(ArrayList<MonopolyPlayer> players){
+		JPanel panel = setPanel(players);
+		//3frame.setVisible(false);
+		frame.setContentPane(panel);
+		frame.setVisible(true);
+	}
+	private JPanel setPanel(ArrayList<MonopolyPlayer> players){
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(2,4,0,0));
-		for(int i = 0; i < 4; i++)
+		for(int i = 0; i < players.size(); i++)
 			panel.add(updatePanel(players.get(i),i));
 		return panel;
 	}
@@ -36,8 +40,11 @@ public class PlayerInfoPanel {
 		panel.add(new JLabel(player.name));
 		panel.add(new JLabel("Money: " + player.playerMoney()));
 		panel.add(new JLabel("Properties Owned: "));
-		for(int i = 0; i < player.numberOfCards(); i++)
-			panel.add(new JLabel(player.nthCard(0).name()));
+		System.out.println(player.numberOfCards()+"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+		for(int i = 0; i < player.numberOfCards(); i++){
+			panel.add(new JLabel(player.nthCard(i).name()));
+			System.out.println(player.nthCard(i).name()+"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+		}
 		return panel;
 	}
 }

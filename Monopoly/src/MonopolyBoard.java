@@ -12,7 +12,7 @@ import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 public class MonopolyBoard extends JFrame{
-	PlayerInfoPanel infoPanel;
+	static PlayerInfoPanel infoPanel;
 	private static ArrayList<MonopolyPlayer> players;
 	private int playerNum;
 	private MonopolyPlayer tracker;
@@ -345,8 +345,8 @@ public class MonopolyBoard extends JFrame{
 				}
 				tracker.setDoubleRoll(0);
 				playerDoubleCounter=0;
-
 				infoPanel.updatePanel(tracker, playerNum);
+				infoPanel.updateInfo(players);
 				System.out.println(tracker.returnName()+"'s turn is complete!");
 			}
 			/*
