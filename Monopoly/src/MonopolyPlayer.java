@@ -199,7 +199,7 @@ public class MonopolyPlayer {
 			bankruptcy=true;
 			for(int i = 0; i < PlayerMonopolyProperties.size(); i++) {
 				PlayerMonopolyProperties.get(i).setOwned(false);
-				PlayerMonopolyProperties.get(i).setOwner(null);
+				//PlayerMonopolyProperties.get(i).setOwner(null);
 			}
 		}
 		return bankruptcy;

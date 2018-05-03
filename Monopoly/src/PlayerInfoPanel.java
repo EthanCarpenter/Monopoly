@@ -16,8 +16,8 @@ public class PlayerInfoPanel {
 		JPanel panel = setPanel(players);
 		frame.setTitle("Player Info");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(600, 400);
-		frame.setLocation(600,0);
+		frame.setSize(600, 900);
+		frame.setLocation(1000,0);
 		frame.setContentPane(panel);
 		frame.setVisible(true);
 	}
@@ -40,10 +40,10 @@ public class PlayerInfoPanel {
 		panel.add(new JLabel(player.name));
 		panel.add(new JLabel("Money: " + player.playerMoney()));
 		panel.add(new JLabel("Properties Owned: "));
-		System.out.println(player.numberOfCards()+"qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+		//System.out.println(player.numberOfCards());
 		for(int i = 0; i < player.numberOfCards(); i++){
 			panel.add(new JLabel(player.nthCard(i).name()));
-			System.out.println(player.nthCard(i).name()+"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+			//System.out.println(player.nthCard(i).name());
 		}
 		return panel;
 	}

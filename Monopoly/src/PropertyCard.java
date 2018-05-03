@@ -84,9 +84,10 @@ public class PropertyCard extends MonopolySlot{
 	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
 		if(!owned){
 			setOwner(a);
+			a.addCard(this);
 		}else{
-			System.out.print(a.returnName()+" has landed on "
-					+owner.returnName()+"'s property!");
+			System.out.print(a.returnName()+" has landed on ");
+			System.out.println(owner.returnName()+"'s property!");
 			giveAndTake(a);
 		}
 	}
