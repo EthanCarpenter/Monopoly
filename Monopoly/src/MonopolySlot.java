@@ -52,8 +52,9 @@ public class MonopolySlot{
 			a.setPlayerPosition(10);
 			a.setJail(true);
 		}else if(a.isInJail()){
-			a.subtractMoney(50);
-			System.out.println("You have been fined $50 for being in jail. Roll doubles to get out.");
+			//a.subtractMoney(50);
+			//System.out.println("You have been fined $50 for being in jail. Roll doubles to get out.");
+			System.out.println("Roll doubles or wait two turns to get out");
 		}
 		if(!(name.equals("Chance")||name.equals("Community Chest"))){
 			System.out.println(giveMoney+" was added to "+a.returnName()+"'s balance!");

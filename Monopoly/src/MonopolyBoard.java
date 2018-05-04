@@ -33,10 +33,15 @@ public class MonopolyBoard extends JFrame{
 	Image greenSquare;
 	Image purpleSquare;
 	Image redSquare;
+	ArrayList<Integer> numTurnsInJail = new ArrayList();
 	MonopolyBoard(){
 		players=new ArrayList();
 		createPlayers();
 		setBoard();
+		numTurnsInJail.add(0);
+		numTurnsInJail.add(0);
+		numTurnsInJail.add(0);
+		numTurnsInJail.add(0);
 		ImageIcon a = new ImageIcon("Pictures//americanMonopoly.gif");
 		monoBoard = a.getImage();
 		ImageIcon b = new ImageIcon("Pictures//Blue Square.png");
@@ -228,6 +233,7 @@ public class MonopolyBoard extends JFrame{
 				}
 			}
 			players.remove(playerRem);
+			numTurnsInJail.remove(playerRem);
 			
 			return true;
 		}else
@@ -296,7 +302,7 @@ public class MonopolyBoard extends JFrame{
 					tracker.beforeRoll();
 					int dice=tracker.rollDice();
 					if(tracker.isInJail()){
-						System.out.println("You have been fined $50 for a dice roll in jail.");
+						System.out.println("Player is in jail.");
 						//tracker.subtractMoney(50);
 					}
 					System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
@@ -343,6 +349,7 @@ public class MonopolyBoard extends JFrame{
 				}
 				tracker.setDoubleRoll(0);
 				playerDoubleCounter=0;
+				//System.out.println(tracker+"TRRRRRRRRRRRRAAAAAAAAAAAAACKKKKKKKKKKKKKKKKKK");
 				infoPanel.updatePanel(tracker, playerNum);
 				infoPanel.updateInfo(players);
 				System.out.println(tracker.returnName()+"'s turn is complete!");
