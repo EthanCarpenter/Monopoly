@@ -132,170 +132,170 @@ public class PropertyCard extends MonopolySlot{
 			cost=60;
 			rent=2;
 			propertytype=0;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Baltic Ave.")){
 			cost=60;
 			rent=4;
 			propertytype=0;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Oriental Ave.")){
 			cost=100;
 			rent=6;
 			propertytype=1;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Vermont Ave.")){
 			cost=100;
 			rent=6;
 			propertytype=1;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Connecticut Ave.")){
 			cost=120;
 			rent=8;
 			propertytype=1;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("St. Charles Place")){
 			cost=140;
 			rent=10;
 			propertytype=2;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("States Ave.")){
 			cost=140;
 			rent=10;
 			propertytype=2;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Virginia Ave.")){
 			cost=160;
 			rent=12;
 			propertytype=2;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("St. James Place")){
 			cost=180;
 			rent=14;
 			propertytype=3;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Tennessee Ave.")){
 			cost=180;
 			rent=14;
 			propertytype=3;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("New York Ave.")){
 			cost=200;
 			rent=16;
 			propertytype=3;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Kentucky Ave.")){
 			cost=220;
 			rent=18;
 			propertytype=4;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Indiana Ave.")){
 			cost=220;
 			rent=18;
 			propertytype=4;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Illinois Ave.")){
 			cost=240;
 			rent=20;
 			propertytype=4;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Atlantic Ave.")){
 			cost=260;
 			rent=22;
 			propertytype=5;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Ventnor Ave.")){
 			cost=260;
 			rent=22;
 			propertytype=5;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Marvin Gardens")){
 			cost=280;
 			rent=22;
 			propertytype=5;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Pacific Ave.")){
 			cost=300;
 			rent=26;
 			propertytype=6;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("North Carolina Ave.")){
 			cost=300;
 			rent=26;
 			propertytype=6;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Pennsylvania Ave.")){
 			cost=320;
 			rent=28;
 			propertytype=6;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Park Place")){
 			cost=350;
 			rent=35;
 			propertytype=7;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Boardwalk")){
 			cost=400;
 			rent=50;
 			propertytype=7;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Electric Company")){
 			cost=150;
 			rent=(4*dicetotal);
 			propertytype=8;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Water Works")){
 			cost=150;
 			rent=(4*dicetotal);
 			propertytype=8;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Reading Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Pennsylvania Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("B. & O. Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}else if(name.equals("Short Line Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
-			mortgage =
-			unmortgage =
+			mortgage = cost/2;
+			unmortgage = (int) (mortgage*1.1);
 		}
 	}
 	public boolean ableToBuyHouses(){
