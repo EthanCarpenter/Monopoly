@@ -6,8 +6,8 @@ public class ParkerStrategy extends MonopolyPlayer{
 	 * Determines if the strategy should buy houses,
 	 * stay in/escape jail, mortgage
 	 */
-	public void beforeRoll(){
-		beforeRollInJail();
+	public void beforeRoll(int numOwned){
+		beforeRollInJail(numOwned);
 		determineBuyingHouses();
 	}
 	private void determineBuyingHouses(){
@@ -16,10 +16,10 @@ public class ParkerStrategy extends MonopolyPlayer{
 			property.buyHouse();
 		}
 	}
-	private void beforeRollInJail(){
+	private void beforeRollInJail(int numOwned){
 		//total number of properties: 27
 		//could be worth it to mortgage property in order to pay for bail
-		if(jail && /*number of owned properties < 25*/){
+		if(jail && numOwned < 25){
 			if(getOutOfJailFree>0){
 				getOutOfJailFree--;
 				setJail(false);

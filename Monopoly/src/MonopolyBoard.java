@@ -360,6 +360,12 @@ public class MonopolyBoard extends JFrame{
 		}
 		System.out.println(players.get(0).returnName()+" won!");
 	}
+	public int numPropertiesOwned(){
+		int numOwned = 0;
+		for(MonopolyPlayer player : players)
+			numOwned = numOwned + player.numberOfCards();
+		return numOwned;
+	}
 	private void movement(){
 		if(tracker.returnPieceID() == 0){
 			if(tracker.bankruptcy() == true){
