@@ -8,8 +8,7 @@ public class PropertyCard extends MonopolySlot{
 	private int PURPLE=0,LIGHTGREEN=1,VIOLET=2,
 			ORANGE=3,RED=4,YELLOW=5,DARKGREEN=6,
 			DARKBLUE=7,UTILITIES=8,RAILROAD=9;
-	private int cost, rent, houseRent;
-	private int propertytype;
+	private int cost, rent, houseRent, propertytype, mortgage, unmortgage;
 	private boolean owned=false;
 	private String name;
 	private MonopolyPlayer owner;

@@ -34,6 +34,7 @@ public class ParkerStrategy extends MonopolyPlayer{
 	 * buy properties, mortgage
 	 */
 	public void afterRoll(){
-		
+		determineMortgage();
+		determineTrading();
 	}
 }
