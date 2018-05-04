@@ -303,19 +303,8 @@ public class PropertyCard extends MonopolySlot{
 	}
 	public void giveAndTake(MonopolyPlayer a){
 		System.out.println(owner+"8==========================D~~~~~");
-		int totalDice = a.getDice1() + a.getDice2();
 		String type = typetoString();
-		int purpleRent = owner.numPurple();
-		int lightGreenRent = owner.numLightGreen();
-		int violetRent = owner.numViolet();
-		int orangeRent = owner.numOrange();
-		int redRent = owner.numRed();
-		int yellowRent = owner.numYellow();
-		int darkGreenRent = owner.numDarkGreen();
-		int darkBlueRent = owner.numDarkBlue();
-		int utilitiesRent = owner.numUtilities();
-		int railRent = owner.numRails();
-		int modRent = 0;
+		int totalDice = a.getDice1() + a.getDice2(), purpleRent = owner.numPurple(), lightGreenRent = owner.numLightGreen(), violetRent = owner.numViolet(), orangeRent = owner.numOrange(), redRent = owner.numRed(), yellowRent = owner.numYellow(), darkGreenRent = owner.numDarkGreen(), darkBlueRent = owner.numDarkBlue(), utilitiesRent = owner.numUtilities(), railRent = owner.numRails(), modRent = 0;
 		if(type.equals("PURPLE")){
 			if(purpleRent == 1){
 				modRent = rent;
