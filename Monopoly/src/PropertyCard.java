@@ -13,6 +13,7 @@ public class PropertyCard extends MonopolySlot{
 	private String name;
 	private MonopolyPlayer owner;
 	private int numRailroads = 0, numHouses = -1;
+	private boolean isMortgaged = false;
 	int dicetotal; //CHANGE
 	//private MonopolyPlayer tempOwner;
 	protected boolean ableToBuyHouses = false;
@@ -76,6 +77,15 @@ public class PropertyCard extends MonopolySlot{
 		}else if(own.playerMoney() < cost){
 			System.out.println("insufficient funds.");
 		}
+	}
+	public void mortgageHouse(){
+		
+	}
+	public void unmortgageHouse(){
+		
+	}
+	public boolean isMortgaged(){
+		return isMortgaged;
 	}
 	public int railroadsOwned(){
 		return numRailroads;
