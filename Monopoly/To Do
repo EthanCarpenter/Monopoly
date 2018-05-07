@@ -2,6 +2,7 @@ To Do:
 Mortgage properties
 Implement houses and hotels
 Trading
+Bankrupt Players don't dissapear when they go bankrupt on the jail tile
 
 Done:
 Once a Monopoly player is bankrupt their properties still think their the owner
