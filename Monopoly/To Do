@@ -1,11 +1,13 @@
 To Do:
 Mortgage properties
-Implement houses and hotels
 Trading
+
 Bankrupt Players don't dissapear when they go bankrupt on the jail tile
+Make houses and hotels appear on the board
 
 Done:
 Once a Monopoly player is bankrupt their properties still think their the owner
+Implement houses and hotels
 
 Notes:
 Trading for mutual monopolies is worth it

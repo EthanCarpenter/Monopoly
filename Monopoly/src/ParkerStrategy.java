@@ -37,4 +37,8 @@ public class ParkerStrategy extends MonopolyPlayer{
 		determineMortgage();
 		determineTrading();
 	}
+	private void determineMortgage() {
+		
+		
+	}
 }
