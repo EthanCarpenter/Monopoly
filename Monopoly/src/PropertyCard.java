@@ -302,12 +302,9 @@ public class PropertyCard extends MonopolySlot{
 		return ableToBuyHouses;
 	}
 	public void giveAndTake(MonopolyPlayer a){
-<<<<<<< HEAD
 		System.out.println(owner);
-		int totalDice = a.getDice1() + a.getDice2();
-=======
+		//int totalDice = a.getDice1() + a.getDice2();
 		System.out.println(owner+"8==========================D~~~~~");
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 		String type = typetoString();
 		int totalDice = a.getDice1() + a.getDice2(), purpleRent = owner.numPurple(), lightGreenRent = owner.numLightGreen(), violetRent = owner.numViolet(), orangeRent = owner.numOrange(), redRent = owner.numRed(), yellowRent = owner.numYellow(), darkGreenRent = owner.numDarkGreen(), darkBlueRent = owner.numDarkBlue(), utilitiesRent = owner.numUtilities(), railRent = owner.numRails(), modRent = 0;
 		if(type.equals("PURPLE")){
