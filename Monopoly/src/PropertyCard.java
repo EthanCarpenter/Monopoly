@@ -46,6 +46,13 @@ public class PropertyCard extends MonopolySlot{
 			}
 		}
 	}
+	public void sellHouse(){
+		if(numHouses > -1){
+			owner.addMoney(houses[numHouses].getSell());
+			houses[numHouses] = null;
+			numHouses --;
+		}
+	}
 	public void setOwner(MonopolyPlayer own){
 		String type = typetoString();
 		if(own.afterRoll(this) && own.playerMoney() > cost){
