@@ -78,7 +78,6 @@ public class MonopolyPlayer {
 		//return true;
 		return returnBool;*/
 		return true;
-		
 	}
 	public void setPieceID(int x){
 		pieceID = x;

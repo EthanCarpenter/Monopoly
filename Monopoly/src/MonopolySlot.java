@@ -43,7 +43,7 @@ public class MonopolySlot{
 			takeMoney=75;
 		}
 	}
-	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
+	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){		
 		giveAndTake(a,plist,board);
 	}
 	public void giveAndTake(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){

@@ -79,13 +79,6 @@ public class MonopolyBoard extends JFrame{
 		h.fillOval(fourthX, fourthY, 10, 10);
 		repaint();
 	}
-	private static JFrame constructFrame() {
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(200, 200);
-		frame.setVisible(true);
-		return frame;
-	}
 	private void createPlayers(){
 		MonopolyPlayer a=new MonopolyPlayer(1);
 		MonopolyPlayer b=new MonopolyPlayer(2);
