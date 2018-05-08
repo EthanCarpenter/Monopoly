@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /*
- * Chance Xie and Will Cox
+ * Parker Tewell and Will Cox
  * Monopoly
  * Independent Project
  */
@@ -45,7 +45,13 @@ public class MonopolySlot{
 	}
 	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
 		int totalMoves = a.returnMoves();
-		ArrayList spaces = ((Object) board).returnBoard();
+		/*if(board.get(totalMoves) instanceOf PropertyCard){
+			
+		}*/
+		if(PropertyCard.class.isInstance(board.get(totalMoves))){
+			a.afterRoll((PropertyCard) board.get(totalMoves));
+		}
+		
 		giveAndTake(a,plist,board);
 	}
 	public void giveAndTake(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
