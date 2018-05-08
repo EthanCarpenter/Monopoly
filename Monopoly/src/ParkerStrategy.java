@@ -32,13 +32,15 @@ public class ParkerStrategy extends MonopolyPlayer{
 	/**
 	 * Determines if the strategy should 
 	 * buy properties, mortgage
+	 * The boolean returned determines if the player will try to buy the property or not
 	 */
-	public void afterRoll(){
+	public boolean afterRoll(PropertyCard property){
 		determineMortgage();
+		determineBuyProperty();
 		determineTrading();
 	}
 	private void determineMortgage() {
-		
+		if()
 		
 	}
 }

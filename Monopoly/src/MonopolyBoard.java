@@ -66,6 +66,9 @@ public class MonopolyBoard extends JFrame{
 		fourthX = 570;
 		fourthY = 630;
 	}
+	public ArrayList returnBoard(){
+		return board;
+	}
 	public void paint(Graphics g){
 		dbImage = createImage(getWidth(), getHeight());
 		dbg = dbImage.getGraphics();
@@ -83,13 +86,6 @@ public class MonopolyBoard extends JFrame{
 		h.setColor(Color.orange);
 		h.fillOval(fourthX, fourthY, 10, 10);
 		repaint();
-	}
-	private static JFrame constructFrame() {
-		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setSize(200, 200);
-		frame.setVisible(true);
-		return frame;
 	}
 	private void createPlayers(){
 		MonopolyPlayer a=new MonopolyPlayer(1);

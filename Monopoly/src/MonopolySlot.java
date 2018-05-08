@@ -44,6 +44,8 @@ public class MonopolySlot{
 		}
 	}
 	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
+		int totalMoves = a.returnMoves();
+		ArrayList spaces = ((Object) board).returnBoard();
 		giveAndTake(a,plist,board);
 	}
 	public void giveAndTake(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){

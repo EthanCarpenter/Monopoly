@@ -26,6 +26,7 @@ public class MonopolyStrategy extends MonopolyPlayer{
 	/**
 	 * Determines if the strategy should buy houses,
 	 * stay in/escape jail, mortgage
+	 * @return 
 	 */
 	public void beforeRoll(){
 		if(money > 600 && numMonopolies()>0){
@@ -36,7 +37,7 @@ public class MonopolyStrategy extends MonopolyPlayer{
 	 * Determines if the strategy should 
 	 * buy properties, mortgage
 	 */
-	public void afterRoll(){
+	public boolean afterRoll(PropertyCard property){
 		
 	}
 }
