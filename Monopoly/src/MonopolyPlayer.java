@@ -55,7 +55,7 @@ public class MonopolyPlayer {
 	public void beforeRoll(){
 		
 	}
-	public boolean afterRoll(PropertyCard propertyCard){
+	public boolean afterRoll(PropertyCard card){
 		/*boolean check=true;
 		boolean returnBool=true;
 		

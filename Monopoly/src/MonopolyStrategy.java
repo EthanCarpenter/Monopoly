@@ -37,7 +37,7 @@ public class MonopolyStrategy extends MonopolyPlayer{
 	 * Determines if the strategy should 
 	 * buy properties, mortgage
 	 */
-	public boolean afterRoll(PropertyCard property){
+	public boolean afterRoll(PropertyCard card){
 		
 	}
 }
