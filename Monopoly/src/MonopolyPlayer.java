@@ -53,11 +53,19 @@ public class MonopolyPlayer {
 
 		return monopolies;
 	}
+<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	public int numTurnsInJail(){
 		return numTurnsInJail;
 	}
 	public void addJailTurn(){
 		numTurnsInJail++;
+=======
+	public int propertiesNeededForMonopoly(String color){
+		int properties = 0;
+		for(PropertyCard property : PlayerMonopolyProperties)
+			if()
+		return properties;
+>>>>>>> 85be4be mineaesd
 	}
 	public void beforeRoll(){
 		

@@ -17,15 +17,7 @@ public class MonopolyBoard extends JFrame{
 	private int playerNum;
 	private MonopolyPlayer tracker;
 	private ArrayList<MonopolySlot> board;
-	private int totalMoves;
-	int firstX;
-	int firstY;
-	int secondX;
-	int secondY;
-	int thirdX;
-	int thirdY;
-	int fourthX;
-	int fourthY;
+	private int totalMoves, firstX, firstY, secondX, secondY, thirdX, thirdY, fourthX, fourthY;
 	private Image dbImage;
 	private Graphics dbg;
 	Image monoBoard;
@@ -65,6 +57,9 @@ public class MonopolyBoard extends JFrame{
 		thirdY = 620;
 		fourthX = 570;
 		fourthY = 630;
+	}
+	public void trading(MonopolyPlayer trader, MonopolyPlayer tradee){
+		
 	}
 	public ArrayList returnBoard(){
 		return board;
@@ -878,7 +873,6 @@ public class MonopolyBoard extends JFrame{
 		}
 	}
 	public static void main(String[] args){
-
 		MonopolyBoard a=new MonopolyBoard();
 		infoPanel = new PlayerInfoPanel(players);
 

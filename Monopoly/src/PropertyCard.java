@@ -26,6 +26,9 @@ public class PropertyCard extends MonopolySlot{
 		//tempOwner = new MonopolyPlayer();
 		setPropertyStats();
 	}
+	public int getColor(){
+		return 
+	}
 	public boolean owned(){
 		return owned;
 	}
@@ -390,30 +393,24 @@ public class PropertyCard extends MonopolySlot{
 							modRent = rent * 2;
 						else
 							modRent = rent * 2 + (houses[numHouses].getRent());
-				
 			}
 		}
 		if(type.equals("DARKGREEN")){
 			if(darkGreenRent == 1 || darkGreenRent == 2){
 				modRent = rent;
 			}else if(darkGreenRent == 3){
-				
 					modRent = (rent * 2) + houseRent;
-				
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
 							modRent = rent * 2 + (houses[numHouses].getRent());
-				
 			}
 		}
 		if(type.equals("DARKBLUE")){
 			if(darkBlueRent == 1){
 				modRent = rent;
 			}else if(darkBlueRent == 2){
-				
 					modRent = (rent * 2) + houseRent;
-				
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else

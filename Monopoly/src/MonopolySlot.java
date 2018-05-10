@@ -47,6 +47,7 @@ public class MonopolySlot{
 		/*if(board.get(totalMoves) instanceOf PropertyCard){
 			
 		}*/
+<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 //		if(PropertyCard.class.isInstance(board.get(totalMoves))){
 //			System.out.println(totalMoves + "C=======================8");
 //			if(totalMoves > 39){
@@ -56,6 +57,11 @@ public class MonopolySlot{
 //			}
 //		}
 		
+=======
+		if(PropertyCard.class.isInstance(board.get(totalMoves))){
+			a.afterRoll((PropertyCard) board.get(totalMoves));
+		}
+>>>>>>> 85be4be mineaesd
 		giveAndTake(a,plist,board);
 	}
 	public void giveAndTake(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){

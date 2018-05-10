@@ -12,9 +12,8 @@ public class ParkerStrategy extends MonopolyPlayer{
 	}
 	private void determineBuyingHouses(){
 		for(PropertyCard property : PlayerMonopolyProperties)
-		if(property.ableToBuyHouses && new House(property.name(), property.numHouses()+1).getPrice() < money){
-			property.buyHouse();
-		}
+			if(property.ableToBuyHouses && new House(property.name(), property.numHouses()+1).getPrice() < money)
+				property.buyHouse();
 	}
 	private void beforeRollInJail(int numOwned){
 		//total number of properties: 27
@@ -41,6 +40,6 @@ public class ParkerStrategy extends MonopolyPlayer{
 	}
 	private void determineMortgage() {
 		if()
-		
+
 	}
 }
