@@ -8,7 +8,7 @@ public class PropertyCard extends MonopolySlot{
 	private int PURPLE=0,LIGHTGREEN=1,VIOLET=2,
 			ORANGE=3,RED=4,YELLOW=5,DARKGREEN=6,
 			DARKBLUE=7,UTILITIES=8,RAILROAD=9;
-	private int cost, rent, houseRent, propertytype, mortgage, unmortgage;
+	private int cost, rent, houseRent, propertytype, mortgage, unmortgage, color;
 	private boolean owned=false;
 	private String name;
 	private MonopolyPlayer owner;
@@ -27,7 +27,7 @@ public class PropertyCard extends MonopolySlot{
 		setPropertyStats();
 	}
 	public int getColor(){
-		return 
+		return color;
 	}
 	public boolean owned(){
 		return owned;
@@ -154,12 +154,14 @@ public class PropertyCard extends MonopolySlot{
 			propertytype=0;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = VIOLET;
 		}else if(name.equals("Baltic Ave.")){
 			cost=60;
 			rent=4;
 			propertytype=0;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = VIOLET;
 		}else if(name.equals("Oriental Ave.")){
 			cost=100;
 			rent=6;
