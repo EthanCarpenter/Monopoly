@@ -47,14 +47,14 @@ public class MonopolySlot{
 		/*if(board.get(totalMoves) instanceOf PropertyCard){
 			
 		}*/
-		if(PropertyCard.class.isInstance(board.get(totalMoves))){
-			System.out.println(totalMoves + "C=======================8");
-			if(totalMoves > 39){
-				a.afterRoll((PropertyCard) board.get(totalMoves%39));
-			}else{
-				a.afterRoll((PropertyCard) board.get(totalMoves));
-			}
-		}
+//		if(PropertyCard.class.isInstance(board.get(totalMoves))){
+//			System.out.println(totalMoves + "C=======================8");
+//			if(totalMoves > 39){
+//				a.afterRoll((PropertyCard) board.get(totalMoves%39));
+//			}else{
+//				a.afterRoll((PropertyCard) board.get(totalMoves));
+//			}
+//		}
 		
 		giveAndTake(a,plist,board);
 	}

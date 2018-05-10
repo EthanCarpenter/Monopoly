@@ -36,6 +36,7 @@ public class MonopolyPlayer {
 	protected int numRailroads = 0;
 	protected int pieceID;
 	protected int doubleRolls;
+	protected int numTurnsInJail = 0;
 	public ArrayList<PropertyCard> playerProperties(){
 		return PlayerMonopolyProperties;
 	}
@@ -51,6 +52,12 @@ public class MonopolyPlayer {
 		int monopolies = 0;
 
 		return monopolies;
+	}
+	public int numTurnsInJail(){
+		return numTurnsInJail;
+	}
+	public void addJailTurn(){
+		numTurnsInJail++;
 	}
 	public void beforeRoll(){
 		

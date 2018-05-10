@@ -299,6 +299,12 @@ public class MonopolyBoard extends JFrame{
 					int dice=tracker.rollDice();
 					if(tracker.isInJail()){
 						System.out.println("Player is in jail.");
+						tracker.addJailTurn();
+						if(tracker.numTurnsInJail() >= 2){
+							System.out.println("Player stayed 2 turns in jail. Player payed $50 to be free!");
+							tracker.subtractMoney(50);
+							tracker.setJail(false);
+						}
 						//tracker.subtractMoney(50);
 					}
 					System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
