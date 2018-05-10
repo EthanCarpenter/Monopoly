@@ -5,12 +5,9 @@ import java.util.ArrayList;
  * Independent Project
  */
 public class PropertyCard extends MonopolySlot{
-	private int PURPLE=0,LIGHTGREEN=1,VIOLET=2,
-			ORANGE=3,RED=4,YELLOW=5,DARKGREEN=6,
-			DARKBLUE=7,UTILITIES=8,RAILROAD=9;
-	private int cost, rent, houseRent, propertytype, mortgage, unmortgage, color;
+	private int cost, rent, houseRent, propertytype, mortgage, unmortgage;
 	private boolean owned=false;
-	private String name;
+	private String name, color;
 	private MonopolyPlayer owner;
 	private int numRailroads = 0, numHouses = -1;
 	private boolean isMortgaged = false;
@@ -26,7 +23,7 @@ public class PropertyCard extends MonopolySlot{
 		//tempOwner = new MonopolyPlayer();
 		setPropertyStats();
 	}
-	public int getColor(){
+	public String getColor(){
 		return color;
 	}
 	public boolean owned(){
@@ -154,170 +151,196 @@ public class PropertyCard extends MonopolySlot{
 			propertytype=0;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
-			color = VIOLET;
+			color = "PURPLE";
 		}else if(name.equals("Baltic Ave.")){
 			cost=60;
 			rent=4;
 			propertytype=0;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
-			color = VIOLET;
+			color = "PURPLE";
 		}else if(name.equals("Oriental Ave.")){
 			cost=100;
 			rent=6;
 			propertytype=1;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "LIGHTGREEN";
 		}else if(name.equals("Vermont Ave.")){
 			cost=100;
 			rent=6;
 			propertytype=1;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "LIGHTGREEN";
 		}else if(name.equals("Connecticut Ave.")){
 			cost=120;
 			rent=8;
 			propertytype=1;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "LIGHTGREEN";
 		}else if(name.equals("St. Charles Place")){
 			cost=140;
 			rent=10;
 			propertytype=2;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "VIOLET";
 		}else if(name.equals("States Ave.")){
 			cost=140;
 			rent=10;
 			propertytype=2;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "VIOLET";
 		}else if(name.equals("Virginia Ave.")){
 			cost=160;
 			rent=12;
 			propertytype=2;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "VIOLET";
 		}else if(name.equals("St. James Place")){
 			cost=180;
 			rent=14;
 			propertytype=3;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "ORANGE";
 		}else if(name.equals("Tennessee Ave.")){
 			cost=180;
 			rent=14;
 			propertytype=3;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "ORANGE";
 		}else if(name.equals("New York Ave.")){
 			cost=200;
 			rent=16;
 			propertytype=3;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "ORANGE";
 		}else if(name.equals("Kentucky Ave.")){
 			cost=220;
 			rent=18;
 			propertytype=4;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "RED";
 		}else if(name.equals("Indiana Ave.")){
 			cost=220;
 			rent=18;
 			propertytype=4;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "RED";
 		}else if(name.equals("Illinois Ave.")){
 			cost=240;
 			rent=20;
 			propertytype=4;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "RED";
 		}else if(name.equals("Atlantic Ave.")){
 			cost=260;
 			rent=22;
 			propertytype=5;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "YELLOW";
 		}else if(name.equals("Ventnor Ave.")){
 			cost=260;
 			rent=22;
 			propertytype=5;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "YELLOW";
 		}else if(name.equals("Marvin Gardens")){
 			cost=280;
 			rent=22;
 			propertytype=5;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "YELLOW";
 		}else if(name.equals("Pacific Ave.")){
 			cost=300;
 			rent=26;
 			propertytype=6;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "DARKGREEN";
 		}else if(name.equals("North Carolina Ave.")){
 			cost=300;
 			rent=26;
 			propertytype=6;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "DARKGREEN";
 		}else if(name.equals("Pennsylvania Ave.")){
 			cost=320;
 			rent=28;
 			propertytype=6;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "DARKGREEN";
 		}else if(name.equals("Park Place")){
 			cost=350;
 			rent=35;
 			propertytype=7;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "DARKBLUE";
 		}else if(name.equals("Boardwalk")){
 			cost=400;
 			rent=50;
 			propertytype=7;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "DARKBLUE";
 		}else if(name.equals("Electric Company")){
 			cost=150;
 			rent=(4*dicetotal);
 			propertytype=8;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "UTILITIES";
 		}else if(name.equals("Water Works")){
 			cost=150;
 			rent=(4*dicetotal);
 			propertytype=8;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "UTILITIES";
 		}else if(name.equals("Reading Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "RAILROAD";
 		}else if(name.equals("Pennsylvania Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "RAILROAD";
 		}else if(name.equals("B. & O. Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "RAILROAD";
 		}else if(name.equals("Short Line Railroad")){
 			cost=200;
 			rent = 25;
 			propertytype=9;
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
+			color = "RAILROAD";
 		}
 	}
 	public boolean ableToBuyHouses(){

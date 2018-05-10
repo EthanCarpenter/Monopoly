@@ -53,27 +53,34 @@ public class MonopolyPlayer {
 
 		return monopolies;
 	}
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	public int numTurnsInJail(){
 		return numTurnsInJail;
 	}
 	public void addJailTurn(){
 		numTurnsInJail++;
-=======
+	}
+	private int numType(String color){
+		int num;
+		if(color.equals("PURPLE") || color.equals("DARKBLUE"))
+			num=2;
+		else
+			num=3;
+		return num;
+	}
 	public int propertiesNeededForMonopoly(String color){
-		int properties = 0;
+		int propertiesOwned = 0, total = numType(color);
 		for(PropertyCard property : PlayerMonopolyProperties)
-			if()
-		return properties;
->>>>>>> 85be4be mineaesd
+			if(color.equals(property.name()))
+				propertiesOwned++;
+		return total - propertiesOwned;
 	}
 	public void beforeRoll(){
-		
+
 	}
 	public boolean afterRoll(PropertyCard card){
 		/*boolean check=true;
 		boolean returnBool=true;
-		
+
 		do{
 <<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 			if(check==false)
