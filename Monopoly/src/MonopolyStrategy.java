@@ -3,8 +3,6 @@
  * Parker Tewell
  * Period 1
  */
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 public class MonopolyStrategy extends MonopolyPlayer{
 	MonopolyStrategy(int id) {
 		super(id);
@@ -15,7 +13,6 @@ public class MonopolyStrategy extends MonopolyPlayer{
 		dicetotal=dice1+dice2;
 		return dicetotal;
 	}
-	
 	//what is used to determine strategy
 	public boolean playerConfirm(String question){
 		boolean check=true;
