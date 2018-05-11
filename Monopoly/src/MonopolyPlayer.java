@@ -6,8 +6,6 @@
 import java.util.ArrayList;
 import javax.swing.*;
 import java.lang.Math;
-import java.util.Random;
-import java.util.Scanner;
 public class MonopolyPlayer {
 	protected boolean chance;
 	protected boolean communitychest;
