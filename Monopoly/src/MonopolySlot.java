@@ -1,9 +1,9 @@
-import java.util.ArrayList;
 /*
  * Parker Tewell and Will Cox
  * Monopoly
  * Independent Project
  */
+import java.util.ArrayList;
 public class MonopolySlot{
 	private String name;
 	private int giveMoney;
@@ -48,7 +48,7 @@ public class MonopolySlot{
 			
 		}*/
 //		if(PropertyCard.class.isInstance(board.get(totalMoves))){
-//			System.out.println(totalMoves + "C=======================8");
+//			System.out.println(totalMoves + "");
 //			if(totalMoves > 39){
 //				a.afterRoll((PropertyCard) board.get(totalMoves%39));
 //			}else{

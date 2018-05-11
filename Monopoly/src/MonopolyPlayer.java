@@ -37,6 +37,10 @@ public class MonopolyPlayer {
 	protected int pieceID;
 	protected int doubleRolls;
 	protected int numTurnsInJail = 0;
+	MonopolyBoard playerBoard;
+	public void setBoard(MonopolyBoard board){
+		playerBoard = board;
+	}
 	public ArrayList<PropertyCard> playerProperties(){
 		return PlayerMonopolyProperties;
 	}
@@ -58,6 +62,9 @@ public class MonopolyPlayer {
 	}
 	public void addJailTurn(){
 		numTurnsInJail++;
+	}
+	public void resetJailTurns(){
+		numTurnsInJail = 0;
 	}
 	private int numType(String color){
 		int num;

@@ -25,15 +25,10 @@ public class MonopolyBoard extends JFrame{
 	Image greenSquare;
 	Image purpleSquare;
 	Image redSquare;
-	ArrayList<Integer> numTurnsInJail = new ArrayList();
 	MonopolyBoard(){
 		players=new ArrayList();
 		createPlayers();
 		setBoard();
-		numTurnsInJail.add(0);
-		numTurnsInJail.add(0);
-		numTurnsInJail.add(0);
-		numTurnsInJail.add(0);
 		ImageIcon a = new ImageIcon("Pictures//americanMonopoly.gif");
 		monoBoard = a.getImage();
 		ImageIcon b = new ImageIcon("Pictures//Blue Square.png");
@@ -194,6 +189,9 @@ public class MonopolyBoard extends JFrame{
 		board.add(park);		//37
 		board.add(luxtax);		//38
 		board.add(boardw);		//39
+		for(int i = 0; i < 4; i++){
+			
+		}
 	}
 	private boolean bankruptcy(){
 		int num=tracker.playerID();
@@ -224,7 +222,6 @@ public class MonopolyBoard extends JFrame{
 				}
 			}
 			players.remove(playerRem);
-			numTurnsInJail.remove(playerRem);
 			
 			return true;
 		}else
@@ -299,6 +296,7 @@ public class MonopolyBoard extends JFrame{
 							System.out.println("Player stayed 2 turns in jail. Player payed $50 to be free!");
 							tracker.subtractMoney(50);
 							tracker.setJail(false);
+							tracker.resetJailTurns();
 						}
 						//tracker.subtractMoney(50);
 					}
