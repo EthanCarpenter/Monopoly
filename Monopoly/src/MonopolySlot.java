@@ -56,9 +56,9 @@ public class MonopolySlot{
 //			}
 //		}
 		
-		if(PropertyCard.class.isInstance(board.get(totalMoves))){
-			a.afterRoll((PropertyCard) board.get(totalMoves));
-		}
+//		if(PropertyCard.class.isInstance(board.get(totalMoves))){
+//			a.afterRoll((PropertyCard) board.get(totalMoves));
+//		}
 		giveAndTake(a,plist,board);
 	}
 	public void giveAndTake(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
