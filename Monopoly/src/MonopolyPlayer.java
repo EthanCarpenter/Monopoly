@@ -79,12 +79,19 @@ public class MonopolyPlayer {
 	}
 	private int numType(String color){
 		int num;
-		if(color.equals("PURPLE") || color.equals("DARKBLUE"))
+		if(color.equals("PURPLE") || color.equals("DARKBLUE") || color.equals("UTILITIES"))
 			num=2;
+		else if(color.equals("RAILROAD"))
+			num=4;
 		else
 			num=3;
 		return num;
 	}
+	/**
+	 * Also works for UTILITIES and RAILROAD
+	 * @param color the color group the property is part of
+	 * @return the number of properties needed for a monopoly
+	 */
 	public int propertiesNeededForMonopoly(String color){
 		int propertiesOwned = 0, total = numType(color);
 		for(PropertyCard property : PlayerMonopolyProperties)
@@ -95,7 +102,7 @@ public class MonopolyPlayer {
 		return total - propertiesOwned;
 	}
 	public void beforeRoll(){
-
+		
 	}
 	public boolean afterRoll(MonopolySlot monopolySlot){
 		/*boolean check=true;

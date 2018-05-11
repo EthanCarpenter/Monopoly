@@ -49,6 +49,7 @@ public class ParkerStrategy extends MonopolyPlayer{
 		determineTrading();
 		return false;
 	}
+<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	private void determineTrading(){
 		String[] types = {"PURPLE", "LIGHTGREEN", "VIOLET", "ORANGE",
 				"RED", "YELLOW", "DARKGREEN", "DARKBLUE", "UTILITIES", "RAILROAD"};
@@ -105,5 +106,12 @@ public class ParkerStrategy extends MonopolyPlayer{
 				counter++;
 			}
 		}
+=======
+	private void determineTrading() {
+		String desiredColor;
+		for(PropertyCard property : PlayerMonopolyProperties)
+			if(propertiesNeededForMonopoly(property.getColor()) == 1 && !property.getColor().equals("UTILITIES"))
+				desiredColor = property.getColor();
+>>>>>>> 4bca8b0 pee pee head
 	}
 }
