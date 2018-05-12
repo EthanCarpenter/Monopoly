@@ -121,27 +121,26 @@ public class PropertyCard extends MonopolySlot{
 	}
 	public String typetoString(){
 		String typeName;
-		if(propertytype==0){
+		if(propertytype==0)
 			typeName="PURPLE";
-		}else if(propertytype==1){
+		else if(propertytype==1)
 			typeName="LIGHTGREEN";
-		}else if(propertytype==2){
+		else if(propertytype==2)
 			typeName="VIOLET";
-		}else if(propertytype==3){
+		else if(propertytype==3)
 			typeName="ORANGE";
-		}else if(propertytype==4){
+		else if(propertytype==4)
 			typeName="RED";
-		}else if(propertytype==5){
+		else if(propertytype==5)
 			typeName="YELLOW";
-		}else if(propertytype==6){
+		else if(propertytype==6)
 			typeName="DARKGREEN";
-		}else if(propertytype==7){
+		else if(propertytype==7)
 			typeName="DARKBLUE";
-		}else if(propertytype==8){
+		else if(propertytype==8)
 			typeName="UTILITIES";
-		}else{
+		else
 			typeName="RAILROAD";
-		}
 		return typeName;
 	}
 	private void setPropertyStats(){
