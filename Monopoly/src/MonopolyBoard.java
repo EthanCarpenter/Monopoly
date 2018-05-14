@@ -4,7 +4,6 @@
  * Independent Project
  */
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -53,8 +52,21 @@ public class MonopolyBoard extends JFrame{
 		fourthX = 570;
 		fourthY = 630;
 	}
-	public void trading(MonopolyPlayer trader, MonopolyPlayer tradee){
-		
+	/**
+	 * Swaps the ownership of the properties
+	 * @param trader
+	 * @param tradee
+	 * @param traderProperty
+	 * @param tradeeProperty
+	 */
+	public void trading(int traderID, int tradeeID,
+			PropertyCard traderProperty, PropertyCard tradeeProperty){
+		for(int i = 0; i < players.get(traderID).playerProperties().size(); i++)
+			if(players.get(traderID).nthCard(i).equals(traderProperty))
+				players.get(traderID).nthCard(i).setOwner(players.get(tradeeID));
+		for(int i = 0; i < players.get(tradeeID).playerProperties().size(); i++)
+			if(players.get(tradeeID).nthCard(i).equals(tradeeProperty))
+				players.get(tradeeID).nthCard(i).setOwner(players.get(traderID));
 	}
 	public ArrayList returnBoard(){
 		return board;
@@ -190,7 +202,7 @@ public class MonopolyBoard extends JFrame{
 		board.add(luxtax);		//38
 		board.add(boardw);		//39
 		for(int i = 0; i < 4; i++){
-			tracker.setBoard(board);
+			players.get(i).setBoard(board);
 		}
 	}
 	private boolean bankruptcy(){
