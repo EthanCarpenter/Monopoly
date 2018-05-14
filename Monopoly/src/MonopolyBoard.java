@@ -190,7 +190,7 @@ public class MonopolyBoard extends JFrame{
 		board.add(luxtax);		//38
 		board.add(boardw);		//39
 		for(int i = 0; i < 4; i++){
-			
+			tracker.setBoard(board);
 		}
 	}
 	private boolean bankruptcy(){

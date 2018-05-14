@@ -35,8 +35,8 @@ public class MonopolyPlayer {
 	protected int pieceID;
 	protected int doubleRolls;
 	protected int numTurnsInJail = 0;
-	MonopolyBoard playerBoard;
-	public void setBoard(MonopolyBoard board){
+	protected ArrayList playerBoard;
+	public void setBoard(ArrayList board){
 		playerBoard = board;
 	}
 	public ArrayList<PropertyCard> playerProperties(){
