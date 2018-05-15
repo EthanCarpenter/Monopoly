@@ -34,12 +34,34 @@ public class ParkerStrategy extends MonopolyPlayer{
 	 * The boolean returned determines if the player will try to buy the property or not
 	 */
 	public boolean afterRoll(PropertyCard property){
-		determineMortgage();
-		determineBuyProperty();
+		determineMortgage(property);
+		boolean buy = determineBuyProperty(property);
 		determineTrading();
 	}
-	private void determineMortgage() {
-		if()
-
+	
+	
+	private boolean determineBuyProperty(PropertyCard property){
+		if(money > property.cost())
+			return true;
+		else
+			return false;
+	}
+	private int potentialMortgage(){
+		int mortgageValue = 0;
+		for(PropertyCard property : PlayerMonopolyProperties)
+			mortgageValue = mortgageValue + property.getMortgageValue();
+		return mortgageValue;
+	}
+	/**
+	 * Mortgage property to buy property
+	 */
+	private void determineMortgage(PropertyCard property) {
+		if(!property.owned() && property.cost() > money && property.cost() > money+potentialMortgage()){
+			int counter = 0;
+			while(property.cost() > money){
+				nthCard(counter).mortgage();;
+				counter++;
+			}
+		}
 	}
 }

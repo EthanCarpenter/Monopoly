@@ -23,6 +23,9 @@ public class PropertyCard extends MonopolySlot{
 		//tempOwner = new MonopolyPlayer();
 		setPropertyStats();
 	}
+	public int getMortgageValue(){
+		return mortgage;
+	}
 	public String getColor(){
 		return color;
 	}
@@ -85,11 +88,13 @@ public class PropertyCard extends MonopolySlot{
 			System.out.println("insufficient funds.");
 		}
 	}
-	public void mortgageHouse(){
-		
+	public void mortgage(){
+		isMortgaged = true;
+		owner.addMoney(mortgage);
 	}
-	public void unmortgageHouse(){
-		
+	public void unmortgage(){
+		isMortgaged = false;
+		owner.addMoney(-unmortgage);
 	}
 	public boolean isMortgaged(){
 		return isMortgaged;
