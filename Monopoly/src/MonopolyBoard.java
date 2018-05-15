@@ -63,17 +63,17 @@ public class MonopolyBoard extends JFrame{
 	 * @param tradeeProperty property tradee gives
 	 */
 	public void trading(int traderID, int tradeeID,
-			PropertyCard traderProperty, PropertyCard tradeeProperty){
-		for(int i = 0; i < getPlayers().get(traderID).playerProperties().size(); i++)
-			if(getPlayers().get(traderID).nthCard(i).equals(traderProperty)){
-				getPlayers().get(tradeeID).addCard(getPlayers().get(traderID).nthCard(i));
-				getPlayers().get(traderID).removeCard(getPlayers().get(traderID).nthCard(i));
+	 PropertyCard traderProperty, PropertyCard tradeeProperty){
+		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
+			if(getPlayers().get(traderID-1).nthCard(i).equals(traderProperty)){
+				getPlayers().get(tradeeID-1).addCard(getPlayers().get(traderID-1).nthCard(i));
+				getPlayers().get(traderID-1).removeCard(getPlayers().get(traderID-1).nthCard(i));
 				break;
 			}
-		for(int i = 0; i < getPlayers().get(tradeeID).playerProperties().size(); i++)
-			if(getPlayers().get(tradeeID).nthCard(i).equals(tradeeProperty)){
-				getPlayers().get(traderID).addCard(getPlayers().get(tradeeID).nthCard(i));
-				getPlayers().get(tradeeID).removeCard(getPlayers().get(tradeeID).nthCard(i));
+		for(int i = 0; i < getPlayers().get(tradeeID-1).playerProperties().size(); i++)
+			if(getPlayers().get(tradeeID-1).nthCard(i).equals(tradeeProperty)){
+				getPlayers().get(traderID-1).addCard(getPlayers().get(tradeeID-1).nthCard(i));
+				getPlayers().get(tradeeID-1).removeCard(getPlayers().get(tradeeID-1).nthCard(i));
 				break;
 			}
 	}
