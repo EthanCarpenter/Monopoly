@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+
 public class ParkerStrategy extends MonopolyPlayer{
-	ParkerStrategy(int id) {
+	MonopolyBoard myBoard = null;
+	ParkerStrategy(int id, MonopolyBoard bigBoard) {
 		super(id);
+		myBoard = bigBoard;
 	}
 	/**
 	 * Determines if the strategy should buy houses,
@@ -36,10 +40,24 @@ public class ParkerStrategy extends MonopolyPlayer{
 	public boolean afterRoll(PropertyCard property){
 		determineMortgage(property);
 		boolean buy = determineBuyProperty(property);
+		//Should we be able to buy the property we land on and trade it in the same turn?
 		determineTrading();
+		return buy;
 	}
-	
-	
+	private void determineTrading(){
+		String[] types = {"PURPLE", "LIGHTGREEN", "VIOLET", "ORANGE",
+				"RED", "YELLOW", "DARKGREEN", "DARKBLUE", "UTILITIES", "RAILROAD"};
+		for(int i = 0; i < types.length; i++)
+			if(propertiesNeededForMonopoly(types[i]) == 1){
+				for(MonopolyPlayer player : myBoard.getPlayers()){
+					if(player.playerID != playerID)
+						for(PropertyCard property : player.playerProperties())
+							if(property.getColor().equals(types[i]) && player.tradeableProperty(PlayerMonopolyProperties) != null)
+								myBoard.trading(playerID, player.playerID, 
+										player.tradeableProperty(PlayerMonopolyProperties), property);
+				}
+			}
+	}
 	private boolean determineBuyProperty(PropertyCard property){
 		if(money > property.cost())
 			return true;

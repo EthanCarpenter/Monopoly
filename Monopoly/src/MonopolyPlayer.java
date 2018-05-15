@@ -36,6 +36,19 @@ public class MonopolyPlayer {
 	protected int doubleRolls;
 	protected int numTurnsInJail = 0;
 	protected ArrayList playerBoard;
+	/**
+	 * 
+	 * @param otherProperties properties the player that wants to trade has
+	 * @return the property that can be a mutually beneficial trade
+	 */
+	public PropertyCard tradeableProperty(ArrayList<PropertyCard> otherProperties){
+		for(PropertyCard property : PlayerMonopolyProperties)
+			if(propertiesNeededForMonopoly(property.getColor()) == 1)
+				for(PropertyCard otherProperty : otherProperties)
+					if(property.getColor().equals(otherProperty.getColor()))
+						return otherProperty;
+		return null;
+	}
 	public void setBoard(ArrayList board){
 		playerBoard = board;
 	}

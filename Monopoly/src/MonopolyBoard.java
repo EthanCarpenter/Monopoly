@@ -25,7 +25,7 @@ public class MonopolyBoard extends JFrame{
 	Image purpleSquare;
 	Image redSquare;
 	MonopolyBoard(){
-		players=new ArrayList();
+		setPlayers(new ArrayList());
 		createPlayers();
 		setBoard();
 		ImageIcon a = new ImageIcon("Pictures//americanMonopoly.gif");
@@ -61,12 +61,12 @@ public class MonopolyBoard extends JFrame{
 	 */
 	public void trading(int traderID, int tradeeID,
 			PropertyCard traderProperty, PropertyCard tradeeProperty){
-		for(int i = 0; i < players.get(traderID).playerProperties().size(); i++)
-			if(players.get(traderID).nthCard(i).equals(traderProperty))
-				players.get(traderID).nthCard(i).setOwner(players.get(tradeeID));
-		for(int i = 0; i < players.get(tradeeID).playerProperties().size(); i++)
-			if(players.get(tradeeID).nthCard(i).equals(tradeeProperty))
-				players.get(tradeeID).nthCard(i).setOwner(players.get(traderID));
+		for(int i = 0; i < getPlayers().get(traderID).playerProperties().size(); i++)
+			if(getPlayers().get(traderID).nthCard(i).equals(traderProperty))
+				getPlayers().get(traderID).nthCard(i).setOwner(getPlayers().get(tradeeID));
+		for(int i = 0; i < getPlayers().get(tradeeID).playerProperties().size(); i++)
+			if(getPlayers().get(tradeeID).nthCard(i).equals(tradeeProperty))
+				getPlayers().get(tradeeID).nthCard(i).setOwner(getPlayers().get(traderID));
 	}
 	public ArrayList returnBoard(){
 		return board;
@@ -95,22 +95,22 @@ public class MonopolyBoard extends JFrame{
 		MonopolyPlayer c=new MonopolyPlayer(3);
 		MonopolyPlayer d=new MonopolyPlayer(4);
 		//initializes 4 players
-		players.add(a);
+		getPlayers().add(a);
 		String n = JOptionPane.showInputDialog(
 				"Player 1 enter your name: (Red Piece)");
 		a.setName(n);
 		a.setPieceID(0);
-		players.add(b);
+		getPlayers().add(b);
 		n = JOptionPane.showInputDialog(
 				"Player 2 enter your name: (Green Piece)");
 		b.setName(n);
 		b.setPieceID(1);
-		players.add(c);
+		getPlayers().add(c);
 		n = JOptionPane.showInputDialog(
 				"Player 3 enter your name: (Blue Piece)");
 		c.setName(n);
 		c.setPieceID(2);
-		players.add(d);
+		getPlayers().add(d);
 		n = JOptionPane.showInputDialog(
 				"Player 4 enter your name: (Orange Piece)");
 		d.setName(n);
@@ -202,7 +202,7 @@ public class MonopolyBoard extends JFrame{
 		board.add(luxtax);		//38
 		board.add(boardw);		//39
 		for(int i = 0; i < 4; i++){
-			players.get(i).setBoard(board);
+			getPlayers().get(i).setBoard(board);
 		}
 	}
 	private boolean bankruptcy(){
@@ -214,41 +214,41 @@ public class MonopolyBoard extends JFrame{
 				tracker.playerProperties().get(i).setOwned(false);
 			}
 			System.out.println("Number of properties: "+tracker.numberOfCards());
-			if(tracker.equals(players.get(0))){
+			if(tracker.equals(getPlayers().get(0))){
 				firstX = -1;
 				firstY = -1;
-			}else if(tracker.equals(players.get(1))){
+			}else if(tracker.equals(getPlayers().get(1))){
 				secondX = -1;
 				secondY = -1;
-			}else if(tracker.equals(players.get(2))){
+			}else if(tracker.equals(getPlayers().get(2))){
 				thirdX = -1;
 				thirdY = -1;
-			}else if(tracker.equals(players.get(3))){
+			}else if(tracker.equals(getPlayers().get(3))){
 				fourthX = -1;
 				fourthY = -1;
 			}
 			int playerRem = 0;
-			for(int i = 0; i < players.size(); i++) {
-				if(players.get(i) == tracker) {
+			for(int i = 0; i < getPlayers().size(); i++) {
+				if(getPlayers().get(i) == tracker) {
 					playerRem = i;
 				}
 			}
-			players.remove(playerRem);
+			getPlayers().remove(playerRem);
 			
 			return true;
 		}else
 			return false;
 	}
 	private String setPlayerTracker(){
-		int index=players.size();
+		int index=getPlayers().size();
 		if(playerNum%index==0)
-			tracker=players.get(0);
+			tracker=getPlayers().get(0);
 		else if(playerNum%index==1)
-			tracker=players.get(1);
+			tracker=getPlayers().get(1);
 		else if(playerNum%index==2)
-			tracker=players.get(2);
+			tracker=getPlayers().get(2);
 		else if(playerNum%index==3){
-			tracker=players.get(3);
+			tracker=getPlayers().get(3);
 		}
 		String playerName=tracker.returnName();
 		return playerName;
@@ -257,15 +257,15 @@ public class MonopolyBoard extends JFrame{
 		int bankruptcyCounter=0;
 		String winName = "";
 		for(int i=0;i<4;i++){
-			if(players.get(i).bankruptcy()){
+			if(getPlayers().get(i).bankruptcy()){
 				bankruptcyCounter++;
 			}
 		}
 		if(bankruptcyCounter==3){
-			for(int i=0;i<players.size();i++){
-				if(players.get(i).bankruptcy() == false){
-					winName = players.get(i).returnName();
-					System.out.println(players.get(i).returnName() + " WON THE GAME!!!");
+			for(int i=0;i<getPlayers().size();i++){
+				if(getPlayers().get(i).bankruptcy() == false){
+					winName = getPlayers().get(i).returnName();
+					System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
 				}
 			}
 		}
@@ -278,12 +278,12 @@ public class MonopolyBoard extends JFrame{
 		int numWon = 0;
 		boolean rollDouble;
 		int playerDoubleCounter=0;
-		for(playerNum=0;players.size()>1;playerNum++){
+		for(playerNum=0;getPlayers().size()>1;playerNum++){
 			numBankrupt = 0;
 			iteration = playerNum;
 			String name=setPlayerTracker();
-			for(int i=0; i<players.size();i++){
-				if(players.get(i).bankruptcy() == true){
+			for(int i=0; i<getPlayers().size();i++){
+				if(getPlayers().get(i).bankruptcy() == true){
 					numBankrupt++;
 
 				}
@@ -324,7 +324,7 @@ public class MonopolyBoard extends JFrame{
 						System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
 						//before roll call goes here
 						/***/
-						board.get(tracker.playerPosition()).slotAction(tracker,players,board);
+						board.get(tracker.playerPosition()).slotAction(tracker,getPlayers(),board);
 						/***/
 						if(tracker.getDice1() == tracker.getDice2()){
 							playerDoubleCounter++;
@@ -339,7 +339,7 @@ public class MonopolyBoard extends JFrame{
 					}else if(tracker.isInJail() == true){
 						tracker.setTotalMoves(10);
 						tracker.setPlayerPosition(10);
-						board.get(10).slotAction(tracker, players, board);
+						board.get(10).slotAction(tracker, getPlayers(), board);
 					}
 					bankruptcy();
 
@@ -351,14 +351,14 @@ public class MonopolyBoard extends JFrame{
 					System.out.print("You have landed in jail due to 3 double rolls!");
 					tracker.setJail(true);
 				}
-				for(int i=0;i<players.size();i++){
-					System.out.println(players.get(i).returnName()+"'s balance is: $"+players.get(i).playerMoney());
+				for(int i=0;i<getPlayers().size();i++){
+					System.out.println(getPlayers().get(i).returnName()+"'s balance is: $"+getPlayers().get(i).playerMoney());
 				}
 				tracker.setDoubleRoll(0);
 				playerDoubleCounter=0;
 				//System.out.println(tracker+"TRRRRRRRRRRRRAAAAAAAAAAAAACKKKKKKKKKKKKKKKKKK");
 				infoPanel.updatePanel(tracker, playerNum);
-				infoPanel.updateInfo(players);
+				infoPanel.updateInfo(getPlayers());
 				System.out.println(tracker.returnName()+"'s turn is complete!");
 			}
 			/*
@@ -371,11 +371,11 @@ public class MonopolyBoard extends JFrame{
 			}
 			 */
 		}
-		System.out.println(players.get(0).returnName()+" won!");
+		System.out.println(getPlayers().get(0).returnName()+" won!");
 	}
 	public int numPropertiesOwned(){
 		int numOwned = 0;
-		for(MonopolyPlayer player : players)
+		for(MonopolyPlayer player : getPlayers())
 			numOwned = numOwned + player.numberOfCards();
 		return numOwned;
 	}
@@ -884,8 +884,11 @@ public class MonopolyBoard extends JFrame{
 	}
 	public static void main(String[] args){
 		MonopolyBoard a=new MonopolyBoard();
-		infoPanel = new PlayerInfoPanel(players);
+		infoPanel = new PlayerInfoPanel(getPlayers());
 
 		a.playMonopoly();
+	}
+	public static ArrayList<MonopolyPlayer> getPlayers() {
+		return players;
 	}
 }
