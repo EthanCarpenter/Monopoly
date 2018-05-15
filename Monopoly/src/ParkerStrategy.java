@@ -1,6 +1,10 @@
+import java.util.ArrayList;
+
 public class ParkerStrategy extends MonopolyPlayer{
-	ParkerStrategy(int id) {
+	MonopolyBoard myBoard = null;
+	ParkerStrategy(int id, MonopolyBoard bigBoard) {
 		super(id);
+		myBoard = bigBoard;
 	}
 	/**
 	 * Determines if the strategy should buy houses,
@@ -33,13 +37,35 @@ public class ParkerStrategy extends MonopolyPlayer{
 	 * buy properties, mortgage
 	 * The boolean returned determines if the player will try to buy the property or not
 	 */
-	public boolean afterRoll(PropertyCard property){
-		determineMortgage(property);
-		boolean buy = determineBuyProperty(property);
+	public boolean afterRoll(MonopolySlot slot){
+		PropertyCard property;
+		if(slot instanceof PropertyCard){
+			property = (PropertyCard) slot;
+			determineMortgage(property);
+			boolean buy = determineBuyProperty(property);
+			return buy;
+		}
+		//Should we be able to buy the property we land on and trade it in the same turn?
 		determineTrading();
+		return false;
 	}
-	
-	
+	private void determineTrading(){
+		String[] types = {"PURPLE", "LIGHTGREEN", "VIOLET", "ORANGE",
+				"RED", "YELLOW", "DARKGREEN", "DARKBLUE", "UTILITIES", "RAILROAD"};
+		for(int i = 0; i < types.length; i++)
+			if(propertiesNeededForMonopoly(types[i]) == 1){
+				for(MonopolyPlayer player : myBoard.getPlayers()){
+					if(player.playerID != playerID)
+						//CHANGE THIS. THROWS EXCEPTION BECAUDSE IT IS BEING ITERATED WHILE BEING MODIFIED
+						for(PropertyCard property : player.playerProperties())
+							if(property.getColor().equals(types[i]) /*&& player.tradeableProperty(PlayerMonopolyProperties) != null*/){
+//System.out.println("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+								myBoard.trading(playerID, player.playerID, 
+										player.tradeableProperty(PlayerMonopolyProperties), property);
+							}
+				}
+			}
+	}
 	private boolean determineBuyProperty(PropertyCard property){
 		if(money > property.cost())
 			return true;
