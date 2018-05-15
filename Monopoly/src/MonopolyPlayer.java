@@ -88,14 +88,16 @@ public class MonopolyPlayer {
 	public int propertiesNeededForMonopoly(String color){
 		int propertiesOwned = 0, total = numType(color);
 		for(PropertyCard property : PlayerMonopolyProperties)
-			if(color.equals(property.name()))
+			if(color.equals(property.getColor()))
 				propertiesOwned++;
+			System.out.println(color+ (total - propertiesOwned));
+		
 		return total - propertiesOwned;
 	}
 	public void beforeRoll(){
 
 	}
-	public boolean afterRoll(PropertyCard card){
+	public boolean afterRoll(MonopolySlot monopolySlot){
 		/*boolean check=true;
 		boolean returnBool=true;
 
@@ -167,7 +169,7 @@ public class MonopolyPlayer {
 	public int rollDice(){
 		String playerResponse;
 		playerResponse=JOptionPane.showInputDialog(name+". "+"Type anything to roll");
-		System.out.println(name+"'s response: "+playerResponse);
+		//System.out.println(name+"'s response: "+playerResponse);
 		dice1=(int)(Math.random() * ((6 - 1) + 1)) + 1;
 		dice2=(int)(Math.random() * ((6 - 1) + 1)) + 1;
 		dicetotal=dice1+dice2;
@@ -208,7 +210,7 @@ public class MonopolyPlayer {
 	public void print(){
 		for(Object PlayingCard: PlayerMonopolyProperties){
 			String s=PlayingCard.toString();
-			System.out.println(s);
+			//System.out.println(s);
 		}
 	}
 	public void setName(String n){
@@ -247,7 +249,7 @@ public class MonopolyPlayer {
 	}
 	public void jail(){
 		if(jail == true){
-			System.out.print(name+" is in jail!");
+			//System.out.print(name+" is in jail!");
 			if(getOutOfJailFree>0){
 				boolean bool=playerConfirm(name+", would you like to use your Get out of Jail Free Card?");
 				if(bool){
@@ -295,7 +297,7 @@ public class MonopolyPlayer {
 		revolutions = setRev;
 	}
 	public void passGo(){
-		System.out.println("You have passed go. Collected $200.");
+		//System.out.println("You have passed go. Collected $200.");
 		addMoney(200);
 	}
 	public int numPurple(){
@@ -357,5 +359,8 @@ public class MonopolyPlayer {
 	}
 	public void addRails(){
 		numRailroads++;
+	}
+	public void removeCard(PropertyCard card) {
+		PlayerMonopolyProperties.remove(card);
 	}
 }

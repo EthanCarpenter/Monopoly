@@ -52,21 +52,30 @@ public class MonopolyBoard extends JFrame{
 		fourthX = 570;
 		fourthY = 630;
 	}
+	private void setPlayers(ArrayList arrayList) {
+		players = arrayList;
+	}
 	/**
 	 * Swaps the ownership of the properties
 	 * @param trader
 	 * @param tradee
-	 * @param traderProperty
-	 * @param tradeeProperty
+	 * @param traderProperty property trader gives
+	 * @param tradeeProperty property tradee gives
 	 */
 	public void trading(int traderID, int tradeeID,
 			PropertyCard traderProperty, PropertyCard tradeeProperty){
 		for(int i = 0; i < getPlayers().get(traderID).playerProperties().size(); i++)
-			if(getPlayers().get(traderID).nthCard(i).equals(traderProperty))
-				getPlayers().get(traderID).nthCard(i).setOwner(getPlayers().get(tradeeID));
+			if(getPlayers().get(traderID).nthCard(i).equals(traderProperty)){
+				getPlayers().get(tradeeID).addCard(getPlayers().get(traderID).nthCard(i));
+				getPlayers().get(traderID).removeCard(getPlayers().get(traderID).nthCard(i));
+				break;
+			}
 		for(int i = 0; i < getPlayers().get(tradeeID).playerProperties().size(); i++)
-			if(getPlayers().get(tradeeID).nthCard(i).equals(tradeeProperty))
-				getPlayers().get(tradeeID).nthCard(i).setOwner(getPlayers().get(traderID));
+			if(getPlayers().get(tradeeID).nthCard(i).equals(tradeeProperty)){
+				getPlayers().get(traderID).addCard(getPlayers().get(tradeeID).nthCard(i));
+				getPlayers().get(tradeeID).removeCard(getPlayers().get(tradeeID).nthCard(i));
+				break;
+			}
 	}
 	public ArrayList returnBoard(){
 		return board;
@@ -90,10 +99,10 @@ public class MonopolyBoard extends JFrame{
 		repaint();
 	}
 	private void createPlayers(){
-		MonopolyPlayer a=new MonopolyPlayer(1);
-		MonopolyPlayer b=new MonopolyPlayer(2);
-		MonopolyPlayer c=new MonopolyPlayer(3);
-		MonopolyPlayer d=new MonopolyPlayer(4);
+		MonopolyPlayer a=new ParkerStrategy(1, this);
+		MonopolyPlayer b=new ParkerStrategy(2, this);
+		MonopolyPlayer c=new ParkerStrategy(3, this);
+		MonopolyPlayer d=new ParkerStrategy(4, this);
 		//initializes 4 players
 		getPlayers().add(a);
 		String n = JOptionPane.showInputDialog(
@@ -209,11 +218,11 @@ public class MonopolyBoard extends JFrame{
 		int num=tracker.playerID();
 		if(tracker.bankruptcy()){
 			//players.remove(tracker.playerID());
-			System.out.println(tracker.returnName()+" has gone bankrupt!");
+			//System.out.println(tracker.returnName()+" has gone bankrupt!");
 			for(int i=0;i<tracker.playerProperties().size();i++){
 				tracker.playerProperties().get(i).setOwned(false);
 			}
-			System.out.println("Number of properties: "+tracker.numberOfCards());
+			//System.out.println("Number of properties: "+tracker.numberOfCards());
 			if(tracker.equals(getPlayers().get(0))){
 				firstX = -1;
 				firstY = -1;
@@ -234,7 +243,7 @@ public class MonopolyBoard extends JFrame{
 				}
 			}
 			getPlayers().remove(playerRem);
-			
+
 			return true;
 		}else
 			return false;
@@ -265,7 +274,7 @@ public class MonopolyBoard extends JFrame{
 			for(int i=0;i<getPlayers().size();i++){
 				if(getPlayers().get(i).bankruptcy() == false){
 					winName = getPlayers().get(i).returnName();
-					System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
+					//System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
 				}
 			}
 		}
@@ -312,8 +321,8 @@ public class MonopolyBoard extends JFrame{
 						}
 						//tracker.subtractMoney(50);
 					}
-					System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
-					+" for a total of "+dice+".");
+					//System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
+					//+" for a total of "+dice+".");
 					rollDouble=tracker.playerDoubleRoll();
 
 					if(tracker.isInJail() == false && tracker.playerMoney()>0){
@@ -321,15 +330,15 @@ public class MonopolyBoard extends JFrame{
 						totalMoves= tracker.returnMoves();
 						tracker.setPlayerPosition(tracker.playerPosition()+dice);
 						movement();
-						System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
-						//before roll call goes here
+						//System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
 						/***/
+						tracker.afterRoll(board.get(tracker.playerPosition()));
 						board.get(tracker.playerPosition()).slotAction(tracker,getPlayers(),board);
 						/***/
 						if(tracker.getDice1() == tracker.getDice2()){
 							playerDoubleCounter++;
 						}
-						
+
 						if(totalMoves >= 40){
 							tracker.setTotalMoves(totalMoves - 40);
 							tracker.passGo();
@@ -348,11 +357,11 @@ public class MonopolyBoard extends JFrame{
 				if(playerDoubleCounter==3){
 					tracker.setTotalMoves(10);
 					movement();
-					System.out.print("You have landed in jail due to 3 double rolls!");
+					//System.out.print("You have landed in jail due to 3 double rolls!");
 					tracker.setJail(true);
 				}
 				for(int i=0;i<getPlayers().size();i++){
-					System.out.println(getPlayers().get(i).returnName()+"'s balance is: $"+getPlayers().get(i).playerMoney());
+					//System.out.println(getPlayers().get(i).returnName()+"'s balance is: $"+getPlayers().get(i).playerMoney());
 				}
 				tracker.setDoubleRoll(0);
 				playerDoubleCounter=0;
