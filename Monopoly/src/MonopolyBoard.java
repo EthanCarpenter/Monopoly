@@ -315,7 +315,7 @@ public class MonopolyBoard extends JFrame{
 					numWon++;
 					
 					//playerNum = 0;
-				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=10 && numWon == 0) {
+				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=1000 && numWon == 0) {
 					winner();
 					numWon++;
 				}
