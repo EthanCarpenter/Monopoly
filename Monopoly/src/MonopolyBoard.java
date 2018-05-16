@@ -262,6 +262,35 @@ public class MonopolyBoard extends JFrame{
 		String playerName=tracker.returnName();
 		return playerName;
 	}
+	public MonopolyPlayer playerWinner() {
+		int bankruptcyCounter=0;
+		MonopolyPlayer winName = null;
+		int maxMoney = 0;
+		int winIndex = 0;
+		for(int i=0;i<4;i++){
+			if(getPlayers().get(i).bankruptcy()){
+				bankruptcyCounter++;
+			}
+		}
+		if(bankruptcyCounter==3){
+			for(int i=0;i<getPlayers().size();i++){
+				if(getPlayers().get(i).bankruptcy() == false){
+					winName = getPlayers().get(i);
+					//System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
+				}
+			}
+		}else {
+			for(int i = 0; i < getPlayers().size(); i++) {
+				if(getPlayers().get(i).playerMoney() > maxMoney) {
+					maxMoney = getPlayers().get(i).playerMoney();
+					winName = getPlayers().get(i);
+					winIndex = i;
+				}
+			}
+			//System.out.println(getPlayers().get(winIndex).returnName() + " WON THE GAME!!!");
+		}
+		return winName;
+	}
 	public String winner(){
 		int bankruptcyCounter=0;
 		String winName = "";
