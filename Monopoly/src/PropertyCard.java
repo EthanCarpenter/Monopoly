@@ -23,6 +23,9 @@ public class PropertyCard extends MonopolySlot{
 		//tempOwner = new MonopolyPlayer();
 		setPropertyStats();
 	}
+	public int getNumHouses(){
+		return numHouses();
+	}
 	public int getMortgageValue(){
 		return mortgage;
 	}
@@ -40,12 +43,13 @@ public class PropertyCard extends MonopolySlot{
 		owned=bool;
 	}
 	public void buyHouse(){
-		if(ableToBuyHouses && owner.playerMoney()>=
-				new House(name, numHouses).getPrice()){
+		if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice() &&
+				numHouses<=4 && !color.equals("UTILITIES") && !color.equals("RAILROAD")){
 			houseRent = new House(name, numHouses).getRent();
 			if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice()){
 				rent = rent + new House(name, numHouses).getRent();
 				numHouses ++;
+				houses[numHouses] = ;
 			}
 		}
 	}
@@ -351,9 +355,9 @@ public class PropertyCard extends MonopolySlot{
 		return ableToBuyHouses;
 	}
 	public void giveAndTake(MonopolyPlayer a){
-		System.out.println(owner);
+		//System.out.println(owner);
 		//int totalDice = a.getDice1() + a.getDice2();
-		System.out.println(owner+"8==========================D~~~~~");
+		//System.out.println(owner+"8==========================D~~~~~");
 		String type = typetoString();
 		int totalDice = a.getDice1() + a.getDice2(), purpleRent = owner.numPurple(), lightGreenRent = owner.numLightGreen(), violetRent = owner.numViolet(), orangeRent = owner.numOrange(), redRent = owner.numRed(), yellowRent = owner.numYellow(), darkGreenRent = owner.numDarkGreen(), darkBlueRent = owner.numDarkBlue(), utilitiesRent = owner.numUtilities(), railRent = owner.numRails(), modRent = 0;
 		if(type.equals("PURPLE")){

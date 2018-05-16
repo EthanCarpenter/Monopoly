@@ -90,7 +90,7 @@ public class MonopolyPlayer {
 		for(PropertyCard property : PlayerMonopolyProperties)
 			if(color.equals(property.getColor()))
 				propertiesOwned++;
-			System.out.println(color+ (total - propertiesOwned));
+			//System.out.println(color+ (total - propertiesOwned));
 		
 		return total - propertiesOwned;
 	}

@@ -63,7 +63,7 @@ public class MonopolyBoard extends JFrame{
 	 * @param tradeeProperty property tradee gives
 	 */
 	public void trading(int traderID, int tradeeID,
-	 PropertyCard traderProperty, PropertyCard tradeeProperty){
+			PropertyCard traderProperty, PropertyCard tradeeProperty){
 		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
 			if(getPlayers().get(traderID-1).nthCard(i).equals(traderProperty)){
 				getPlayers().get(tradeeID-1).addCard(getPlayers().get(traderID-1).nthCard(i));
@@ -76,6 +76,12 @@ public class MonopolyBoard extends JFrame{
 				getPlayers().get(tradeeID-1).removeCard(getPlayers().get(tradeeID-1).nthCard(i));
 				break;
 			}
+		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
+			if(getPlayers().get(traderID-1).propertiesNeededForMonopoly(getPlayers().get(traderID-1).PlayerMonopolyProperties.get(i).getColor()) == 0)
+				getPlayers().get(traderID-1).PlayerMonopolyProperties.get(i).setAbleToBuyHouses(true);
+		for(int i = 0; i < getPlayers().get(tradeeID-1).playerProperties().size(); i++)
+			if(getPlayers().get(tradeeID-1).propertiesNeededForMonopoly(getPlayers().get(tradeeID-1).PlayerMonopolyProperties.get(i).getColor()) == 0)
+				getPlayers().get(tradeeID-1).PlayerMonopolyProperties.get(i).setAbleToBuyHouses(true);
 	}
 	public ArrayList returnBoard(){
 		return board;
