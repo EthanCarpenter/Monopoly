@@ -23,6 +23,9 @@ public class PropertyCard extends MonopolySlot{
 		//tempOwner = new MonopolyPlayer();
 		setPropertyStats();
 	}
+	public int getNumHouses(){
+		return numHouses();
+	}
 	public int getMortgageValue(){
 		return mortgage;
 	}
@@ -40,12 +43,13 @@ public class PropertyCard extends MonopolySlot{
 		owned=bool;
 	}
 	public void buyHouse(){
-		if(ableToBuyHouses && owner.playerMoney()>=
-				new House(name, numHouses).getPrice()){
+		if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice() &&
+				numHouses<4 && !color.equals("UTILITIES") && !color.equals("RAILROAD")){
 			houseRent = new House(name, numHouses).getRent();
 			if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice()){
 				rent = rent + new House(name, numHouses).getRent();
 				numHouses ++;
+				houses[numHouses] = new House(name, numHouses);
 			}
 		}
 	}
@@ -351,9 +355,9 @@ public class PropertyCard extends MonopolySlot{
 		return ableToBuyHouses;
 	}
 	public void giveAndTake(MonopolyPlayer a){
-		System.out.println(owner);
+		//System.out.println(owner);
 		//int totalDice = a.getDice1() + a.getDice2();
-		System.out.println(owner+"8==========================D~~~~~");
+		//System.out.println(owner+"8==========================D~~~~~");
 		String type = typetoString();
 		int totalDice = a.getDice1() + a.getDice2(), purpleRent = owner.numPurple(), lightGreenRent = owner.numLightGreen(), violetRent = owner.numViolet(), orangeRent = owner.numOrange(), redRent = owner.numRed(), yellowRent = owner.numYellow(), darkGreenRent = owner.numDarkGreen(), darkBlueRent = owner.numDarkBlue(), utilitiesRent = owner.numUtilities(), railRent = owner.numRails(), modRent = 0;
 		if(type.equals("PURPLE")){
@@ -364,7 +368,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("LIGHTGREEN")){
@@ -375,7 +379,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("VIOLET")){
@@ -386,7 +390,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("ORANGE")){
@@ -397,7 +401,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("RED")){
@@ -408,7 +412,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("YELLOW")){
@@ -421,7 +425,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("DARKGREEN")){
@@ -432,7 +436,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("DARKBLUE")){
@@ -443,7 +447,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 				
 			}
 		}
@@ -468,5 +472,8 @@ public class PropertyCard extends MonopolySlot{
 		System.out.println(a.returnName()+" has paid $"+modRent+" to "+owner.returnName());
 		a.subtractMoney(modRent);
 		owner.addMoney(modRent);
+	}
+	public void setNumHouses(int i) {
+		numHouses = i;
 	}
 }

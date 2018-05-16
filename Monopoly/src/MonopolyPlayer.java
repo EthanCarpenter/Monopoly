@@ -36,7 +36,10 @@ public class MonopolyPlayer {
 	protected int doubleRolls;
 	protected int numTurnsInJail = 0;
 	protected ArrayList playerBoard;
+<<<<<<< HEAD
 	protected int numTurns = 0;
+=======
+>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	/**
 	 * 
 	 * @param otherProperties properties the player that wants to trade has
@@ -91,9 +94,15 @@ public class MonopolyPlayer {
 		for(PropertyCard property : PlayerMonopolyProperties)
 			if(color.equals(property.getColor()))
 				propertiesOwned++;
+<<<<<<< HEAD
 			System.out.println(color+ (total - propertiesOwned));
 		
 		return total - propertiesOwned;
+=======
+			//System.out.println(color+ (total - propertiesOwned));
+		
+		return total - propertiesOwned;
+>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	}
 	public void beforeRoll(){
 
@@ -365,7 +374,10 @@ public class MonopolyPlayer {
 	public void removeCard(PropertyCard card) {
 		PlayerMonopolyProperties.remove(card);
 	}
+<<<<<<< HEAD
 	public int numTurns() {
 		return numTurns;
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 }

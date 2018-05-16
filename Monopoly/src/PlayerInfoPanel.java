@@ -41,7 +41,7 @@ public class PlayerInfoPanel {
 		panel.add(new JLabel("Money: " + player.playerMoney()));
 		panel.add(new JLabel("Properties Owned: "));
 		for(int i = 0; i < player.numberOfCards(); i++)
-			panel.add(new JLabel(player.nthCard(i).name() +"("+(player.nthCard(i).getColor())+")"));
+			panel.add(new JLabel(player.nthCard(i).name() +"("+(player.nthCard(i).getColor())+"), Houses: "+ (player.nthCard(i).getNumHouses()+1)));
 		return panel;
 	}
 }
