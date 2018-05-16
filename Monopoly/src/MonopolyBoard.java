@@ -64,16 +64,16 @@ public class MonopolyBoard extends JFrame{
 	 */
 	public void trading(int traderID, int tradeeID,
 	 PropertyCard traderProperty, PropertyCard tradeeProperty){
-		for(int i = 0; i < getPlayers().get(traderID).playerProperties().size(); i++)
-			if(getPlayers().get(traderID).nthCard(i).equals(traderProperty)){
-				getPlayers().get(tradeeID).addCard(getPlayers().get(traderID).nthCard(i));
-				getPlayers().get(traderID).removeCard(getPlayers().get(traderID).nthCard(i));
+		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
+			if(getPlayers().get(traderID-1).nthCard(i).equals(traderProperty)){
+				getPlayers().get(tradeeID-1).addCard(getPlayers().get(traderID-1).nthCard(i));
+				getPlayers().get(traderID-1).removeCard(getPlayers().get(traderID-1).nthCard(i));
 				break;
 			}
-		for(int i = 0; i < getPlayers().get(tradeeID).playerProperties().size(); i++)
-			if(getPlayers().get(tradeeID).nthCard(i).equals(tradeeProperty)){
-				getPlayers().get(traderID).addCard(getPlayers().get(tradeeID).nthCard(i));
-				getPlayers().get(tradeeID).removeCard(getPlayers().get(tradeeID).nthCard(i));
+		for(int i = 0; i < getPlayers().get(tradeeID-1).playerProperties().size(); i++)
+			if(getPlayers().get(tradeeID-1).nthCard(i).equals(tradeeProperty)){
+				getPlayers().get(traderID-1).addCard(getPlayers().get(tradeeID-1).nthCard(i));
+				getPlayers().get(tradeeID-1).removeCard(getPlayers().get(tradeeID-1).nthCard(i));
 				break;
 			}
 	}
@@ -265,6 +265,8 @@ public class MonopolyBoard extends JFrame{
 	public String winner(){
 		int bankruptcyCounter=0;
 		String winName = "";
+		int maxMoney = 0;
+		int winIndex = 0;
 		for(int i=0;i<4;i++){
 			if(getPlayers().get(i).bankruptcy()){
 				bankruptcyCounter++;
@@ -274,9 +276,18 @@ public class MonopolyBoard extends JFrame{
 			for(int i=0;i<getPlayers().size();i++){
 				if(getPlayers().get(i).bankruptcy() == false){
 					winName = getPlayers().get(i).returnName();
-					//System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
+					System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
 				}
 			}
+		}else {
+			for(int i = 0; i < getPlayers().size(); i++) {
+				if(getPlayers().get(i).playerMoney() > maxMoney) {
+					maxMoney = getPlayers().get(i).playerMoney();
+					winName = getPlayers().get(i).returnName();
+					winIndex = i;
+				}
+			}
+			System.out.println(getPlayers().get(winIndex).returnName() + " WON THE GAME!!!");
 		}
 		return winName;
 	}
@@ -287,6 +298,7 @@ public class MonopolyBoard extends JFrame{
 		int numWon = 0;
 		boolean rollDouble;
 		int playerDoubleCounter=0;
+		int lastPlayerIndex;
 		for(playerNum=0;getPlayers().size()>1;playerNum++){
 			numBankrupt = 0;
 			iteration = playerNum;
@@ -297,14 +309,22 @@ public class MonopolyBoard extends JFrame{
 
 				}
 				//System.out.println("NUM BANKRUPT" + numBankrupt);
+				lastPlayerIndex = getPlayers().size()-1;
 				if(numBankrupt == 3 && numWon == 0){
 					winner();
 					numWon++;
+					
 					//playerNum = 0;
+				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=10 && numWon == 0) {
+					winner();
+					numWon++;
 				}
 
 			}
-			if(!tracker.bankruptcy() && numBankrupt < 3){
+			if(numWon > 0) {
+				break;
+			}
+			if(!tracker.bankruptcy() && numWon == 0){
 				do{
 
 					//System.out.println("It is "+name+"'s turn!");
@@ -380,7 +400,7 @@ public class MonopolyBoard extends JFrame{
 			}
 			 */
 		}
-		System.out.println(getPlayers().get(0).returnName()+" won!");
+		//System.out.println(getPlayers().get(0).returnName()+" won!");
 	}
 	public int numPropertiesOwned(){
 		int numOwned = 0;
@@ -851,7 +871,7 @@ public class MonopolyBoard extends JFrame{
 				fourthY = 80;
 			}else if(totalMoves == 28){
 				fourthX = 445;
-				fourthY = 80; 
+				fourthY = 80;
 			}else if(totalMoves == 29){
 				fourthX = 495;
 				fourthY = 80;

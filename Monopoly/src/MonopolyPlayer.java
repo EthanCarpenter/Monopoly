@@ -36,6 +36,7 @@ public class MonopolyPlayer {
 	protected int doubleRolls;
 	protected int numTurnsInJail = 0;
 	protected ArrayList playerBoard;
+	protected int numTurns = 0;
 	/**
 	 * 
 	 * @param otherProperties properties the player that wants to trade has
@@ -173,6 +174,7 @@ public class MonopolyPlayer {
 		dice1=(int)(Math.random() * ((6 - 1) + 1)) + 1;
 		dice2=(int)(Math.random() * ((6 - 1) + 1)) + 1;
 		dicetotal=dice1+dice2;
+		numTurns++;
 		return dicetotal;
 	}
 	public int getDice1(){
@@ -362,5 +364,8 @@ public class MonopolyPlayer {
 	}
 	public void removeCard(PropertyCard card) {
 		PlayerMonopolyProperties.remove(card);
+	}
+	public int numTurns() {
+		return numTurns;
 	}
 }
