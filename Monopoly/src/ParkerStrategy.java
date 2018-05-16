@@ -58,22 +58,21 @@ public class ParkerStrategy extends MonopolyPlayer{
 		PropertyCard chosenTraderProperty = null;
 		PropertyCard chosenTradeeProperty = null;
 		
-		for(int i = 0; i < types.length; i++)
+		for(int i = 0; i < types.length; i++){
 			if(propertiesNeededForMonopoly(types[i]) == 1){
 				for(MonopolyPlayer player : myBoard.getPlayers()){
 					if(player.playerID != playerID)
+//<<<<<<< HEAD
 						//CHANGE THIS. THROWS EXCEPTION BECAUDSE IT IS BEING ITERATED WHILE BEING MODIFIED
-						for(PropertyCard property : player.playerProperties()) {
-							if(property.getColor().equals(types[i])){
-//								myBoard.trading(playerID, player.playerID, 
-//										player.tradeableProperty(PlayerMonopolyProperties), property);
-								shouldTrade = true;
-								chosenTraderID = playerID;
-								chosenTradeeID = player.playerID;
-								chosenTraderProperty = player.tradeableProperty(PlayerMonopolyProperties);
-								chosenTradeeProperty = property;
+//=======					}
+						//CHANGE THIS. THROWS EXCEPTION BECAUSE IT IS BEING ITERATED WHILE BEING MODIFIED
+						for(PropertyCard property1 : player.playerProperties())
+							if(property1.getColor().equals(types[i]) && player.tradeableProperty(PlayerMonopolyProperties) != null){
+								myBoard.trading(playerID, player.playerID, 
+										player.tradeableProperty(PlayerMonopolyProperties), property1);
+								break;
+//>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 							}
-						}
 					System.out.println("chosenTraderID: " + chosenTraderID);
 					System.out.println("chosenTradeeID: " + chosenTradeeID);
 					if(shouldTrade){
@@ -81,6 +80,7 @@ public class ParkerStrategy extends MonopolyPlayer{
 					}
 				}
 			}
+		}
 	}
 	private boolean determineBuyProperty(PropertyCard property){
 		if(money > property.cost())
