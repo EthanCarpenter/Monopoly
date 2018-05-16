@@ -44,12 +44,12 @@ public class PropertyCard extends MonopolySlot{
 	}
 	public void buyHouse(){
 		if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice() &&
-				numHouses<=4 && !color.equals("UTILITIES") && !color.equals("RAILROAD")){
+				numHouses<4 && !color.equals("UTILITIES") && !color.equals("RAILROAD")){
 			houseRent = new House(name, numHouses).getRent();
 			if(ableToBuyHouses && owner.playerMoney()>=new House(name, numHouses).getPrice()){
 				rent = rent + new House(name, numHouses).getRent();
 				numHouses ++;
-				houses[numHouses] = ;
+				houses[numHouses] = new House(name, numHouses);
 			}
 		}
 	}
@@ -368,7 +368,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("LIGHTGREEN")){
@@ -379,7 +379,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("VIOLET")){
@@ -390,7 +390,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("ORANGE")){
@@ -401,7 +401,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("RED")){
@@ -412,7 +412,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("YELLOW")){
@@ -425,7 +425,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("DARKGREEN")){
@@ -436,7 +436,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 			}
 		}
 		if(type.equals("DARKBLUE")){
@@ -447,7 +447,7 @@ public class PropertyCard extends MonopolySlot{
 						if(numHouses == -1)
 							modRent = rent * 2;
 						else
-							modRent = rent * 2 + (houses[numHouses].getRent());
+							modRent = (houses[numHouses].getRent());
 				
 			}
 		}
@@ -472,5 +472,8 @@ public class PropertyCard extends MonopolySlot{
 		System.out.println(a.returnName()+" has paid $"+modRent+" to "+owner.returnName());
 		a.subtractMoney(modRent);
 		owner.addMoney(modRent);
+	}
+	public void setNumHouses(int i) {
+		numHouses = i;
 	}
 }

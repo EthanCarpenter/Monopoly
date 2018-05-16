@@ -226,6 +226,9 @@ public class MonopolyBoard extends JFrame{
 			//players.remove(tracker.playerID());
 			//System.out.println(tracker.returnName()+" has gone bankrupt!");
 			for(int i=0;i<tracker.playerProperties().size();i++){
+				for(int j = 0; j<tracker.playerProperties().get(i).getNumHouses();j++)
+					tracker.playerProperties().get(i).sellHouse();
+				tracker.playerProperties().get(i).setNumHouses(-1);
 				tracker.playerProperties().get(i).setOwned(false);
 			}
 			//System.out.println("Number of properties: "+tracker.numberOfCards());
