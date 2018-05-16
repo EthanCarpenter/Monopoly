@@ -64,16 +64,16 @@ public class MonopolyBoard extends JFrame{
 	 */
 	public void trading(int traderID, int tradeeID,
 	 PropertyCard traderProperty, PropertyCard tradeeProperty){
-		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
-			if(getPlayers().get(traderID-1).nthCard(i).equals(traderProperty)){
-				getPlayers().get(tradeeID-1).addCard(getPlayers().get(traderID-1).nthCard(i));
-				getPlayers().get(traderID-1).removeCard(getPlayers().get(traderID-1).nthCard(i));
+		for(int i = 0; i < getPlayers().get(traderID).playerProperties().size(); i++)
+			if(getPlayers().get(traderID).nthCard(i).equals(traderProperty)){
+				getPlayers().get(tradeeID).addCard(getPlayers().get(traderID).nthCard(i));
+				getPlayers().get(traderID).removeCard(getPlayers().get(traderID).nthCard(i));
 				break;
 			}
 		for(int i = 0; i < getPlayers().get(tradeeID-1).playerProperties().size(); i++)
-			if(getPlayers().get(tradeeID-1).nthCard(i).equals(tradeeProperty)){
-				getPlayers().get(traderID-1).addCard(getPlayers().get(tradeeID-1).nthCard(i));
-				getPlayers().get(tradeeID-1).removeCard(getPlayers().get(tradeeID-1).nthCard(i));
+			if(getPlayers().get(tradeeID).nthCard(i).equals(tradeeProperty)){
+				getPlayers().get(traderID).addCard(getPlayers().get(tradeeID).nthCard(i));
+				getPlayers().get(tradeeID).removeCard(getPlayers().get(tradeeID).nthCard(i));
 				break;
 			}
 	}
@@ -851,7 +851,7 @@ public class MonopolyBoard extends JFrame{
 				fourthY = 80;
 			}else if(totalMoves == 28){
 				fourthX = 445;
-				fourthY = 80;
+				fourthY = 80; 
 			}else if(totalMoves == 29){
 				fourthX = 495;
 				fourthY = 80;
