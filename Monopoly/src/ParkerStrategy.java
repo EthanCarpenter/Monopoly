@@ -56,12 +56,12 @@ public class ParkerStrategy extends MonopolyPlayer{
 			if(propertiesNeededForMonopoly(types[i]) == 1){
 				for(MonopolyPlayer player : myBoard.getPlayers()){
 					if(player.playerID != playerID)
-						//CHANGE THIS. THROWS EXCEPTION BECAUDSE IT IS BEING ITERATED WHILE BEING MODIFIED
+						//CHANGE THIS. THROWS EXCEPTION BECAUSE IT IS BEING ITERATED WHILE BEING MODIFIED
 						for(PropertyCard property : player.playerProperties())
-							if(property.getColor().equals(types[i]) /*&& player.tradeableProperty(PlayerMonopolyProperties) != null*/){
-//System.out.println("NOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+							if(property.getColor().equals(types[i]) && player.tradeableProperty(PlayerMonopolyProperties) != null){
 								myBoard.trading(playerID, player.playerID, 
 										player.tradeableProperty(PlayerMonopolyProperties), property);
+								break;
 							}
 				}
 			}
