@@ -3,6 +3,7 @@ Mortgage properties
 Trading
 Bankrupt Players don't dissapear when they go bankrupt on the jail tile
 Make houses and hotels appear on the board
+Add tradeValues for utilities and railroads
 
 Done:
 Once a Monopoly player is bankrupt their properties still think their the owner
@@ -15,11 +16,12 @@ Three houses is the most profitable
 
 Group   Probablity   Income   Cost   Value
 Orange  2.88         4.20     3.48   3.48
+Rail    2.87
 Red     2.67         5.31     4.83   2.94
 Yellow  2.20         6.05     5.12   2.60
-Purple  2.04         3.46     3.19   2.21
+Violet  2.04         3.46     3.19   2.21
 Green   1.96         6.91     6.48   2.10
 D Blue  1.03         9.26     4.64   2.05
 L Blue  1.70         2.07     1.83   1.92
-Violet  1.00         1.00     1.00   1.00
+Purple  1.00         1.00     1.00   1.00
 value = probability x income / cost
