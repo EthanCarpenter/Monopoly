@@ -6,7 +6,6 @@ import java.util.ArrayList;
  */
 public class PropertyCard extends MonopolySlot{
 	private int cost, rent, houseRent, propertytype, mortgage, unmortgage;
-	private double tradeValue;
 	private boolean owned=false;
 	private String name, color;
 	private MonopolyPlayer owner;
@@ -23,9 +22,6 @@ public class PropertyCard extends MonopolySlot{
 		name=property;
 		//tempOwner = new MonopolyPlayer();
 		setPropertyStats();
-	}
-	public double gettradeValue(){
-		return tradeValue;
 	}
 	public int getMortgageValue(){
 		return mortgage;
@@ -160,7 +156,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "PURPLE";
-			tradeValue = 1;
 		}else if(name.equals("Baltic Ave.")){
 			cost=60;
 			rent=4;
@@ -168,7 +163,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "PURPLE";
-			tradeValue = 1;
 		}else if(name.equals("Oriental Ave.")){
 			cost=100;
 			rent=6;
@@ -176,7 +170,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "LIGHTGREEN";
-			tradeValue = 1.92;
 		}else if(name.equals("Vermont Ave.")){
 			cost=100;
 			rent=6;
@@ -184,7 +177,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "LIGHTGREEN";
-			tradeValue = 1.92;
 		}else if(name.equals("Connecticut Ave.")){
 			cost=120;
 			rent=8;
@@ -192,7 +184,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "LIGHTGREEN";
-			tradeValue = 1.92;
 		}else if(name.equals("St. Charles Place")){
 			cost=140;
 			rent=10;
@@ -200,7 +191,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "VIOLET";
-			tradeValue = 2.21;
 		}else if(name.equals("States Ave.")){
 			cost=140;
 			rent=10;
@@ -208,7 +198,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "VIOLET";
-			tradeValue = 2.21;
 		}else if(name.equals("Virginia Ave.")){
 			cost=160;
 			rent=12;
@@ -216,7 +205,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "VIOLET";
-			tradeValue = 2.21;
 		}else if(name.equals("St. James Place")){
 			cost=180;
 			rent=14;
@@ -224,7 +212,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "ORANGE";
-			tradeValue = 3.48;
 		}else if(name.equals("Tennessee Ave.")){
 			cost=180;
 			rent=14;
@@ -232,7 +219,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "ORANGE";
-			tradeValue = 3.48;
 		}else if(name.equals("New York Ave.")){
 			cost=200;
 			rent=16;
@@ -240,7 +226,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "ORANGE";
-			tradeValue = 3.48;
 		}else if(name.equals("Kentucky Ave.")){
 			cost=220;
 			rent=18;
@@ -248,7 +233,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "RED";
-			tradeValue = 2.94;
 		}else if(name.equals("Indiana Ave.")){
 			cost=220;
 			rent=18;
@@ -256,7 +240,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "RED";
-			tradeValue = 2.94;
 		}else if(name.equals("Illinois Ave.")){
 			cost=240;
 			rent=20;
@@ -264,7 +247,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "RED";
-			tradeValue = 2.94;
 		}else if(name.equals("Atlantic Ave.")){
 			cost=260;
 			rent=22;
@@ -272,7 +254,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "YELLOW";
-			tradeValue = 2.60;
 		}else if(name.equals("Ventnor Ave.")){
 			cost=260;
 			rent=22;
@@ -280,7 +261,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "YELLOW";
-			tradeValue = 2.60;
 		}else if(name.equals("Marvin Gardens")){
 			cost=280;
 			rent=22;
@@ -288,7 +268,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "YELLOW";
-			tradeValue = 2.60;
 		}else if(name.equals("Pacific Ave.")){
 			cost=300;
 			rent=26;
@@ -296,7 +275,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "DARKGREEN";
-			tradeValue = 2.10;
 		}else if(name.equals("North Carolina Ave.")){
 			cost=300;
 			rent=26;
@@ -304,7 +282,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "DARKGREEN";
-			tradeValue = 2.10;
 		}else if(name.equals("Pennsylvania Ave.")){
 			cost=320;
 			rent=28;
@@ -312,7 +289,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "DARKGREEN";
-			tradeValue = 2.10;
 		}else if(name.equals("Park Place")){
 			cost=350;
 			rent=35;
@@ -320,7 +296,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "DARKBLUE";
-			tradeValue = 2.05;
 		}else if(name.equals("Boardwalk")){
 			cost=400;
 			rent=50;
@@ -328,7 +303,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "DARKBLUE";
-			tradeValue = 2.05;
 		}else if(name.equals("Electric Company")){
 			cost=150;
 			rent=(4*dicetotal);
@@ -336,7 +310,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "UTILITIES";
-			tradeValue = 
 		}else if(name.equals("Water Works")){
 			cost=150;
 			rent=(4*dicetotal);
@@ -344,7 +317,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "UTILITIES";
-			tradeValue = 
 		}else if(name.equals("Reading Railroad")){
 			cost=200;
 			rent = 25;
@@ -352,7 +324,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "RAILROAD";
-			tradeValue = 
 		}else if(name.equals("Pennsylvania Railroad")){
 			cost=200;
 			rent = 25;
@@ -360,7 +331,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "RAILROAD";
-			tradeValue = 
 		}else if(name.equals("B. & O. Railroad")){
 			cost=200;
 			rent = 25;
@@ -368,7 +338,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "RAILROAD";
-			tradeValue = 
 		}else if(name.equals("Short Line Railroad")){
 			cost=200;
 			rent = 25;
@@ -376,7 +345,6 @@ public class PropertyCard extends MonopolySlot{
 			mortgage = cost/2;
 			unmortgage = (int) (mortgage*1.1);
 			color = "RAILROAD";
-			tradeValue = 
 		}
 	}
 	public boolean ableToBuyHouses(){

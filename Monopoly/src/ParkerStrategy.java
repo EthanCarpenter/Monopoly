@@ -49,39 +49,22 @@ public class ParkerStrategy extends MonopolyPlayer{
 		determineTrading();
 		return false;
 	}
-<<<<<<< Upstream, based on branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	private void determineTrading(){
 		String[] types = {"PURPLE", "LIGHTGREEN", "VIOLET", "ORANGE",
 				"RED", "YELLOW", "DARKGREEN", "DARKBLUE", "UTILITIES", "RAILROAD"};
-		boolean shouldTrade = false;
-		int chosenTraderID = 0;
-		int chosenTradeeID = 0;
-		PropertyCard chosenTraderProperty = null;
-		PropertyCard chosenTradeeProperty = null;
-		
-		for(int i = 0; i < types.length; i++){
+		for(int i = 0; i < types.length; i++)
 			if(propertiesNeededForMonopoly(types[i]) == 1){
 				for(MonopolyPlayer player : myBoard.getPlayers()){
 					if(player.playerID != playerID)
-//<<<<<<< HEAD
-						//CHANGE THIS. THROWS EXCEPTION BECAUDSE IT IS BEING ITERATED WHILE BEING MODIFIED
-//=======					}
 						//CHANGE THIS. THROWS EXCEPTION BECAUSE IT IS BEING ITERATED WHILE BEING MODIFIED
-						for(PropertyCard property1 : player.playerProperties())
-							if(property1.getColor().equals(types[i]) && player.tradeableProperty(PlayerMonopolyProperties) != null){
+						for(PropertyCard property : player.playerProperties())
+							if(property.getColor().equals(types[i]) && player.tradeableProperty(PlayerMonopolyProperties) != null){
 								myBoard.trading(playerID, player.playerID, 
-										player.tradeableProperty(PlayerMonopolyProperties), property1);
+										player.tradeableProperty(PlayerMonopolyProperties), property);
 								break;
-//>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 							}
-					System.out.println("chosenTraderID: " + chosenTraderID);
-					System.out.println("chosenTradeeID: " + chosenTradeeID);
-					if(shouldTrade){
-						myBoard.trading(chosenTraderID, chosenTradeeID, chosenTraderProperty, chosenTradeeProperty);	
-					}
 				}
 			}
-		}
 	}
 	private boolean determineBuyProperty(PropertyCard property){
 		if(money > property.cost())
@@ -106,12 +89,5 @@ public class ParkerStrategy extends MonopolyPlayer{
 				counter++;
 			}
 		}
-=======
-	private void determineTrading() {
-		String desiredColor;
-		for(PropertyCard property : PlayerMonopolyProperties)
-			if(propertiesNeededForMonopoly(property.getColor()) == 1 && !property.getColor().equals("UTILITIES"))
-				desiredColor = property.getColor();
->>>>>>> 4bca8b0 pee pee head
 	}
 }
