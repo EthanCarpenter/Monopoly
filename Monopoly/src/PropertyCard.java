@@ -36,7 +36,7 @@ public class PropertyCard extends MonopolySlot{
 		return owned;
 	}
 	public void setAbleToBuyHouses(boolean bool){
-		System.out.println(name + " is able to build houses!");
+		//System.out.println(name + " is able to build houses!");
 		ableToBuyHouses=bool;
 	}
 	public void setOwned(boolean bool){
@@ -50,6 +50,7 @@ public class PropertyCard extends MonopolySlot{
 				rent = rent + new House(name, numHouses).getRent();
 				numHouses ++;
 				houses[numHouses] = new House(name, numHouses);
+				owner.subtractMoney(houses[numHouses].getPrice());
 			}
 		}
 	}
@@ -66,7 +67,7 @@ public class PropertyCard extends MonopolySlot{
 			owner=own;
 			owned=true;
 			owner.subtractMoney(cost);
-			System.out.println(own.returnName()+" has bought "+name+" for $"+cost+"!");
+			//System.out.println(own.returnName()+" has bought "+name+" for $"+cost+"!");
 			if(type.equals("PURPLE")){
 				owner.addPurple();
 			}else if(type.equals("LIGHTGREEN")){
@@ -89,7 +90,7 @@ public class PropertyCard extends MonopolySlot{
 				owner.addRails();
 			}
 		}else if(own.playerMoney() < cost){
-			System.out.println("insufficient funds.");
+			//System.out.println("insufficient funds.");
 		}
 	}
 	public void mortgage(){
@@ -111,8 +112,8 @@ public class PropertyCard extends MonopolySlot{
 			setOwner(a);
 			a.addCard(this);
 		}else if(owned){
-			System.out.print(a.returnName()+" has landed on ");
-			System.out.println(owner.returnName()+"'s property!");//THIS LINE THROWS THE ERROR, TWO PLAYERS LAND ON THE SAME TILE
+			//System.out.print(a.returnName()+" has landed on ");
+			//System.out.println(owner.returnName()+"'s property!");//THIS LINE THROWS THE ERROR, TWO PLAYERS LAND ON THE SAME TILE
 			giveAndTake(a);										  //THE FIRST PLAYER TRIED TO BUY THE PROPERTY BUT WAS TOO POOR
 		}														  //THE SECOND PLAYER THEN LANDS ON THE PROPERTY AND TRIES TO PAY RENT
 	}

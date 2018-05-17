@@ -15,13 +15,11 @@ public class ParkerStrategy extends MonopolyPlayer{
 	}
 	private void determineBuyingHouses(){
 		for(int i = 0; i < PlayerMonopolyProperties.size(); i++)
-			if(propertiesNeededForMonopoly(PlayerMonopolyProperties.get(i).getColor()) == 0)
+			if(propertiesNeededForMonopoly(PlayerMonopolyProperties.get(i).getColor()) == 0 && money >= 500)
 				PlayerMonopolyProperties.get(i).setAbleToBuyHouses(true);
-		for(PropertyCard property : PlayerMonopolyProperties){
-			System.out.println(property.ableToBuyHouses);
+		for(PropertyCard property : PlayerMonopolyProperties)
 			if(property.ableToBuyHouses && new House(property.name(), property.numHouses()+1).getPrice() < money)
 				property.buyHouse();
-		}
 	}
 	private void beforeRollInJail(int numOwned){
 		//total number of properties: 27
