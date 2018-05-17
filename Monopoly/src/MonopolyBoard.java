@@ -63,7 +63,6 @@ public class MonopolyBoard extends JFrame{
 	 * @param tradeeProperty property tradee gives
 	 */
 	public void trading(int traderID, int tradeeID,
-<<<<<<< HEAD
 	 PropertyCard traderProperty, PropertyCard tradeeProperty){
 		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
 			if(getPlayers().get(traderID-1).nthCard(i).equals(traderProperty)){
@@ -77,27 +76,6 @@ public class MonopolyBoard extends JFrame{
 				getPlayers().get(tradeeID-1).removeCard(getPlayers().get(tradeeID-1).nthCard(i));
 				break;
 			}
-=======
-			PropertyCard traderProperty, PropertyCard tradeeProperty){
-		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
-			if(getPlayers().get(traderID-1).nthCard(i).equals(traderProperty)){
-				getPlayers().get(tradeeID-1).addCard(getPlayers().get(traderID-1).nthCard(i));
-				getPlayers().get(traderID-1).removeCard(getPlayers().get(traderID-1).nthCard(i));
-				break;
-			}
-		for(int i = 0; i < getPlayers().get(tradeeID-1).playerProperties().size(); i++)
-			if(getPlayers().get(tradeeID-1).nthCard(i).equals(tradeeProperty)){
-				getPlayers().get(traderID-1).addCard(getPlayers().get(tradeeID-1).nthCard(i));
-				getPlayers().get(tradeeID-1).removeCard(getPlayers().get(tradeeID-1).nthCard(i));
-				break;
-			}
-		for(int i = 0; i < getPlayers().get(traderID-1).playerProperties().size(); i++)
-			if(getPlayers().get(traderID-1).propertiesNeededForMonopoly(getPlayers().get(traderID-1).PlayerMonopolyProperties.get(i).getColor()) == 0)
-				getPlayers().get(traderID-1).PlayerMonopolyProperties.get(i).setAbleToBuyHouses(true);
-		for(int i = 0; i < getPlayers().get(tradeeID-1).playerProperties().size(); i++)
-			if(getPlayers().get(tradeeID-1).propertiesNeededForMonopoly(getPlayers().get(tradeeID-1).PlayerMonopolyProperties.get(i).getColor()) == 0)
-				getPlayers().get(tradeeID-1).PlayerMonopolyProperties.get(i).setAbleToBuyHouses(true);
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	}
 	public ArrayList returnBoard(){
 		return board;
@@ -246,37 +224,33 @@ public class MonopolyBoard extends JFrame{
 					tracker.playerProperties().get(i).sellHouse();
 				tracker.playerProperties().get(i).setNumHouses(-1);
 				tracker.playerProperties().get(i).setOwned(false);
-<<<<<<< HEAD
-			}
-			//System.out.println("Number of properties: "+tracker.numberOfCards());
-=======
-			}
-			//System.out.println("Number of properties: "+tracker.numberOfCards());
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
-			if(tracker.equals(getPlayers().get(0))){
-				firstX = -1;
-				firstY = -1;
-			}else if(tracker.equals(getPlayers().get(1))){
-				secondX = -1;
-				secondY = -1;
-			}else if(tracker.equals(getPlayers().get(2))){
-				thirdX = -1;
-				thirdY = -1;
-			}else if(tracker.equals(getPlayers().get(3))){
-				fourthX = -1;
-				fourthY = -1;
-			}
-			int playerRem = 0;
-			for(int i = 0; i < getPlayers().size(); i++) {
-				if(getPlayers().get(i) == tracker) {
-					playerRem = i;
+				if(tracker.equals(getPlayers().get(0))){
+					firstX = -1;
+					firstY = -1;
+				}else if(tracker.equals(getPlayers().get(1))){
+					secondX = -1;
+					secondY = -1;
+				}else if(tracker.equals(getPlayers().get(2))){
+					thirdX = -1;
+					thirdY = -1;
+				}else if(tracker.equals(getPlayers().get(3))){
+					fourthX = -1;
+					fourthY = -1;
 				}
+				int playerRem = 0;
+				for(int i1 = 0; i1 < getPlayers().size(); i1++) {
+					if(getPlayers().get(i1) == tracker) {
+						playerRem = i1;
+					}
+				}
+				getPlayers().remove(playerRem);
+	
+				return true;
 			}
-			getPlayers().remove(playerRem);
-
-			return true;
-		}else
+		}else {
 			return false;
+		}
+		return false;
 	}
 	private String setPlayerTracker(){
 		int index=getPlayers().size();
@@ -305,11 +279,8 @@ public class MonopolyBoard extends JFrame{
 		if(bankruptcyCounter==3){
 			for(int i=0;i<getPlayers().size();i++){
 				if(getPlayers().get(i).bankruptcy() == false){
-<<<<<<< HEAD
 					winName = getPlayers().get(i);
-=======
-					winName = getPlayers().get(i).returnName();
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
+					//winName = getPlayers().get(i).returnName();
 					//System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
 				}
 			}
@@ -361,13 +332,9 @@ public class MonopolyBoard extends JFrame{
 		int numWon = 0;
 		boolean rollDouble;
 		int playerDoubleCounter=0;
-<<<<<<< HEAD
 		int lastPlayerIndex;
 		playerNum = 0;
 		while(getPlayers().size()>1 && numWon == 0) {
-=======
-		for(playerNum=0;getPlayers().size()>1;playerNum++){
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 			numBankrupt = 0;
 			iteration = playerNum;
 			String name=setPlayerTracker();
@@ -383,7 +350,7 @@ public class MonopolyBoard extends JFrame{
 					numWon++;
 					
 					//playerNum = 0;
-				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=10 && numWon == 0) {
+				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=1000 && numWon == 0) {
 					winner();
 					numWon++;
 				}
@@ -468,8 +435,110 @@ public class MonopolyBoard extends JFrame{
 			}
 			 */
 			playerNum++;
+//			playerNum++;
 		}
-<<<<<<< HEAD
+		//for(playerNum=0;getPlayers().size()>1;playerNum++){
+//			numBankrupt = 0;
+//			iteration = playerNum;
+//			String name=setPlayerTracker();
+//			for(int i=0; i<getPlayers().size();i++){
+//				if(getPlayers().get(i).bankruptcy() == true){
+//					numBankrupt++;
+//
+//				}
+//				//System.out.println("NUM BANKRUPT" + numBankrupt);
+//				lastPlayerIndex = getPlayers().size()-1;
+//				if(numBankrupt == 3 && numWon == 0){
+//					winner();
+//					numWon++;
+//					
+//					//playerNum = 0;
+//				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=10 && numWon == 0) {
+//					winner();
+//					numWon++;
+//				}
+//
+//			}
+////			if(numWon > 0) {
+////				break;
+////			}
+//			if(!tracker.bankruptcy() && numWon == 0){
+//				do{
+//
+//					//System.out.println("It is "+name+"'s turn!");
+//					tracker.beforeRoll();
+//					int dice=tracker.rollDice();
+//					if(tracker.isInJail()){
+//						System.out.println("Player is in jail.");
+//						tracker.addJailTurn();
+//						if(tracker.numTurnsInJail() >= 2){
+//							System.out.println("Player stayed 2 turns in jail. Player payed $50 to be free!");
+//							tracker.subtractMoney(50);
+//							tracker.setJail(false);
+//							tracker.resetJailTurns();
+//						}
+//						//tracker.subtractMoney(50);
+//					}
+//					//System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
+//					//+" for a total of "+dice+".");
+//					rollDouble=tracker.playerDoubleRoll();
+//
+//					if(tracker.isInJail() == false && tracker.playerMoney()>0){
+//						tracker.totalMoves(tracker.getDice1(), tracker.getDice2());
+//						totalMoves= tracker.returnMoves();
+//						tracker.setPlayerPosition(tracker.playerPosition()+dice);
+//						movement();
+//						//System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
+//						/***/
+//						tracker.afterRoll(board.get(tracker.playerPosition()));
+//						board.get(tracker.playerPosition()).slotAction(tracker,getPlayers(),board);
+//						/***/
+//						if(tracker.getDice1() == tracker.getDice2()){
+//							playerDoubleCounter++;
+//						}
+//
+//						if(totalMoves >= 40){
+//							tracker.setTotalMoves(totalMoves - 40);
+//							tracker.passGo();
+//						}
+//						totalMoves = tracker.returnMoves();
+//						movement();
+//					}else if(tracker.isInJail() == true){
+//						tracker.setTotalMoves(10);
+//						tracker.setPlayerPosition(10);
+//						board.get(10).slotAction(tracker, getPlayers(), board);
+//					}
+//					bankruptcy();
+//
+//				}while(playerDoubleCounter<3&&rollDouble&&tracker.playerMoney()>0);
+//				rollDouble=false;
+//				if(playerDoubleCounter==3){
+//					tracker.setTotalMoves(10);
+//					movement();
+//					//System.out.print("You have landed in jail due to 3 double rolls!");
+//					tracker.setJail(true);
+//				}
+//				for(int i=0;i<getPlayers().size();i++){
+//					//System.out.println(getPlayers().get(i).returnName()+"'s balance is: $"+getPlayers().get(i).playerMoney());
+//				}
+//				tracker.setDoubleRoll(0);
+//				playerDoubleCounter=0;
+//				//System.out.println(tracker+"TRRRRRRRRRRRRAAAAAAAAAAAAACKKKKKKKKKKKKKKKKKK");
+//				infoPanel.updatePanel(tracker, playerNum);
+//				infoPanel.updateInfo(getPlayers());
+//				System.out.println(tracker.returnName()+"'s turn is complete!");
+//			}
+//			/*
+//			if(tracker.bankruptcy() == true){
+//				if(playerNum!=0){
+//					playerNum--;
+//				}else{
+//					playerNum=-13;
+//				}
+//			}
+//			 */
+//			playerNum++;
+		//}
 //		for(playerNum=0;getPlayers().size()>1;playerNum++){
 //			numBankrupt = 0;
 //			iteration = playerNum;
@@ -571,10 +640,6 @@ public class MonopolyBoard extends JFrame{
 //			}
 //			 */
 //		}
-		//System.out.println(getPlayers().get(0).returnName()+" won!");
-=======
-		System.out.println(getPlayers().get(0).returnName()+" won!");
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 	}
 	public int numPropertiesOwned(){
 		int numOwned = 0;
@@ -1085,17 +1150,9 @@ public class MonopolyBoard extends JFrame{
 			}
 		}
 	}
-<<<<<<< HEAD
 	public static void main(String[] args){
 		MonopolyBoard a=new MonopolyBoard();
 		infoPanel = new PlayerInfoPanel(getPlayers());
-
-=======
-	public static void main(String[] args){
-		MonopolyBoard a=new MonopolyBoard();
-		infoPanel = new PlayerInfoPanel(getPlayers());
-
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 		a.playMonopoly();
 	}
 	public static ArrayList<MonopolyPlayer> getPlayers() {

@@ -51,10 +51,7 @@ public class ParkerStrategy extends MonopolyPlayer{
 		}
 		//Should we be able to buy the property we land on and trade it in the same turn?
 		determineTrading();
-<<<<<<< HEAD
-=======
 		determineBuyingHouses();
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 		return false;
 	}
 	private void determineTrading(){
@@ -64,10 +61,6 @@ public class ParkerStrategy extends MonopolyPlayer{
 			if(propertiesNeededForMonopoly(types[i]) == 1){
 				for(MonopolyPlayer player : myBoard.getPlayers()){
 					if(player.playerID != playerID)
-<<<<<<< HEAD
-						//CHANGE THIS. THROWS EXCEPTION BECAUSE IT IS BEING ITERATED WHILE BEING MODIFIED
-=======
->>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 						for(PropertyCard property : player.playerProperties())
 							if(property.getColor().equals(types[i]) && player.tradeableProperty(PlayerMonopolyProperties) != null){
 								myBoard.trading(playerID, player.playerID, 
