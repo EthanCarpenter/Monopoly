@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+/MonopolyBoard.class
+/MonopolyPlayer.class
+/MonopolySlot.class
+/MonopolyStrategy.class
+=======
 /ChanceCards.class
 /CommunityChest.class
 /House.class
@@ -6,8 +12,17 @@
 /MonopolySlot.class
 /MonopolyStrategy.class
 /PropertyCard.class
+>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 /ParkerStrategy.class
 /PlayerInfoPanel.class
+<<<<<<< HEAD
+/PropertyCard.class
+=======
+>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
 /defaultStrategy.class
 /goodStrategy.class
+<<<<<<< HEAD
+/StrategyEvaluator.class
+=======
 /snippet/
+>>>>>>> branch 'master' of https://github.com/EthanCarpenter/Monopoly
