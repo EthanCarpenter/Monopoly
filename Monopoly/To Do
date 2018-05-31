@@ -1,4 +1,9 @@
 To Do:
+In chance cards fix option 4, 13, 14
+In community chest fix option 5, 8
+Create a main menu that allows you to pick how many players you want (2-8) and their difficulties
+This would involve updating the rest of the classes as I'm pretty sure sone of them run with constant 4
+
 Mortgage properties
 Trading
 Bankrupt Players don't dissapear when they go bankrupt on the jail tile

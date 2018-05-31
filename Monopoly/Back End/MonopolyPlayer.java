@@ -299,7 +299,6 @@ public class MonopolyPlayer {
 		revolutions = setRev;
 	}
 	public void passGo(){
-		//System.out.println("You have passed go. Collected $200.");
 		addMoney(200);
 	}
 	public int numPurple(){

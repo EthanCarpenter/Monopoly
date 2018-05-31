@@ -1,5 +1,4 @@
 public class House{
-	//DifferentValue values for each property and #building
 	private String name;
 	int houseNum, priceValue, sellValue, rentValue;
 	House(String property, int num){
@@ -25,6 +24,16 @@ public class House{
 		return sellValue;
 	}
 	private void setHouseStats(){
+		setPurpleStats();
+		setBlueStats();
+		setMagentaStats();
+		setOrangeStats();
+		setRedStats();
+		setYellowStats();
+		setGreenStats();
+		setDarkBlueStats();
+	}
+	private void setPurpleStats(){
 		if(name.equals("Mediterranean Ave.")){
 			if(houseNum == 0)
 				setStats(50,10,25);
@@ -47,7 +56,10 @@ public class House{
 				setStats(50,320,25);
 			else if(houseNum == 4)
 				setStats(50,450,25);
-		}else if(name.equals("Oriental Ave.")){
+		}
+	}
+	private void setBlueStats(){
+		if(name.equals("Oriental Ave.")){
 			if(houseNum == 0)
 				setStats(50,30,25);
 			else if(houseNum == 1)
@@ -80,7 +92,10 @@ public class House{
 				setStats(50,450,25);
 			else if(houseNum == 4)
 				setStats(50,600,25);
-		}else if(name.equals("St. Charles Place")){
+		}
+	}
+	private void setMagentaStats(){
+		if(name.equals("St. Charles Place")){
 			if(houseNum == 0)
 				setStats(100,50,50);
 			else if(houseNum == 1)
@@ -113,7 +128,10 @@ public class House{
 				setStats(100,700,50);
 			else if(houseNum == 4)
 				setStats(50,900,25);
-		}else if(name.equals("St. James Place")){
+		}
+	}
+	private void setOrangeStats(){
+		if(name.equals("St. James Place")){
 			if(houseNum == 0)
 				setStats(100,70,50);
 			else if(houseNum == 1)
@@ -146,7 +164,10 @@ public class House{
 				setStats(100,750,50);
 			else if(houseNum == 4)
 				setStats(50,1000,25);
-		}else if(name.equals("Kentucky Ave.")){
+		}
+	}
+	private void setRedStats(){
+		if(name.equals("Kentucky Ave.")){
 			if(houseNum == 0)
 				setStats(150,90,75);
 			else if(houseNum == 1)
@@ -179,7 +200,10 @@ public class House{
 				setStats(150,925,75);
 			else if(houseNum == 4)
 				setStats(50,1100,25);
-		}else if(name.equals("Atlantic Ave.")){
+		}
+	}
+	private void setYellowStats(){
+		if(name.equals("Atlantic Ave.")){
 			if(houseNum == 0)
 				setStats(150,110,75);
 			else if(houseNum == 1)
@@ -212,7 +236,10 @@ public class House{
 				setStats(150,1025,75);
 			else if(houseNum == 4)
 				setStats(50,1200,25);
-		}else if(name.equals("Pacific Ave.")){
+		}
+	}
+	private void setGreenStats(){
+		if(name.equals("Pacific Ave.")){
 			if(houseNum == 0)
 				setStats(200,130,100);
 			else if(houseNum == 1)
@@ -245,7 +272,10 @@ public class House{
 				setStats(200,1200,100);
 			else if(houseNum == 4)
 				setStats(50,1400,25);
-		}else if(name.equals("Park Place")){
+		}
+	}
+	private void setDarkBlueStats(){
+		if(name.equals("Park Place")){
 			if(houseNum == 0)
 				setStats(200,175,100);
 			else if(houseNum == 1)
@@ -267,6 +297,6 @@ public class House{
 				setStats(200,1700,100);	
 			else if(houseNum == 4)
 				setStats(50,2000,25);
-		}		
+		}
 	}
 }

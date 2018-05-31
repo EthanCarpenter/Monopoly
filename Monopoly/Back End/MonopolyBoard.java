@@ -270,7 +270,6 @@ public class MonopolyBoard extends JFrame{
 		int bankruptcyCounter=0;
 		MonopolyPlayer winName = null;
 		int maxMoney = 0;
-		int winIndex = 0;
 		for(int i=0;i<4;i++){
 			if(getPlayers().get(i).bankruptcy()){
 				bankruptcyCounter++;
@@ -289,7 +288,6 @@ public class MonopolyBoard extends JFrame{
 				if(getPlayers().get(i).playerMoney() > maxMoney) {
 					maxMoney = getPlayers().get(i).playerMoney();
 					winName = getPlayers().get(i);
-					winIndex = i;
 				}
 			}
 			//System.out.println(getPlayers().get(winIndex).returnName() + " WON THE GAME!!!");
@@ -300,7 +298,6 @@ public class MonopolyBoard extends JFrame{
 		int bankruptcyCounter=0;
 		String winName = "";
 		int maxMoney = 0;
-		int winIndex = 0;
 		for(int i=0;i<4;i++){
 			if(getPlayers().get(i).bankruptcy()){
 				bankruptcyCounter++;
@@ -310,7 +307,6 @@ public class MonopolyBoard extends JFrame{
 			for(int i=0;i<getPlayers().size();i++){
 				if(getPlayers().get(i).bankruptcy() == false){
 					winName = getPlayers().get(i).returnName();
-					System.out.println(getPlayers().get(i).returnName() + " WON THE GAME!!!");
 				}
 			}
 		}else {
@@ -318,16 +314,12 @@ public class MonopolyBoard extends JFrame{
 				if(getPlayers().get(i).playerMoney() > maxMoney) {
 					maxMoney = getPlayers().get(i).playerMoney();
 					winName = getPlayers().get(i).returnName();
-					winIndex = i;
 				}
 			}
-			System.out.println(getPlayers().get(winIndex).returnName() + " WON THE GAME!!!");
 		}
 		return winName;
 	}
 	public void playMonopoly(){
-		//int totalMoves;
-		int iteration;
 		int numBankrupt = 0;
 		int numWon = 0;
 		boolean rollDouble;
@@ -336,7 +328,6 @@ public class MonopolyBoard extends JFrame{
 		playerNum = 0;
 		while(getPlayers().size()>1 && numWon == 0) {
 			numBankrupt = 0;
-			iteration = playerNum;
 			String name=setPlayerTracker();
 			for(int i=0; i<getPlayers().size();i++){
 				if(getPlayers().get(i).bankruptcy() == true){
@@ -356,9 +347,6 @@ public class MonopolyBoard extends JFrame{
 				}
 
 			}
-//			if(numWon > 0) {
-//				break;
-//			}
 			if(!tracker.bankruptcy() && numWon == 0){
 				do{
 
@@ -410,236 +398,18 @@ public class MonopolyBoard extends JFrame{
 				}while(playerDoubleCounter<3&&rollDouble&&tracker.playerMoney()>0);
 				rollDouble=false;
 				if(playerDoubleCounter==3){
+					//THREE DOUBLE ROLLS, GO TO JAIL
 					tracker.setTotalMoves(10);
 					movement();
-					//System.out.print("You have landed in jail due to 3 double rolls!");
 					tracker.setJail(true);
-				}
-				for(int i=0;i<getPlayers().size();i++){
-					//System.out.println(getPlayers().get(i).returnName()+"'s balance is: $"+getPlayers().get(i).playerMoney());
 				}
 				tracker.setDoubleRoll(0);
 				playerDoubleCounter=0;
-				//System.out.println(tracker+"TRRRRRRRRRRRRAAAAAAAAAAAAACKKKKKKKKKKKKKKKKKK");
 				infoPanel.updatePanel(tracker, playerNum);
 				infoPanel.updateInfo(getPlayers());
-				System.out.println(tracker.returnName()+"'s turn is complete!");
 			}
-			/*
-			if(tracker.bankruptcy() == true){
-				if(playerNum!=0){
-					playerNum--;
-				}else{
-					playerNum=-13;
-				}
-			}
-			 */
 			playerNum++;
-//			playerNum++;
 		}
-		//for(playerNum=0;getPlayers().size()>1;playerNum++){
-//			numBankrupt = 0;
-//			iteration = playerNum;
-//			String name=setPlayerTracker();
-//			for(int i=0; i<getPlayers().size();i++){
-//				if(getPlayers().get(i).bankruptcy() == true){
-//					numBankrupt++;
-//
-//				}
-//				//System.out.println("NUM BANKRUPT" + numBankrupt);
-//				lastPlayerIndex = getPlayers().size()-1;
-//				if(numBankrupt == 3 && numWon == 0){
-//					winner();
-//					numWon++;
-//					
-//					//playerNum = 0;
-//				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=10 && numWon == 0) {
-//					winner();
-//					numWon++;
-//				}
-//
-//			}
-////			if(numWon > 0) {
-////				break;
-////			}
-//			if(!tracker.bankruptcy() && numWon == 0){
-//				do{
-//
-//					//System.out.println("It is "+name+"'s turn!");
-//					tracker.beforeRoll();
-//					int dice=tracker.rollDice();
-//					if(tracker.isInJail()){
-//						System.out.println("Player is in jail.");
-//						tracker.addJailTurn();
-//						if(tracker.numTurnsInJail() >= 2){
-//							System.out.println("Player stayed 2 turns in jail. Player payed $50 to be free!");
-//							tracker.subtractMoney(50);
-//							tracker.setJail(false);
-//							tracker.resetJailTurns();
-//						}
-//						//tracker.subtractMoney(50);
-//					}
-//					//System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
-//					//+" for a total of "+dice+".");
-//					rollDouble=tracker.playerDoubleRoll();
-//
-//					if(tracker.isInJail() == false && tracker.playerMoney()>0){
-//						tracker.totalMoves(tracker.getDice1(), tracker.getDice2());
-//						totalMoves= tracker.returnMoves();
-//						tracker.setPlayerPosition(tracker.playerPosition()+dice);
-//						movement();
-//						//System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
-//						/***/
-//						tracker.afterRoll(board.get(tracker.playerPosition()));
-//						board.get(tracker.playerPosition()).slotAction(tracker,getPlayers(),board);
-//						/***/
-//						if(tracker.getDice1() == tracker.getDice2()){
-//							playerDoubleCounter++;
-//						}
-//
-//						if(totalMoves >= 40){
-//							tracker.setTotalMoves(totalMoves - 40);
-//							tracker.passGo();
-//						}
-//						totalMoves = tracker.returnMoves();
-//						movement();
-//					}else if(tracker.isInJail() == true){
-//						tracker.setTotalMoves(10);
-//						tracker.setPlayerPosition(10);
-//						board.get(10).slotAction(tracker, getPlayers(), board);
-//					}
-//					bankruptcy();
-//
-//				}while(playerDoubleCounter<3&&rollDouble&&tracker.playerMoney()>0);
-//				rollDouble=false;
-//				if(playerDoubleCounter==3){
-//					tracker.setTotalMoves(10);
-//					movement();
-//					//System.out.print("You have landed in jail due to 3 double rolls!");
-//					tracker.setJail(true);
-//				}
-//				for(int i=0;i<getPlayers().size();i++){
-//					//System.out.println(getPlayers().get(i).returnName()+"'s balance is: $"+getPlayers().get(i).playerMoney());
-//				}
-//				tracker.setDoubleRoll(0);
-//				playerDoubleCounter=0;
-//				//System.out.println(tracker+"TRRRRRRRRRRRRAAAAAAAAAAAAACKKKKKKKKKKKKKKKKKK");
-//				infoPanel.updatePanel(tracker, playerNum);
-//				infoPanel.updateInfo(getPlayers());
-//				System.out.println(tracker.returnName()+"'s turn is complete!");
-//			}
-//			/*
-//			if(tracker.bankruptcy() == true){
-//				if(playerNum!=0){
-//					playerNum--;
-//				}else{
-//					playerNum=-13;
-//				}
-//			}
-//			 */
-//			playerNum++;
-		//}
-//		for(playerNum=0;getPlayers().size()>1;playerNum++){
-//			numBankrupt = 0;
-//			iteration = playerNum;
-//			String name=setPlayerTracker();
-//			for(int i=0; i<getPlayers().size();i++){
-//				if(getPlayers().get(i).bankruptcy() == true){
-//					numBankrupt++;
-//
-//				}
-//				//System.out.println("NUM BANKRUPT" + numBankrupt);
-//				lastPlayerIndex = getPlayers().size()-1;
-//				if(numBankrupt == 3 && numWon == 0){
-//					winner();
-//					numWon++;
-//					
-//					//playerNum = 0;
-//				}else if(getPlayers().get(lastPlayerIndex).numTurns() >=1000 && numWon == 0) {
-//					winner();
-//					numWon++;
-//				}
-//
-//			}
-//			if(numWon > 0) {
-//				break;
-//			}
-//			if(!tracker.bankruptcy() && numWon == 0){
-//				do{
-//
-//					//System.out.println("It is "+name+"'s turn!");
-//					tracker.beforeRoll();
-//					int dice=tracker.rollDice();
-//					if(tracker.isInJail()){
-//						System.out.println("Player is in jail.");
-//						tracker.addJailTurn();
-//						if(tracker.numTurnsInJail() >= 2){
-//							System.out.println("Player stayed 2 turns in jail. Player payed $50 to be free!");
-//							tracker.subtractMoney(50);
-//							tracker.setJail(false);
-//							tracker.resetJailTurns();
-//						}
-//						//tracker.subtractMoney(50);
-//					}
-//					//System.out.println(tracker.returnName()+" rolled a "+tracker.getDice1()+" and a "+tracker.getDice2()
-//					//+" for a total of "+dice+".");
-//					rollDouble=tracker.playerDoubleRoll();
-//
-//					if(tracker.isInJail() == false && tracker.playerMoney()>0){
-//						tracker.totalMoves(tracker.getDice1(), tracker.getDice2());
-//						totalMoves= tracker.returnMoves();
-//						tracker.setPlayerPosition(tracker.playerPosition()+dice);
-//						movement();
-//						//System.out.println(tracker.returnName()+" landed on "+board.get(tracker.playerPosition()).name());
-//						/***/
-//						tracker.afterRoll(board.get(tracker.playerPosition()));
-//						board.get(tracker.playerPosition()).slotAction(tracker,getPlayers(),board);
-//						/***/
-//						if(tracker.getDice1() == tracker.getDice2()){
-//							playerDoubleCounter++;
-//						}
-//
-//						if(totalMoves >= 40){
-//							tracker.setTotalMoves(totalMoves - 40);
-//							tracker.passGo();
-//						}
-//						totalMoves = tracker.returnMoves();
-//						movement();
-//					}else if(tracker.isInJail() == true){
-//						tracker.setTotalMoves(10);
-//						tracker.setPlayerPosition(10);
-//						board.get(10).slotAction(tracker, getPlayers(), board);
-//					}
-//					bankruptcy();
-//
-//				}while(playerDoubleCounter<3&&rollDouble&&tracker.playerMoney()>0);
-//				rollDouble=false;
-//				if(playerDoubleCounter==3){
-//					tracker.setTotalMoves(10);
-//					movement();
-//					//System.out.print("You have landed in jail due to 3 double rolls!");
-//					tracker.setJail(true);
-//				}
-//				for(int i=0;i<getPlayers().size();i++){
-//					//System.out.println(getPlayers().get(i).returnName()+"'s balance is: $"+getPlayers().get(i).playerMoney());
-//				}
-//				tracker.setDoubleRoll(0);
-//				playerDoubleCounter=0;
-//				//System.out.println(tracker+"TRRRRRRRRRRRRAAAAAAAAAAAAACKKKKKKKKKKKKKKKKKK");
-//				infoPanel.updatePanel(tracker, playerNum);
-//				infoPanel.updateInfo(getPlayers());
-//				System.out.println(tracker.returnName()+"'s turn is complete!");
-//			}
-//			/*
-//			if(tracker.bankruptcy() == true){
-//				if(playerNum!=0){
-//					playerNum--;
-//				}else{
-//					playerNum=-13;
-//				}
-//			}
-//			 */
-//		}
 	}
 	public int numPropertiesOwned(){
 		int numOwned = 0;
