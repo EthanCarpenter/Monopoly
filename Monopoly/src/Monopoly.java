@@ -2,7 +2,6 @@ import javax.swing.JFrame;
 public class Monopoly{
 	static JFrame monopoly;
 	public Monopoly() {
-		System.out.println("test");
 		monopoly = new JFrame();
 		monopoly.setTitle("Monopoly");
 		monopoly.add(new MainMenu());
