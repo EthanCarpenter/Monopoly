@@ -18,11 +18,23 @@ import javax.swing.JTextField;
 public class MainMenu extends JPanel implements ActionListener{
 	private ArrayList players = new ArrayList();
 	private PlayerPanel[] panels = new PlayerPanel[8];
+	private BufferedImage backg;
 	MainMenu() {
 		setLayout(null);		
 		setTitle();
 		setButtons();
-		setPlayerPanels(1);
+		setPlayerPanels(8);
+		try{
+			backg= ImageIO.read(new File("Pictures/Menu Background.jpg"));
+		}catch(Exception E){}
+	}
+	public void paint(Graphics g){
+		g.drawImage(backg, 0, 0, 1600, 900, null);
+		for(int i=0;i<this.getComponentCount();i++){
+			g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
+			this.getComponent(i).paint(g);
+			g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
+		}	
 	}
 	private void setTitle(){
 		JLabel title = new JLabel("Monopoly");
@@ -37,7 +49,7 @@ public class MainMenu extends JPanel implements ActionListener{
 			buttons[i].addActionListener(this);
 			buttons[i].setActionCommand(buttons[i].getText());
 			buttons[i].setSize(100,50);
-			buttons[i].setLocation((int) (725+200*(i-.5))-50,700);
+			buttons[i].setLocation((int)(725+200*(i-.5))-50,725);
 			add(buttons[i]);
 		}
 	}
@@ -59,14 +71,20 @@ public class MainMenu extends JPanel implements ActionListener{
 		for(int i = 0; i < panels.length; i++) {
 			panels[i] = new PlayerPanel(i);
 			panels[i].setSize(350, 290);
-			panels[i].setLocation(800+(450*(i-1))-175,250-100);
+			if(i < 4)
+				panels[i].setLocation(360+(375*(i-1)),130);
+			else
+				panels[i].setLocation(360+(375*(i-5)),430);
 			add(panels[i]);
 		}
 	}
 	class PlayerPanel extends JPanel implements ActionListener{
 		private Color[] colors = new Color[] {new Color(255, 40, 40), 
 				Color.YELLOW, new Color(0, 204, 0), Color.BLUE , 
-				new Color(139,69,19), Color.WHITE};
+				new Color(139,69,19), new Color (255, 140, 0), new Color (255,105,180),
+				new Color(147,112,219)};
+		private String[] names = new String[] {"Red", "Yellow", "Green", "Blue",
+				"Brown", "Orange,", "Pink", "Purple"};
 		//Three options
 		private ButtonGroup group = new ButtonGroup();
 		private String[] optionNames = {"None", "Human Player", "Computer"};
@@ -84,19 +102,17 @@ public class MainMenu extends JPanel implements ActionListener{
 			setBackground(colors[playerNum]);
 			setLayout(null);
 			name = new JTextField();
-			name.setText("Player " + playerNum+1);
-			
+			name.setText(names[playerNum]);
+			setPlayerNum(playerNum);
 			for(int i = 0; i < options.length; i++) {
 				options[i] = new JRadioButton(optionNames[i]);
 				options[i].addActionListener(this);
 				options[i].setActionCommand(optionNames[i]);
-				options[i].setBackground(new Color(0,0,0,0));
 				options[i].setLocation(70,65+(int) (75*(i)));
 				options[i].setSize(150, 20);
 				group.add(options[i]);
-
 				add(options[i]);
-
+				
 				if(i == 1) {
 					add(name);
 					name.setVisible(false);
@@ -104,7 +120,6 @@ public class MainMenu extends JPanel implements ActionListener{
 				} else if(i == 2) {
 					add(strategy);
 					strategy.setVisible(false);
-					strategy.setBounds(90, 252, 60, 25);
 				}
 			}
 			setPreSelected(playerNum);
@@ -136,26 +151,12 @@ public class MainMenu extends JPanel implements ActionListener{
 			}
 		}
 		private void setPlayerNum(int playerNum){
-			JLabel playernumber = new JLabel("Player " + playerNum);
+			JLabel playernumber = new JLabel("Player " + (playerNum+1));
 			playernumber.setFont(new Font("Arial",Font.BOLD,24));
 			playernumber.setLocation(25,15);
 			playernumber.setSize(100, 30);
 			add(playernumber);
 		}
-//		public void paint(Graphics g){
-//			g.setColor(this.colors[playernum]);
-//			g.fillRect(0, 0, this.getWidth(), this.getHeight());
-//			for(int i=0;i<this.getComponentCount();i++){
-//				g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
-//				if(this.getComponent(i).isVisible()){
-//					//					if(i!=0)
-//					g.drawImage(buttonImage, -10, -8, this.getComponent(i).getWidth()+20, this.getComponent(i).getHeight()+16, null);
-//					this.getComponent(i).paint(g);//needs to be specialized
-//				}
-//				g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
-//			}
-//		}
-//		BufferedImage buttonImage;
 		public boolean isPlayer() {
 			return isPlayer;
 		}
@@ -169,7 +170,22 @@ public class MainMenu extends JPanel implements ActionListener{
 			return (String)strategy.getSelectedItem();
 		}
 		public void actionPerformed(ActionEvent e) {
-
+			if(e.getActionCommand().equals(optionNames[0])) {
+				isPlayer = false;
+				isHuman = false;
+				name.setVisible(false);
+				strategy.setVisible(false);
+			} else if(e.getActionCommand().equals(optionNames[1])) {
+				isPlayer = true;
+				isHuman = true;
+				name.setVisible(true);
+				strategy.setVisible(false);
+			} else if(e.getActionCommand().equals(optionNames[2])) {
+				isPlayer = true;
+				isHuman = false;
+				name.setVisible(false);
+				strategy.setVisible(true);
+			}
 		}
 	}
 }
