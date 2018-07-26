@@ -3,7 +3,7 @@
  * Parker Tewell
  * Period 1
  */
-public class MonopolyStrategy extends MonopolyPlayer{
+public class MonopolyStrategy extends Player{
 	MonopolyStrategy(int id) {
 		super(id);
 	}

@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-public class MonopolyBoard extends JFrame{
+public class Board extends JFrame{
 	static PlayerInfoPanel infoPanel;
-	private static ArrayList<MonopolyPlayer> players;
+	private static ArrayList<Player> players;
 	private int playerNum;
-	private MonopolyPlayer tracker;
-	private ArrayList<MonopolySlot> board;
+	private Player tracker;
+	private ArrayList<Slot> board;
 	private int totalMoves, firstX, firstY, secondX, secondY, thirdX, thirdY, fourthX, fourthY;
 	private Image dbImage;
 	private Graphics dbg;
@@ -24,7 +24,7 @@ public class MonopolyBoard extends JFrame{
 	Image greenSquare;
 	Image purpleSquare;
 	Image redSquare;
-	MonopolyBoard(){
+	Board(){
 		setPlayers(new ArrayList());
 		createPlayers();
 		setBoard();
@@ -51,6 +51,9 @@ public class MonopolyBoard extends JFrame{
 		thirdY = 620;
 		fourthX = 570;
 		fourthY = 630;
+	}
+	public Board(ArrayList players) {
+		// TODO Auto-generated constructor stub
 	}
 	private void setPlayers(ArrayList arrayList) {
 		players = arrayList;
@@ -99,10 +102,10 @@ public class MonopolyBoard extends JFrame{
 		repaint();
 	}
 	private void createPlayers(){
-		MonopolyPlayer a=new ParkerStrategy(1, this);
-		MonopolyPlayer b=new ParkerStrategy(2, this);
-		MonopolyPlayer c=new ParkerStrategy(3, this);
-		MonopolyPlayer d=new ParkerStrategy(4, this);
+		Player a=new ParkerStrategy(1, this);
+		Player b=new ParkerStrategy(2, this);
+		Player c=new ParkerStrategy(3, this);
+		Player d=new ParkerStrategy(4, this);
 		//initializes 4 players
 		getPlayers().add(a);
 		String n = JOptionPane.showInputDialog(
@@ -157,18 +160,18 @@ public class MonopolyBoard extends JFrame{
 		PropertyCard elcom=new PropertyCard("Electric Company");
 		PropertyCard waterwork=new PropertyCard("Water Works");
 		//ALL PROPERTIES SET
-		MonopolySlot go=new MonopolySlot("GO");
-		MonopolySlot commchest1=new MonopolySlot("Community Chest");
-		MonopolySlot incometax=new MonopolySlot("Income Tax");
-		MonopolySlot chance1=new MonopolySlot("Chance");
-		MonopolySlot jail=new MonopolySlot("JAIL");
-		MonopolySlot commchest2=new MonopolySlot("Community Chest");
-		MonopolySlot freepark=new MonopolySlot("Free Parking");
-		MonopolySlot chance2=new MonopolySlot("Chance");
-		MonopolySlot gotojail=new MonopolySlot("Go to Jail");
-		MonopolySlot commchest3=new MonopolySlot("Community Chest");
-		MonopolySlot chance3=new MonopolySlot("Chance");
-		MonopolySlot luxtax=new MonopolySlot("Luxury Tax");
+		Slot go=new Slot("GO");
+		Slot commchest1=new Slot("Community Chest");
+		Slot incometax=new Slot("Income Tax");
+		Slot chance1=new Slot("Chance");
+		Slot jail=new Slot("JAIL");
+		Slot commchest2=new Slot("Community Chest");
+		Slot freepark=new Slot("Free Parking");
+		Slot chance2=new Slot("Chance");
+		Slot gotojail=new Slot("Go to Jail");
+		Slot commchest3=new Slot("Community Chest");
+		Slot chance3=new Slot("Chance");
+		Slot luxtax=new Slot("Luxury Tax");
 		//REST OF THE SLOTS SET
 		board.add(go);			//0
 		board.add(medit);		//1
@@ -266,9 +269,9 @@ public class MonopolyBoard extends JFrame{
 		String playerName=tracker.returnName();
 		return playerName;
 	}
-	public MonopolyPlayer playerWinner() {
+	public Player playerWinner() {
 		int bankruptcyCounter=0;
-		MonopolyPlayer winName = null;
+		Player winName = null;
 		int maxMoney = 0;
 		for(int i=0;i<4;i++){
 			if(getPlayers().get(i).bankruptcy()){
@@ -413,7 +416,7 @@ public class MonopolyBoard extends JFrame{
 	}
 	public int numPropertiesOwned(){
 		int numOwned = 0;
-		for(MonopolyPlayer player : getPlayers())
+		for(Player player : getPlayers())
 			numOwned = numOwned + player.numberOfCards();
 		return numOwned;
 	}
@@ -921,11 +924,11 @@ public class MonopolyBoard extends JFrame{
 		}
 	}
 	public static void main(String[] args){
-		MonopolyBoard a=new MonopolyBoard();
+		Board a=new Board();
 		infoPanel = new PlayerInfoPanel(getPlayers());
 		a.playMonopoly();
 	}
-	public static ArrayList<MonopolyPlayer> getPlayers() {
+	public static ArrayList<Player> getPlayers() {
 		return players;
 	}
 }

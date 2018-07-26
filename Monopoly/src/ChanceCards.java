@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class ChanceCards {
 	private int random;
-	public void chanceCard(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
+	public void chanceCard(Player a,ArrayList<Player> plist,ArrayList<Slot> board){
 		random=(int) (15 * Math.random() + 1);
 		if(random == 1){
 			//ADVANCE TO GO AND COLLECT $200

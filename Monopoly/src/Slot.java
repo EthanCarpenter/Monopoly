@@ -4,11 +4,11 @@
  * Independent Project
  */
 import java.util.ArrayList;
-public class MonopolySlot{
+public class Slot{
 	private String name;
 	private int giveMoney;
 	private int takeMoney;
-	MonopolySlot(String n){
+	Slot(String n){
 		name=n;
 		setSlotStats();
 	}
@@ -42,7 +42,7 @@ public class MonopolySlot{
 			takeMoney=75;
 		}
 	}
-	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
+	public void slotAction(Player a,ArrayList<Player> plist,ArrayList<Slot> board){
 		int totalMoves = a.returnMoves();
 		/*if(board.get(totalMoves) instanceOf PropertyCard){
 			
@@ -61,7 +61,7 @@ public class MonopolySlot{
 //		}
 		giveAndTake(a,plist,board);
 	}
-	public void giveAndTake(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
+	public void giveAndTake(Player a,ArrayList<Player> plist,ArrayList<Slot> board){
 		if(name.equals("Go to Jail")){
 			a.setTotalMoves(10);
 			a.setPlayerPosition(10);

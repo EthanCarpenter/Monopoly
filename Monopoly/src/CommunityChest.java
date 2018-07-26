@@ -6,7 +6,7 @@
 import java.util.ArrayList;
 public class CommunityChest {
 	private int random;
-	public void communityChestCard(MonopolyPlayer a,ArrayList<MonopolyPlayer> b,ArrayList<MonopolySlot> board){
+	public void communityChestCard(Player a,ArrayList<Player> b,ArrayList<Slot> board){
 		random=(int) (15 * Math.random() + 1);
 		if(random == 1){
 			//ADVANCE TO GO AND COLLECT $200

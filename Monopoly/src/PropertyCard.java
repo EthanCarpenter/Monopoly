@@ -4,11 +4,11 @@ import java.util.ArrayList;
  * Monopoly
  * Independent Project
  */
-public class PropertyCard extends MonopolySlot{
+public class PropertyCard extends Slot{
 	private int cost, rent, houseRent, propertytype, mortgage, unmortgage;
 	private boolean owned=false;
 	private String name, color;
-	private MonopolyPlayer owner;
+	private Player owner;
 	private int numRailroads = 0, numHouses = -1;
 	private boolean isMortgaged = false;
 	int dicetotal; //CHANGE
@@ -61,7 +61,7 @@ public class PropertyCard extends MonopolySlot{
 			numHouses --;
 		}
 	}
-	public void setOwner(MonopolyPlayer own){
+	public void setOwner(Player own){
 		String type = typetoString();
 		if(own.afterRoll(this) && own.playerMoney() > cost){
 			owner=own;
@@ -107,7 +107,7 @@ public class PropertyCard extends MonopolySlot{
 	public int railroadsOwned(){
 		return numRailroads;
 	}
-	public void slotAction(MonopolyPlayer a,ArrayList<MonopolyPlayer> plist,ArrayList<MonopolySlot> board){
+	public void slotAction(Player a,ArrayList<Player> plist,ArrayList<Slot> board){
 		if(!owned && a.playerMoney()>cost){
 			setOwner(a);
 			a.addCard(this);
@@ -355,7 +355,7 @@ public class PropertyCard extends MonopolySlot{
 	public boolean ableToBuyHouses(){
 		return ableToBuyHouses;
 	}
-	public void giveAndTake(MonopolyPlayer a){
+	public void giveAndTake(Player a){
 		//System.out.println(owner);
 		//int totalDice = a.getDice1() + a.getDice2();
 		//System.out.println(owner+"8==========================D~~~~~");

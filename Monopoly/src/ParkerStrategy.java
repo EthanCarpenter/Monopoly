@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class ParkerStrategy extends MonopolyPlayer{
-	MonopolyBoard myBoard = null;
-	ParkerStrategy(int id, MonopolyBoard bigBoard) {
+public class ParkerStrategy extends Player{
+	Board myBoard = null;
+	ParkerStrategy(int id, Board bigBoard) {
 		super(id);
 		myBoard = bigBoard;
 	}
@@ -39,7 +39,7 @@ public class ParkerStrategy extends MonopolyPlayer{
 	 * buy properties, mortgage
 	 * The boolean returned determines if the player will try to buy the property or not
 	 */
-	public boolean afterRoll(MonopolySlot slot){
+	public boolean afterRoll(Slot slot){
 		PropertyCard property;
 		if(slot instanceof PropertyCard){
 			property = (PropertyCard) slot;
@@ -57,7 +57,7 @@ public class ParkerStrategy extends MonopolyPlayer{
 				"RED", "YELLOW", "DARKGREEN", "DARKBLUE", "UTILITIES", "RAILROAD"};
 		for(int i = 0; i < types.length; i++)
 			if(propertiesNeededForMonopoly(types[i]) == 1){
-				for(MonopolyPlayer player : myBoard.getPlayers()){
+				for(Player player : myBoard.getPlayers()){
 					if(player.playerID != playerID)
 						for(PropertyCard property : player.playerProperties())
 							if(property.getColor().equals(types[i]) && player.tradeableProperty(PlayerMonopolyProperties) != null){

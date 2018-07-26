@@ -6,7 +6,7 @@
 import java.util.ArrayList;
 import javax.swing.*;
 import java.lang.Math;
-public class MonopolyPlayer {
+public class Player {
 	protected boolean chance;
 	protected boolean communitychest;
 	protected int money=1500;
@@ -56,7 +56,7 @@ public class MonopolyPlayer {
 	public ArrayList<PropertyCard> playerProperties(){
 		return PlayerMonopolyProperties;
 	}
-	MonopolyPlayer(int id){
+	Player(int id){
 		playerID=id;
 		PlayerMonopolyProperties=new ArrayList();
 		revolutions = 40;
@@ -98,7 +98,7 @@ public class MonopolyPlayer {
 	public void beforeRoll(){
 
 	}
-	public boolean afterRoll(MonopolySlot monopolySlot){
+	public boolean afterRoll(Slot slot){
 		/*boolean check=true;
 		boolean returnBool=true;
 
