@@ -28,14 +28,14 @@ public class MainMenu extends JPanel implements ActionListener{
 			backg= ImageIO.read(new File("Pictures/Menu Background.jpg"));
 		}catch(Exception E){}
 	}
-	public void paint(Graphics g){
-		g.drawImage(backg, 0, 0, 1600, 900, null);
-		for(int i=0;i<this.getComponentCount();i++){
-			g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
-			this.getComponent(i).paint(g);
-			g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
-		}	
-	}
+//	public void paint(Graphics g){
+//		g.drawImage(backg, 0, 0, 1600, 900, null);
+//		for(int i=0;i<this.getComponentCount();i++){
+//			g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
+//			this.getComponent(i).paint(g);
+//			g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
+//		}	
+//	}
 	private void setTitle(){
 		JLabel title = new JLabel("Monopoly");
 		title.setFont(new Font("Castellar", 1, 100));
