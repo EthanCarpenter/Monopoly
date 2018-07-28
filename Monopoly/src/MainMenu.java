@@ -18,30 +18,26 @@ import javax.swing.JTextField;
 public class MainMenu extends JPanel implements ActionListener{
 	private ArrayList players = new ArrayList();
 	private PlayerPanel[] panels = new PlayerPanel[8];
-	private BufferedImage backg;
+	private BufferedImage image;
 	MainMenu() {
-		setLayout(null);		
-		setTitle();
+		setLayout(null);
 		setButtons();
 		setPlayerPanels(8);
-		try{
-			backg= ImageIO.read(new File("Pictures/Menu Background.jpg"));
-		}catch(Exception E){}
+
 	}
-//	public void paint(Graphics g){
-//		g.drawImage(backg, 0, 0, 1600, 900, null);
-//		for(int i=0;i<this.getComponentCount();i++){
-//			g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
-//			this.getComponent(i).paint(g);
-//			g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
-//		}	
-//	}
-	private void setTitle(){
-		JLabel title = new JLabel("Monopoly");
-		title.setFont(new Font("Castellar", 1, 100));
-		title.setSize(700, 125);
-		title.setLocation(450, 0);
-		add(title);
+	/**
+	 * Sets title
+	 */
+	public void paint(Graphics g){
+		try{
+			image = ImageIO.read(new File("Pictures/Monopoly Title.jpg"));
+		}catch(Exception E){}
+		g.drawImage(image, 375, 0, 700, 125, null);
+		for(int i=0;i<this.getComponentCount();i++){
+			g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
+			this.getComponent(i).paint(g);
+			g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
+		}	
 	}
 	private void setButtons() {
 		JButton[] buttons = {new JButton("Play"), new JButton("Exit")};
@@ -84,6 +80,7 @@ public class MainMenu extends JPanel implements ActionListener{
 				new Color(147,112,219)};
 		private String[] names = new String[] {"Red", "Yellow", "Green", "Blue",
 				"Brown", "Orange", "Pink", "Purple"};
+		private int num;
 		//Three options
 		private ButtonGroup group = new ButtonGroup();
 		private String[] optionNames = {"None", "Human Player", "Computer"};
@@ -98,14 +95,25 @@ public class MainMenu extends JPanel implements ActionListener{
 		 * @param playerNum starts at 0
 		 */
 		public PlayerPanel(int playerNum) {
-			setBackground(colors[playerNum]);
+			num = playerNum;
+			setBackground(colors[num]);
 			setLayout(null);
 			name = new JTextField();
-			name.setText(names[playerNum]);
+			name.setText(names[num]);
 			strategy.setSize(205, 100);
-			setPlayerNum(playerNum);
+			setnum(num);
 			setOptions();
-			setPreSelected(playerNum);
+			setPreSelected(num);
+		}
+		public void paint(Graphics g){
+			g.setColor(this.colors[num]);
+			g.fillRect(0, 0, this.getWidth(), this.getHeight());
+			for(int i=0;i<this.getComponentCount();i++){
+				g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
+				if(this.getComponent(i).isVisible())
+					this.getComponent(i).paint(g);
+				g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
+			}
 		}
 		/**
 		 * Adds options to the options radioButtons
@@ -132,16 +140,16 @@ public class MainMenu extends JPanel implements ActionListener{
 		}
 		/**
 		 * Sets the preselected options when the mainMenu is first booted up
-		 * @param playerNum
+		 * @param num
 		 */
-		private void setPreSelected(int playerNum){
-			if(playerNum == 0) {
+		private void setPreSelected(int num){
+			if(num == 0) {
 				options[1].setSelected(true);
 				isPlayer = true;
 				isHuman = true;
 				name.setVisible(true);
 				strategy.setVisible(false);
-			} else if(playerNum >= 1 && playerNum <= 3) {
+			} else if(num >= 1 && num <= 3) {
 				options[2].setSelected(true);
 				isPlayer = true;
 				isHuman = false;
@@ -156,12 +164,12 @@ public class MainMenu extends JPanel implements ActionListener{
 				strategy.setVisible(false);
 			}
 		}
-		private void setPlayerNum(int playerNum){
-			JLabel playernumber = new JLabel("Player " + (playerNum+1));
-			playernumber.setFont(new Font("Arial",Font.BOLD,24));
-			playernumber.setLocation(25,15);
-			playernumber.setSize(100, 30);
-			add(playernumber);
+		private void setnum(int num){
+			JLabel number = new JLabel("Player " + (num+1));
+			number.setFont(new Font("Arial",Font.BOLD,24));
+			number.setLocation(25,15);
+			number.setSize(100, 30);
+			add(number);
 		}
 		public boolean isPlayer() {
 			return isPlayer;
