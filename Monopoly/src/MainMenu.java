@@ -67,7 +67,6 @@ public class MainMenu extends JPanel implements ActionListener{
 	 * Works with up to 8 players
 	 */
 	private void setPlayerPanels(int numPlayers) {
-		PlayerPanel[] panels = new PlayerPanel[numPlayers];
 		for(int i = 0; i < panels.length; i++) {
 			panels[i] = new PlayerPanel(i);
 			panels[i].setSize(350, 290);
@@ -84,7 +83,7 @@ public class MainMenu extends JPanel implements ActionListener{
 				new Color(139,69,19), new Color (255, 140, 0), new Color (255,105,180),
 				new Color(147,112,219)};
 		private String[] names = new String[] {"Red", "Yellow", "Green", "Blue",
-				"Brown", "Orange,", "Pink", "Purple"};
+				"Brown", "Orange", "Pink", "Purple"};
 		//Three options
 		private ButtonGroup group = new ButtonGroup();
 		private String[] optionNames = {"None", "Human Player", "Computer"};
@@ -103,7 +102,15 @@ public class MainMenu extends JPanel implements ActionListener{
 			setLayout(null);
 			name = new JTextField();
 			name.setText(names[playerNum]);
+			strategy.setSize(205, 100);
 			setPlayerNum(playerNum);
+			setOptions();
+			setPreSelected(playerNum);
+		}
+		/**
+		 * Adds options to the options radioButtons
+		 */
+		private void setOptions() {
 			for(int i = 0; i < options.length; i++) {
 				options[i] = new JRadioButton(optionNames[i]);
 				options[i].addActionListener(this);
@@ -112,17 +119,16 @@ public class MainMenu extends JPanel implements ActionListener{
 				options[i].setSize(150, 20);
 				group.add(options[i]);
 				add(options[i]);
-				
 				if(i == 1) {
 					add(name);
-					name.setVisible(false);
+					name.setVisible(true);
 					name.setBounds(90, 175, 60, 25);
 				} else if(i == 2) {
 					add(strategy);
 					strategy.setVisible(false);
+					strategy.setBounds(90, 250, 90, 25);
 				}
-			}
-			setPreSelected(playerNum);
+			}	
 		}
 		/**
 		 * Sets the preselected options when the mainMenu is first booted up
