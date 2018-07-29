@@ -52,11 +52,10 @@ public class MainMenu extends JPanel implements ActionListener{
 	 * Coinsides with setButtons (play and exit)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		int readyPlayers = readyPlayers();
-		if(e.getActionCommand().equals("Start") && readyPlayers>=2){//starts the game, either human or all ai
+		if(e.getActionCommand().equals("Play") && readyPlayers()>=2){//starts the game, either human or all ai
 			ArrayList<Player> players = generatePlayers();
 			if(humanGame())	
-				new Board(players);
+				Monopoly.monopoly.setContentPane(new Board(players));
 			else{
 				//progress to ai game
 			}

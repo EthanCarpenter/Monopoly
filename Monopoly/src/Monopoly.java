@@ -4,7 +4,7 @@ public class Monopoly{
 	public Monopoly() {
 		monopoly = new JFrame();
 		monopoly.setTitle("Monopoly");
-		monopoly.add(new MainMenu());
+		monopoly.setContentPane(new MainMenu());
 		monopoly.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		monopoly.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		monopoly.setVisible(true);

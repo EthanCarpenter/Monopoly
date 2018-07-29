@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-public class Board extends JFrame{
+public class Board extends JPanel{
 	static PlayerInfoPanel infoPanel;
 	private static ArrayList<Player> players;
 	private int playerNum;
@@ -38,11 +38,11 @@ public class Board extends JFrame{
 		purpleSquare = d.getImage();
 		ImageIcon e = new ImageIcon("Pictures//Red Square.png");
 		redSquare = e.getImage();
-		setTitle("Monopoly");
+		//setTitle("Monopoly");
 		setSize(600,650);
-		setResizable(false);
+		//setResizable(false);
 		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		firstX = 570;
 		firstY = 600;
 		secondX = 570;
@@ -52,8 +52,8 @@ public class Board extends JFrame{
 		fourthX = 570;
 		fourthY = 630;
 	}
-	public Board(ArrayList players) {
-		// TODO Auto-generated constructor stub
+	public Board(ArrayList<Player> players) {
+		System.out.println("Fart");
 	}
 	private void setPlayers(ArrayList arrayList) {
 		players = arrayList;
