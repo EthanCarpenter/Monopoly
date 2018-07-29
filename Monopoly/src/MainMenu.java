@@ -11,19 +11,18 @@ import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 public class MainMenu extends JPanel implements ActionListener{
-	private ArrayList players = new ArrayList();
 	private PlayerPanel[] panels = new PlayerPanel[8];
 	private BufferedImage image;
 	MainMenu() {
 		setLayout(null);
 		setButtons();
 		setPlayerPanels(8);
-
 	}
 	/**
 	 * Sets title
@@ -37,7 +36,7 @@ public class MainMenu extends JPanel implements ActionListener{
 			g.translate(this.getComponent(i).getX(), this.getComponent(i).getY());
 			this.getComponent(i).paint(g);
 			g.translate(-this.getComponent(i).getX(), -this.getComponent(i).getY());
-		}	
+		}
 	}
 	private void setButtons() {
 		JButton[] buttons = {new JButton("Play"), new JButton("Exit")};
@@ -53,14 +52,66 @@ public class MainMenu extends JPanel implements ActionListener{
 	 * Coinsides with setButtons (play and exit)
 	 */
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equalsIgnoreCase("Play"))
-			Monopoly.monopoly.setContentPane(new Board(players));
-		else
+		int readyPlayers = readyPlayers();
+		if(e.getActionCommand().equals("Start") && readyPlayers>=2){//starts the game, either human or all ai
+			ArrayList<Player> players = generatePlayers();
+			if(humanGame())	
+				new Board(players);
+			else{
+				//progress to ai game
+			}
+		}else
 			System.exit(0);
 	}
 	/**
+	 * Gives players color, name, and type(human or some strategy)
+	 * @return players
+	 */
+	private ArrayList<Player> generatePlayers(){
+		ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Color> playerColors = new ArrayList<Color>();
+		ArrayList<String> playerNames = new ArrayList<String>();
+		ArrayList<String> playerType = new ArrayList<String>();
+		for(PlayerPanel p : panels){
+			if(p.isHuman()){//Handles humans
+				playerColors.add(p.getBackground());
+				playerNames.add(p.getName());
+				playerType.add("Human");
+			}else if(p.isPlayer()){//Handles AI
+				playerColors.add(p.getBackground());
+				playerNames.add(p.getName());
+				playerType.add(p.getStrategy());
+			}
+		}
+		return players;
+	}
+	/**
+	 * @return the amount of players
+	 */
+	private int readyPlayers() {
+		int ready = 0;
+		for(PlayerPanel p:panels){
+			if(p.isPlayer())
+				ready++;
+		}
+		return ready;
+	}
+	/**
+	 * Checks if game contains humans
+	 * @return true if human game, false otherwise
+	 */
+	private boolean humanGame() {
+		boolean humanGame = false;
+		for(PlayerPanel p: panels){
+			if(p.isHuman()){
+				humanGame = true;
+			}
+		}
+		return humanGame;
+	}
+	/**
 	 * @param numPlayers the number of player panels to be displayed.
-	 * Works with up to 8 players
+	 * Works with up to 8 players. Also gives values to panels[].
 	 */
 	private void setPlayerPanels(int numPlayers) {
 		for(int i = 0; i < panels.length; i++) {
@@ -101,7 +152,7 @@ public class MainMenu extends JPanel implements ActionListener{
 			name = new JTextField();
 			name.setText(names[num]);
 			strategy.setSize(205, 100);
-			setnum(num);
+			setNum(num);
 			setOptions();
 			setPreSelected(num);
 		}
@@ -164,7 +215,7 @@ public class MainMenu extends JPanel implements ActionListener{
 				strategy.setVisible(false);
 			}
 		}
-		private void setnum(int num){
+		private void setNum(int num){
 			JLabel number = new JLabel("Player " + (num+1));
 			number.setFont(new Font("Arial",Font.BOLD,24));
 			number.setLocation(25,15);
