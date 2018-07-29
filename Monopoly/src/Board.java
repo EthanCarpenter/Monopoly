@@ -10,9 +10,13 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+/**
+ * Displays info from Game
+ * @author parkertewell
+ */
 public class Board extends JPanel{
 	static PlayerInfoPanel infoPanel;
-	private static ArrayList<Player> players;
+	//private static ArrayList<Player> players;
 	private int playerNum;
 	private Player tracker;
 	private ArrayList<Slot> board;
@@ -25,7 +29,8 @@ public class Board extends JPanel{
 	Image purpleSquare;
 	Image redSquare;
 	Board(){
-		setPlayers(new ArrayList());
+
+		//setPlayers(new ArrayList());
 		createPlayers();
 		setBoard();
 		ImageIcon a = new ImageIcon("Pictures//americanMonopoly.gif");
@@ -53,7 +58,9 @@ public class Board extends JPanel{
 		fourthY = 630;
 	}
 	public Board(ArrayList<Player> players) {
-		System.out.println("Fart");
+		//NEW CODE
+		
+		//********
 	}
 	private void setPlayers(ArrayList arrayList) {
 		players = arrayList;
@@ -101,34 +108,34 @@ public class Board extends JPanel{
 		h.fillOval(fourthX, fourthY, 10, 10);
 		repaint();
 	}
-	private void createPlayers(){
-		Player a=new ParkerStrategy(1, this);
-		Player b=new ParkerStrategy(2, this);
-		Player c=new ParkerStrategy(3, this);
-		Player d=new ParkerStrategy(4, this);
-		//initializes 4 players
-		getPlayers().add(a);
-		String n = JOptionPane.showInputDialog(
-				"Player 1 enter your name: (Red Piece)");
-		a.setName(n);
-		a.setPieceID(0);
-		getPlayers().add(b);
-		n = JOptionPane.showInputDialog(
-				"Player 2 enter your name: (Green Piece)");
-		b.setName(n);
-		b.setPieceID(1);
-		getPlayers().add(c);
-		n = JOptionPane.showInputDialog(
-				"Player 3 enter your name: (Blue Piece)");
-		c.setName(n);
-		c.setPieceID(2);
-		getPlayers().add(d);
-		n = JOptionPane.showInputDialog(
-				"Player 4 enter your name: (Orange Piece)");
-		d.setName(n);
-		d.setPieceID(3);
-		//added 4 players to array of players, set names
-	}
+//	private void createPlayers(){
+//		Player a=new ParkerStrategy(1, this);
+//		Player b=new ParkerStrategy(2, this);
+//		Player c=new ParkerStrategy(3, this);
+//		Player d=new ParkerStrategy(4, this);
+//		//initializes 4 players
+//		getPlayers().add(a);
+//		String n = JOptionPane.showInputDialog(
+//				"Player 1 enter your name: (Red Piece)");
+//		a.setName(n);
+//		a.setPieceID(0);
+//		getPlayers().add(b);
+//		n = JOptionPane.showInputDialog(
+//				"Player 2 enter your name: (Green Piece)");
+//		b.setName(n);
+//		b.setPieceID(1);
+//		getPlayers().add(c);
+//		n = JOptionPane.showInputDialog(
+//				"Player 3 enter your name: (Blue Piece)");
+//		c.setName(n);
+//		c.setPieceID(2);
+//		getPlayers().add(d);
+//		n = JOptionPane.showInputDialog(
+//				"Player 4 enter your name: (Orange Piece)");
+//		d.setName(n);
+//		d.setPieceID(3);
+//		//added 4 players to array of players, set names
+//	}
 	private void setBoard(){
 		board=new ArrayList();
 		PropertyCard medit=new PropertyCard("Mediterranean Ave.");

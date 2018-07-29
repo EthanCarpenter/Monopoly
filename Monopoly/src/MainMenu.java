@@ -5,13 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -55,7 +53,7 @@ public class MainMenu extends JPanel implements ActionListener{
 		if(e.getActionCommand().equals("Play") && readyPlayers()>=2){//starts the game, either human or all ai
 			ArrayList<Player> players = generatePlayers();
 			if(humanGame())	
-				Monopoly.monopoly.setContentPane(new Board(players));
+				new Game(players);
 			else{
 				//progress to ai game
 			}

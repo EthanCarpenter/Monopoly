@@ -7,38 +7,23 @@ import java.util.ArrayList;
 import javax.swing.*;
 import java.lang.Math;
 public class Player {
-	protected boolean chance;
-	protected boolean communitychest;
-	protected int money=1500;
-	protected boolean bankruptcy=false;
+	//protected boolean chance;
+	//protected boolean communitychest;
+	//protected boolean bankruptcy = false;
 	protected String name;
-	protected boolean jail=false;
-	protected int dice1, dice2;
-	protected int dicetotal;
+	//protected boolean jail = false;
+	protected int money = 1500, getOutOfJailFree = 0, numPurple = 0, numLightGreen = 0, numViolet = 0, numOrange = 0, numRed = 0, numYellow = 0, numDarkGreen = 0, numDarkBlue = 0, numUtilities = 0, numRailroads = 0, numTurnsInJail = 0;
+	//int dice1, dice2, dicetotal, doubleRolls,
 	protected int playerPosition=0;
 	protected int totalMoves = 0;
 	protected int revolutions;
 	protected int playerID;
 	protected boolean playerDoubleRoll;
-	protected int getOutOfJailFree=0;
 	protected ArrayList<PropertyCard> PlayerMonopolyProperties;
-	protected int numPurple = 0;
-	protected int numLightGreen = 0;
-	protected int numViolet = 0;
-	protected int numOrange = 0;
-	protected int numRed = 0;
-	protected int numYellow = 0;
-	protected int numDarkGreen = 0;
-	protected int numDarkBlue = 0;
-	protected int numUtilities = 0;
-	protected int numRailroads = 0;
-	protected int pieceID;
-	protected int doubleRolls;
-	protected int numTurnsInJail = 0;
+	protected int pieceID; 
 	protected ArrayList playerBoard;
 	protected int numTurns = 0;
 	/**
-	 * 
 	 * @param otherProperties properties the player that wants to trade has
 	 * @return the property that can be a mutually beneficial trade
 	 */
