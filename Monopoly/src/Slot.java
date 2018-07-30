@@ -28,7 +28,7 @@ public class Slot{
 		}else if(name=="Income Tax"){
 			giveMoney=0;
 			takeMoney=200;
-		}else if(name=="JAIL"){
+		}else if(name=="Jail"){
 			giveMoney=0;
 			takeMoney=0;
 		}else if(name=="Free Parking"){

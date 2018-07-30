@@ -5,14 +5,17 @@
  */
 import java.util.ArrayList;
 import javax.swing.*;
+
+import java.awt.Color;
 import java.lang.Math;
 public class Player {
 	//protected boolean chance;
 	//protected boolean communitychest;
 	//protected boolean bankruptcy = false;
 	protected String name;
+	protected Color color;
 	//protected boolean jail = false;
-	protected int money = 1500, getOutOfJailFree = 0, numPurple = 0, numLightGreen = 0, numViolet = 0, numOrange = 0, numRed = 0, numYellow = 0, numDarkGreen = 0, numDarkBlue = 0, numUtilities = 0, numRailroads = 0, numTurnsInJail = 0;
+	protected int money = 1500, getOutOfJailFree = 0;
 	//int dice1, dice2, dicetotal, doubleRolls,
 	protected int playerPosition=0;
 	protected int totalMoves = 0;
@@ -285,66 +288,6 @@ public class Player {
 	}
 	public void passGo(){
 		addMoney(200);
-	}
-	public int numPurple(){
-		return numPurple;
-	}
-	public void addPurple(){
-		numPurple++;
-	}
-	public int numLightGreen(){
-		return numLightGreen;
-	}
-	public void addLightGreen(){
-		numLightGreen++;
-	}
-	public int numViolet(){
-		return numViolet;
-	}
-	public void addViolet(){
-		numViolet++;
-	}
-	public int numOrange(){
-		return numOrange;
-	}
-	public void addOrange(){
-		numOrange++;
-	}
-	public int numRed(){
-		return numRed;
-	}
-	public void addRed(){
-		numRed++;
-	}
-	public int numYellow(){
-		return numYellow;
-	}
-	public void addYellow(){
-		numYellow++;
-	}
-	public int numDarkGreen(){
-		return numDarkGreen;
-	}
-	public void addDarkGreen(){
-		numDarkGreen++;
-	}
-	public int numDarkBlue(){
-		return numDarkBlue;
-	}
-	public void addDarkBlue(){
-		numDarkBlue++;
-	}
-	public int numUtilities(){
-		return numUtilities;
-	}
-	public void addUtilities(){
-		numUtilities++;
-	}
-	public int numRails(){
-		return numRailroads;
-	}
-	public void addRails(){
-		numRailroads++;
 	}
 	public void removeCard(PropertyCard card) {
 		PlayerMonopolyProperties.remove(card);
