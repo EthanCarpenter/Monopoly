@@ -22,16 +22,21 @@ public class Player {
 	protected int revolutions;
 	protected int playerID;
 	protected boolean playerDoubleRoll;
-	protected ArrayList<PropertyCard> PlayerMonopolyProperties;
+	protected ArrayList<PropertyCard> playerMonopolyProperties = new ArrayList<PropertyCard>();
 	protected int pieceID; 
 	protected ArrayList playerBoard;
 	protected int numTurns = 0;
+	Player(Color newColor, String newName, String type){
+		color = newColor;
+		name = newName;
+		
+	}
 	/**
 	 * @param otherProperties properties the player that wants to trade has
 	 * @return the property that can be a mutually beneficial trade
 	 */
 	public PropertyCard tradeableProperty(ArrayList<PropertyCard> otherProperties){
-		for(PropertyCard property : PlayerMonopolyProperties)
+		for(PropertyCard property : playerMonopolyProperties)
 			if(propertiesNeededForMonopoly(property.getColor()) == 1)
 				for(PropertyCard otherProperty : otherProperties)
 					if(property.getColor().equals(otherProperty.getColor()))
@@ -42,12 +47,7 @@ public class Player {
 		playerBoard = board;
 	}
 	public ArrayList<PropertyCard> playerProperties(){
-		return PlayerMonopolyProperties;
-	}
-	Player(int id){
-		playerID=id;
-		PlayerMonopolyProperties=new ArrayList();
-		revolutions = 40;
+		return playerMonopolyProperties;
 	}
 	/**
 	 * @return the number of monopolies a player has
@@ -56,15 +56,6 @@ public class Player {
 		int monopolies = 0;
 
 		return monopolies;
-	}
-	public int numTurnsInJail(){
-		return numTurnsInJail;
-	}
-	public void addJailTurn(){
-		numTurnsInJail++;
-	}
-	public void resetJailTurns(){
-		numTurnsInJail = 0;
 	}
 	private int numType(String color){
 		int num;
@@ -76,7 +67,7 @@ public class Player {
 	}
 	public int propertiesNeededForMonopoly(String color){
 		int propertiesOwned = 0, total = numType(color);
-		for(PropertyCard property : PlayerMonopolyProperties) {
+		for(PropertyCard property : playerMonopolyProperties) {
 			if(color.equals(property.getColor()))
 				propertiesOwned++;
 			System.out.println(color+ (total - propertiesOwned));
@@ -126,23 +117,6 @@ public class Player {
 		playerDoubleRoll = x;
 		return playerDoubleRoll;
 	}
-	public void setDoubleRoll(int set){
-		doubleRolls=set;
-	}
-	public boolean playerDoubleRoll(){
-		if(dice1==dice2){
-			doubleRolls++;
-			playerDoubleRoll=true;
-			if(jail){
-				System.out.print("You got out of jail due to a double roll!");
-				jail=false;
-			}
-		}else{
-			playerDoubleRoll=false;
-		}
-
-		return playerDoubleRoll;
-	}
 	public void setPlayerPosition(int pos){
 		truePosition();
 		playerPosition=pos;
@@ -154,28 +128,11 @@ public class Player {
 	public void truePosition(){
 		playerPosition=playerPosition%40;
 	}
-	//Use this method to automate dice
-	public int rollDice(){
-		String playerResponse;
-		playerResponse=JOptionPane.showInputDialog(name+". "+"Type anything to roll");
-		//System.out.println(name+"'s response: "+playerResponse);
-		dice1=(int)(Math.random() * ((6 - 1) + 1)) + 1;
-		dice2=(int)(Math.random() * ((6 - 1) + 1)) + 1;
-		dicetotal=dice1+dice2;
-		numTurns++;
-		return dicetotal;
-	}
-	public int getDice1(){
-		return dice1;
-	}
-	public int getDice2(){
-		return dice2;
-	}
 	public int numberOfCards(){
-		return PlayerMonopolyProperties.size();
+		return playerMonopolyProperties.size();
 	}
 	public PropertyCard nthCard(int i){
-		return (PropertyCard) PlayerMonopolyProperties.get(i);
+		return (PropertyCard) playerMonopolyProperties.get(i);
 	}
 	public boolean playerConfirm(String question){
 		boolean check=true;
@@ -198,7 +155,7 @@ public class Player {
 		return returnBool;
 	}
 	public void print(){
-		for(Object PlayingCard: PlayerMonopolyProperties){
+		for(Object PlayingCard: playerMonopolyProperties){
 			String s=PlayingCard.toString();
 			//System.out.println(s);
 		}
@@ -207,17 +164,11 @@ public class Player {
 		name=n;
 	}
 	public void addCard(PropertyCard a){
-		PlayerMonopolyProperties.add(a);
+		playerMonopolyProperties.add(a);
 		a.setOwned(true);
 	}
 	public int playerMoney(){
 		return money;
-	}
-	public boolean chanceBool(){
-		return chance;
-	}
-	public boolean communitychestBool(){
-		return communitychest;
 	}
 	public int addMoney(int add){
 		money+=add;
@@ -227,39 +178,21 @@ public class Player {
 		money-=subtract;
 		return money;
 	}
-	public boolean bankruptcy(){
-		if(money<0){
-			bankruptcy=true;
-			for(int i = 0; i < PlayerMonopolyProperties.size(); i++) {
-				PlayerMonopolyProperties.get(i).setOwned(false);
-				//PlayerMonopolyProperties.get(i).setOwner(null);
-			}
-		}
-		return bankruptcy;
-	}
-	public void jail(){
-		if(jail == true){
-			//System.out.print(name+" is in jail!");
-			if(getOutOfJailFree>0){
-				boolean bool=playerConfirm(name+", would you like to use your Get out of Jail Free Card?");
-				if(bool){
-					jail=false;
-					getOutOfJailFree--;
-				}
-			}
-		}
-	}
-	public boolean isInJail(){
-		return jail;
-	}
+//	public boolean bankruptcy(){
+//		if(money<0){
+//			bankruptcy=true;
+//			for(int i = 0; i < playerMonopolyProperties.size(); i++) {
+//				playerMonopolyProperties.get(i).setOwned(false);
+//				//playerMonopolyProperties.get(i).setOwner(null);
+//			}
+//		}
+//		return bankruptcy;
+//	}
 	public int getOutOfJailFree(){
 		return getOutOfJailFree;
 	}
 	public void addGetOutOfJailFree(){
 		getOutOfJailFree+=1;
-	}
-	public void setJail(boolean j){
-		jail=j;
 	}
 	public String returnName(){
 		return name;
@@ -290,7 +223,7 @@ public class Player {
 		addMoney(200);
 	}
 	public void removeCard(PropertyCard card) {
-		PlayerMonopolyProperties.remove(card);
+		playerMonopolyProperties.remove(card);
 	}
 	public int numTurns() {
 		return numTurns;

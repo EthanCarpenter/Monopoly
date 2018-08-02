@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+@SuppressWarnings("serial")
 public class MainMenu extends JPanel implements ActionListener{
 	private PlayerPanel[] panels = new PlayerPanel[8];
 	private BufferedImage image;
@@ -52,7 +53,7 @@ public class MainMenu extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getActionCommand().equals("Play") && readyPlayers()>=2){//starts the game, either human or all ai
 			ArrayList<Player> players = generatePlayers();
-			if(humanGame())	
+			if(humanGame())
 				new Game(players);
 			else{
 				//progress to ai game
@@ -66,19 +67,11 @@ public class MainMenu extends JPanel implements ActionListener{
 	 */
 	private ArrayList<Player> generatePlayers(){
 		ArrayList<Player> players = new ArrayList<Player>();
-		ArrayList<Color> playerColors = new ArrayList<Color>();
-		ArrayList<String> playerNames = new ArrayList<String>();
-		ArrayList<String> playerType = new ArrayList<String>();
 		for(PlayerPanel p : panels){
-			if(p.isHuman()){//Handles humans
-				playerColors.add(p.getBackground());
-				playerNames.add(p.getName());
-				playerType.add("Human");
-			}else if(p.isPlayer()){//Handles AI
-				playerColors.add(p.getBackground());
-				playerNames.add(p.getName());
-				playerType.add(p.getStrategy());
-			}
+			if(p.isHuman())//Handles humans
+				players.add(new Player(p.getBackground(), p.getName(), "Human"));
+			else if(p.isPlayer())//Handles AI
+				players.add(new Player(p.getBackground(), p.getName(), p.getStrategy()));	
 		}
 		return players;
 	}
@@ -123,7 +116,7 @@ public class MainMenu extends JPanel implements ActionListener{
 	}
 	class PlayerPanel extends JPanel implements ActionListener{
 		private Color[] colors = new Color[] {new Color(255, 40, 40), 
-				Color.YELLOW, new Color(0, 204, 0), Color.BLUE , 
+				Color.YELLOW, new Color(0, 204, 0), new Color(30,144,255), 
 				new Color(139,69,19), new Color (255, 140, 0), new Color (255,105,180),
 				new Color(147,112,219)};
 		private String[] names = new String[] {"Red", "Yellow", "Green", "Blue",

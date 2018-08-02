@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+
+import javax.swing.JFrame;
 /**
  * Sends data to Board
  * @author parkertewell
@@ -13,8 +15,7 @@ public class Game {
 	public Game(ArrayList<Player> newPlayers){
 		players = newPlayers;
 		setBoard();
-		Monopoly.monopoly.setContentPane(new Board(players));
-		
+		Monopoly.updateJPanel(new Board(players));
 	}
 	private void setBoard(){
 		board[0] = new Slot("GO");								//0
