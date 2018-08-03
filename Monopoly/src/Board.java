@@ -24,14 +24,14 @@ public class Board extends JPanel{
 	Image purpleSquare;
 	Image redSquare;
 	Board(ArrayList<Player> players){
-		Monopoly.monopoly.setTitle("Monopoly");
-		Monopoly.monopoly.setLayout(new GridLayout(1,2));
+		updateJFrame(players);
 		try{
 			monoBoard = ImageIO.read(new File("Pictures/Board.gif"));
 		}catch(Exception E){}
-		
-		infoPanel = new InfoPanel(players);
-		add(infoPanel);
+		repaint();
+		//infoPanel = new InfoPanel(players);
+		//Monopoly.monopoly.add(new JPanel());
+		//Monopoly.monopoly.add(infoPanel);
 		//infoPanel.setLocation(500, 0);
 		//infoPanel.setVisible(true);
 //		JLabel test = new JLabel("Test");
@@ -55,15 +55,27 @@ public class Board extends JPanel{
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
-
+	private void updateJFrame(ArrayList<Player> players) {
+		JFrame f = new JFrame();
+		f.setTitle("Monopoly");
+		f.setLayout(new GridLayout(0,2));
+		f.add(new JPanel());
+		f.add(new InfoPanel(players));
+		Monopoly.monopoly = f;
+		Monopoly.monopoly.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Monopoly.monopoly.dispose();
+		Monopoly.monopoly.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		Monopoly.monopoly.setVisible(true);
+		Monopoly.monopoly.repaint();
+	}
 //	public void paint(Graphics g){
 //		dbImage = createImage(getWidth(), getHeight());
 //		dbg = dbImage.getGraphics();
 //		paintComponent(dbg);
 //		g.drawImage(dbImage, 0, 0, this);
 //	}
-//	public void paintComponent(Graphics h){
-//		h.drawImage(monoBoard, 0, 0,this);
+	public void paintComponent(Graphics h){
+		h.drawImage(monoBoard, 0, 0,this);
 //		h.setColor(Color.red);
 //		h.fillOval(firstX, firstY, 10, 10);
 //		h.setColor(Color.green);
@@ -72,8 +84,8 @@ public class Board extends JPanel{
 //		h.fillOval(thirdX, thirdY, 10, 10);
 //		h.setColor(Color.orange);
 //		h.fillOval(fourthX, fourthY, 10, 10);
-//		repaint();
-//	}
+		repaint();
+	}
 }
 /**
  * @author ptewel5086

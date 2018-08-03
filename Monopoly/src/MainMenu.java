@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -19,6 +20,7 @@ public class MainMenu extends JPanel implements ActionListener{
 	private PlayerPanel[] panels = new PlayerPanel[8];
 	private BufferedImage image;
 	MainMenu() {
+		
 		setLayout(null);
 		setButtons();
 		setPlayerPanels(8);
@@ -242,5 +244,14 @@ public class MainMenu extends JPanel implements ActionListener{
 				strategy.setVisible(true);
 			}
 		}
+	}
+	public static void main(String[] args){
+		JFrame monopoly = new JFrame();
+		monopoly.setTitle("Monopoly");
+		monopoly.add(new MainMenu());
+		monopoly.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		monopoly.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		monopoly.dispose();
+		monopoly.setVisible(true);
 	}
 }

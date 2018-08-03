@@ -15,7 +15,7 @@ public class Game {
 	public Game(ArrayList<Player> newPlayers){
 		players = newPlayers;
 		setBoard();
-		Monopoly.updateJPanel(new Board(players));
+		new Board(players);
 	}
 	private void setBoard(){
 		board[0] = new Slot("GO");								//0
