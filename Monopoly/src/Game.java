@@ -15,7 +15,7 @@ public class Game {
 	public Game(ArrayList<Player> newPlayers){
 		players = newPlayers;
 		setBoard();
-		new Board(players);
+		new Display(players);
 	}
 	private void setBoard(){
 		board[0] = new Slot("GO");								//0

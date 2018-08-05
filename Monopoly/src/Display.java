@@ -14,59 +14,22 @@ import javax.swing.*;
  * Displays info from Game
  * @author parkertewell
  */
-public class Board extends JPanel{
+public class Display extends JPanel{
 	private InfoPanel infoPanel;
 	private Image dbImage;
 	private Graphics dbg;
-	Image monoBoard;
-	Image blueSquare;
-	Image greenSquare;
-	Image purpleSquare;
-	Image redSquare;
-	Board(ArrayList<Player> players){
-		updateJFrame(players);
-		try{
-			monoBoard = ImageIO.read(new File("Pictures/Board.gif"));
-		}catch(Exception E){}
+	private JFrame frame;
+	public Display(ArrayList<Player> players){
 		repaint();
-		//infoPanel = new InfoPanel(players);
-		//Monopoly.monopoly.add(new JPanel());
-		//Monopoly.monopoly.add(infoPanel);
-		//infoPanel.setLocation(500, 0);
-		//infoPanel.setVisible(true);
-//		JLabel test = new JLabel("Test");
-//		add(test);
-		//add(new InfoPanel(players));
-//		System.out.println("BoardTest1");
-//		ImageIcon a = new ImageIcon("Pictures//americanMonopoly.gif");
-//		monoBoard = a.getImage();
-//		ImageIcon b = new ImageIcon("Pictures//Blue Square.png");
-//		blueSquare = b.getImage();
-//		ImageIcon c = new ImageIcon("Pictures//Green Square.png");
-//		greenSquare = c.getImage();
-//		ImageIcon d = new ImageIcon("Pictures//Purple Square.png");
-//		purpleSquare = d.getImage();
-//		ImageIcon e = new ImageIcon("Pictures//Red Square.png");
-//		redSquare = e.getImage();
-		//setTitle("Monopoly");
-		//setSize(600,650);
-		//setResizable(false);
-		//setVisible(true);
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	}
-	private void updateJFrame(ArrayList<Player> players) {
-		JFrame f = new JFrame();
-		f.setTitle("Monopoly");
-		f.setLayout(new GridLayout(0,2));
-		f.add(new JPanel());
-		f.add(new InfoPanel(players));
-		Monopoly.monopoly = f;
-		Monopoly.monopoly.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		Monopoly.monopoly.dispose();
-		Monopoly.monopoly.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		Monopoly.monopoly.setVisible(true);
-		Monopoly.monopoly.repaint();
+		frame = new JFrame();
+		frame.setLayout(new GridLayout(0,2));
+		frame.add(new Board(players));
+		frame.add(new InfoPanel(players));
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.dispose();
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.setVisible(true);
+		frame.repaint();
 	}
 //	public void paint(Graphics g){
 //		dbImage = createImage(getWidth(), getHeight());
@@ -74,6 +37,22 @@ public class Board extends JPanel{
 //		paintComponent(dbg);
 //		g.drawImage(dbImage, 0, 0, this);
 //	}
+}
+/**
+ * @author parkertewell
+ * Displays Images like the Board and shows players on the board
+ */
+class Board extends JPanel {
+	Image monoBoard;
+	Image blueSquare;
+	Image greenSquare;
+	Image purpleSquare;
+	Image redSquare;
+	public Board (ArrayList<Player> players) {
+		try{
+			monoBoard = ImageIO.read(new File("Pictures/Board.gif"));
+		}catch(Exception E){}
+	}
 	public void paintComponent(Graphics h){
 		h.drawImage(monoBoard, 0, 0,this);
 //		h.setColor(Color.red);
@@ -84,7 +63,6 @@ public class Board extends JPanel{
 //		h.fillOval(thirdX, thirdY, 10, 10);
 //		h.setColor(Color.orange);
 //		h.fillOval(fourthX, fourthY, 10, 10);
-		repaint();
 	}
 }
 /**

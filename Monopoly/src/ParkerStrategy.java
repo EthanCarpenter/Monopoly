@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class ParkerStrategy extends Player{
-	Board myBoard = null;
-	ParkerStrategy(int id, Board bigBoard) {
+	Display myBoard = null;
+	ParkerStrategy(int id, Display bigBoard) {
 		super(id);
 		myBoard = bigBoard;
 	}
