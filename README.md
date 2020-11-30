@@ -1,3 +1,3 @@
 # Monopoly
-Monopoly
-This is a monopoly game with a computer strategy
+Simulates Monopoly with AI players.
+Goal was to make the best AI player possible.
